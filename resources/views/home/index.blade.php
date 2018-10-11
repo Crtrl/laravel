@@ -1,53 +1,6 @@
 @extends('common.home')
 
 @section('content')
-<!-- header -->
-	<div class="header">
-		<div class="container">
-			<div class="header-nav">
-				<nav class="navbar navbar-default">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					  </button>
-						<div class="logo">
-							<h1><a class="navbar-brand" href="index.html"><label>星</label>空<label>论</label>坛<span>S t a r y S k y </span></a></h1>
-						</div>
-					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav">
-							<li class="hvr-sweep-to-bottom active"><a href="/home/index">首页</a></li>	
-							<li class="hvr-sweep-to-bottom"><a href="#netGame" class="scroll">网络游戏</a></li>
-							<li class="hvr-sweep-to-bottom"><a href="#mobileGame" class="scroll">手机游戏</a></li>
-							<li class="hvr-sweep-to-bottom"><a href="#idpGame" class="scroll">单机游戏</a></li>
-							<li class="hvr-sweep-to-bottom"><a href="#friends" class="scroll">友情链接</a></li>
-							@if (5==1)
-							<li class="hvr-sweep-to-bottom">
-								<a href="" style="padding: 0px;">
-								<img src="images/chef1.jpg" alt="" style="margin: 0px;" />
-								</a>		
-							</li>
-							<li class="">
-								<div><a href="" class="btn btn-warning btn-default">个人昵称</a></div>
-								<div><a href="" class="btn btn-warning btn-default">个人中心</a></div>
-								<div><a href="" class="btn btn-warning btn-default" style="width: 100%">退出</a></div>
-							</li>
-							@else
-							<li class="hvr-sweep-to-bottom"><a href="" class="scroll">登陆/注册</a></li>
-							@endif	
-						</ul>
-					</div><!-- /.navbar-collapse -->					
-				</nav>			
-			</div>
-		</div>		
-	</div>
-<!-- //header -->
 
 <!-- 广告 -->
 	<div class='adv' style="background:url(http://demo.lanrenzhijia.com/2015/slide0311/images/big.jpg) no-repeat center top #7B010B;">
@@ -61,34 +14,15 @@
 		<div class="container">
 			<div class="wmuSlider example1">
 			   <div class="wmuSliderWrapper">
+			   		@foreach ($slideShows as $k=>$v)
 					<article style="position: absolute; width: 100%; opacity: 0;"> 
 						<div class="banner-wrap">
-							<div class="banner-text-info banner-text-inf">
-								<h3>Treat yourself with a sweet, freshly baked goodie</h3>
+							<div class="banner-text-info banner-text-inf" style="background:url({{$v['url']}}) no-repeat 0px 0px;">
+								<h3>{{$v['title']}}</h3>
 							</div>
 						</div>
 					</article>
-					<article style="position: absolute; width: 100%; opacity: 0;"> 
-						<div class="banner-wrap">
-							<div class="banner-text-info banner-text-inf1">
-								<h3>Everyone knows, that treating yourself with tasty</h3>
-							</div>
-						</div>
-					</article>
-					<article style="position: absolute; width: 100%; opacity: 0;"> 
-						<div class="banner-wrap">
-							<div class="banner-text-info banner-text-inf2">
-								<h3>Treat yourself with a sweet, freshly baked goodie</h3>
-							</div>
-						</div>
-					</article>
-					<article style="position: absolute; width: 100%; opacity: 0;"> 
-						<div class="banner-wrap">
-							<div class="banner-text-info banner-text-inf3">
-								<h3>Enjoy our tasty array of bakery products!</h3>
-							</div>
-						</div>
-					</article>
+					@endforeach
 				</div>
 			</div>
 				<script src="js/jquery.wmuSlider.js"></script> 

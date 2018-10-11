@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="/admin/css/amazeui.min.css"/>
 <link rel="stylesheet" href="/admin/css/admin.css">
 <script src="/admin/js/jquery.min.js"></script>
-<script src="/admin/js/app.js"></script>
+<!-- <script src="/admin/js/app.js"></script> -->
 
     <script type="text/javascript" src="/admin/js/site.min.js"></script>
 
@@ -277,9 +277,7 @@ body,
             <!-- Inner Container End -->
                        
             <!-- Footer -->
-            <div id="mws-footer">
-              Copyright Your Website 2012. All Rights Reserved.
-            </div>
+          
             
         </div>
         <!-- Main Container End -->

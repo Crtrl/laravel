@@ -316,7 +316,7 @@ p.ever{
 	min-height:500px;
 }
 .banner-text-inf{
-	background:url(../images/1.jpg) no-repeat 0px 0px;
+	/*background:url(../images/1.jpg) no-repeat 0px 0px;*/
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -324,7 +324,7 @@ p.ever{
 	-ms-background-size:cover;
 }
 .banner-text-inf1{
-	background:url(../images/2.jpg) no-repeat 0px 0px;
+	/*background:url(../images/2.jpg) no-repeat 0px 0px;*/
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -332,7 +332,7 @@ p.ever{
 	-ms-background-size:cover;
 }
 .banner-text-inf2{
-	background:url(../images/3.jpg) no-repeat 0px 0px;
+	/*background:url(../images/3.jpg) no-repeat 0px 0px;*/
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -340,7 +340,7 @@ p.ever{
 	-ms-background-size:cover;
 }
 .banner-text-inf3{
-	background:url(../images/44.jpg) no-repeat 0px 0px;
+	/*background:url(../images/44.jpg) no-repeat 0px 0px;*/
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
