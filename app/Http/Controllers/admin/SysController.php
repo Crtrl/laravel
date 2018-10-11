@@ -9,6 +9,8 @@ class SysController extends Controller
 {
     public function web()
     {
+
+        
     	return view('/admin/sys/web');
     }
     public function aud()

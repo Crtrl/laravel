@@ -2,6 +2,15 @@
 
 @section('content')
 
+
+
+
+<style type="text/css" media="screen">
+	#imgs{
+		width: 200px;
+		height: 100px;
+	}
+</style>
 <!-- 广告 -->
 	<div class='adv' style="background:url(http://demo.lanrenzhijia.com/2015/slide0311/images/big.jpg) no-repeat center top #7B010B;">
 		<a href='http://www.adv.com/' target='_blank' class='link'></a>
@@ -131,26 +140,26 @@
 
 <!-- 友情链接 -->
 <!-- gallery -->
+ 
 	<div id="friends" class="gallery">
 		<div class="container">
 		<h3>友情链接</h3>
 		<p class="ever">发现更大的世界.</p>
 			<div class="gallery-grids">
+			@foreach($res as $k=> $v)
 				<section>
 					<ul id="da-thumbs" class="da-thumbs">
 						<li style="width: 20%;">
-							<a href="images/5.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
-								<img src="images/5.jpg" alt="" />
-								<div>
-									<h5>Elite Bakery</h5>
-									<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
-								</div>
+							<a href="{{$v->flink}}"   title="{{$v->descript}}">
+								<img src="{{$v->fpic}}" alt="" id='imgs' />
+								
 							</a>
 						</li>
 
 						
 					</ul>
 				</section>
+				@endforeach
 				<script type="text/javascript" src="/home/js/jquery.hoverdir.js"></script>	
 				<script type="text/javascript">
 					$(function() {
@@ -162,5 +171,8 @@
 			</div>
 		</div>
 	</div>
+
 <!-- //gallery -->
+
+
 @stop

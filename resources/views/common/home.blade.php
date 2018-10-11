@@ -124,17 +124,22 @@
 							<li class="hvr-sweep-to-bottom"><a href="#mobileGame" class="scroll">手机游戏</a></li>
 							<li class="hvr-sweep-to-bottom"><a href="#idpGame" class="scroll">单机游戏</a></li>
 							<li class="hvr-sweep-to-bottom"><a href="#friends" class="scroll">友情链接</a></li>
-							@if (5==1)
+
+							@if (5>1)
+							@foreach($rs as $k=> $v)
 							<li class="hvr-sweep-to-bottom">
 								<a href="" style="padding: 0px;">
-								<img src="images/chef1.jpg" alt="" style="margin: 0px;" />
+								<img src="{{$v->face}}"  width="83" alt="" style="margin: 0px;" />
 								</a>		
 							</li>
+							
 							<li class="">
-								<div><a href="" class="btn btn-warning btn-default">个人昵称</a></div>
-								<div><a href="" class="btn btn-warning btn-default">个人中心</a></div>
+								<div><a href="/home/user/profile" class="btn btn-warning btn-default" style='color:blue'>{{$v->fname}}</a></div>
+								<div><a href="/home/user/profile" class="btn btn-warning btn-default" style='color:blue'>个人中心</a></div>
 								<div><a href="" class="btn btn-warning btn-default" style="width: 100%">退出</a></div>
 							</li>
+							@endforeach
+
 							@else
 							<li class="hvr-sweep-to-bottom"><a href="" class="scroll">登陆/注册</a></li>
 							@endif	
