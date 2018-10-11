@@ -98,6 +98,56 @@
 </head>
 
 <body>
+<!-- header -->
+	<div class="header">
+		<div class="container">
+			<div class="header-nav">
+				<nav class="navbar navbar-default">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					  </button>
+						<div class="logo">
+							<h1><a class="navbar-brand" href="index.html"><label>星</label>空<label>论</label>坛<span>S t a r y S k y </span></a></h1>
+						</div>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="hvr-sweep-to-bottom active"><a href="/home/index">首页</a></li>	
+							<li class="hvr-sweep-to-bottom"><a href="#netGame" class="scroll">网络游戏</a></li>
+							<li class="hvr-sweep-to-bottom"><a href="#mobileGame" class="scroll">手机游戏</a></li>
+							<li class="hvr-sweep-to-bottom"><a href="#idpGame" class="scroll">单机游戏</a></li>
+							<li class="hvr-sweep-to-bottom"><a href="#friends" class="scroll">友情链接</a></li>
+							@if (5>1)
+							@foreach($rs as $k=> $v)
+							<li class="hvr-sweep-to-bottom">
+								<a href="" style="padding: 0px;">
+								<img src="{{$v->face}}"  width="83" alt="" style="margin: 0px;" />
+								</a>		
+							</li>
+							
+							<li class="">
+								<div><a href="/home/user/profile" class="btn btn-warning btn-default" style='color:blue'>{{$v->fname}}</a></div>
+								<div><a href="/home/user/profile" class="btn btn-warning btn-default" style='color:blue'>个人中心</a></div>
+								<div><a href="" class="btn btn-warning btn-default" style="width: 100%">退出</a></div>
+							</li>
+							@endforeach
+							@else
+							<li class="hvr-sweep-to-bottom"><a href="" class="scroll">登陆/注册</a></li>
+							@endif	
+						</ul>
+					</div><!-- /.navbar-collapse -->					
+				</nav>			
+			</div>
+		</div>		
+	</div>
+<!-- //header -->
 @section('content')
 
 

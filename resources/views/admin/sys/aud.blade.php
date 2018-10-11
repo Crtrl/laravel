@@ -7,7 +7,7 @@
       <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">审核配置</a></dl>
     </div>
     <div class="fbneirong">
-      <form class="am-form" action="/sys/upshen/" method="post" enctype="multipart/form-data">
+      <form class="am-form" action="/sys/upshen" method="post" enctype="multipart/form-data">
         
         <div class="am-form-group am-cf">
           <p>&nbsp;</p>

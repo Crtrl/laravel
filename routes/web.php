@@ -31,18 +31,19 @@ Route::get('home/friends','home\FriendsController@friends');
 Route::get('home/face','home\FriendsController@face');
 Route::get('home/pwd','home\FriendsController@pwd');
 
-
-
-
-
 //后台友情链接管理
 Route::resource('admin/friends','admin\FriendsController');
 
+//后台系统管理
+
+
+
+
+
 //前台修改个人信息
 Route::get('/home/user/profile','home\UserController@profile');
-Route::post('/home/user/update','home\UserController@update');
-Route::post('/home/user/face','home\UserController@face');
-Route::get('/home/user/pwd','home\UserController@pwd');
+
+
 
 //个人用户
 route::any('/home/user/xinxi','home\UserController@xinxi');
@@ -61,7 +62,10 @@ Route::get('/admin/sys/jinIP','admin\SysController@jinIP');
 
 //前台页面
 Route::get('/home/index','home\IndexController@index');
-
+Route::get('/home/user/update','home\IndexController@update');
+Route::get('/common/home','home\IndexController@profile');
+Route::post('/home/user/face','home\IndexController@face');
+Route::get('/home/user/pwd','home\IndexController@pwd');
 
 //后台页面
 Route::get('/admin/index','admin\IndexController@Index');
