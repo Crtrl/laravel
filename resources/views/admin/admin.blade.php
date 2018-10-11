@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>jQuery带节假日农历日历代码 - 站长素材</title>
+<title>jQuery带节假日农历日历</title>
 </head>
 
 <body>
