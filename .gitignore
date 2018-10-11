@@ -5,9 +5,9 @@
 /vendor
 /.idea
 /.vagrant
+/routes/web.php
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
-/routes/web.php
