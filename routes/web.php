@@ -34,8 +34,8 @@ Route::resource('admin/category','admin\CategoryController');
 
 
 //前台登录
-Route::any('home/login','home\LoginController@login');
-Route::any('home/dologin','home\LoginController@dologin');
+Route::any('/home/login','home\LoginController@login');
+Route::any('/home/dologin','home\LoginController@dologin');
 
 Route::get('/admin/index','admin\IndexController@Index');
 //公共页面
