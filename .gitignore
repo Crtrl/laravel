@@ -5,6 +5,7 @@
 /vendor
 /.idea
 /.vagrant
+/routes/web.php
 Homestead.json
 Homestead.yaml
 npm-debug.log

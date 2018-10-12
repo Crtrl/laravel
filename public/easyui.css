@@ -17,7 +17,9 @@ a,span,p,label,i,em,strong,font,div,li,h1,h2,h3,h4,h5,h6,b,input,option,ol,ul,th
 }
 .calendar-header{
 	position:relative;
-	background:#E0366E;
+
+	background:#81d0f2;
+
 	font-size:12px;
 	height:40px;
 	text-align:center;

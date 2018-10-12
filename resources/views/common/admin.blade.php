@@ -6,6 +6,32 @@
 <head>
 <meta charset="utf-8">
 
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="favicon_16.ico"/>
+    <link rel="bookmark" href="favicon_16.ico"/>
+    <!-- site css -->
+    <link rel="stylesheet" href="/admin/css/site.min.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="icon" type="image/png" href="/admin/i/favicon.png">
+<link rel="apple-touch-icon-precomposed" href="/dist/i/app-icon72x72@2x.png">
+<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+<link rel="stylesheet" href="/admin/css/amazeui.min.css"/>
+<link rel="stylesheet" href="/admin/css/admin.css">
+<script src="/admin/js/jquery.min.js"></script>
+<!-- <script src="/admin/js/app.js"></script> -->
+
+    <script type="text/javascript" src="/admin/js/site.min.js"></script>
+
+       <link type="text/css" rel="stylesheet" href="/admin/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="/admin/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/admin/bootstrap/js/jquery-1.8.3.js"></script>
+
+
 <!-- Viewport Metatag -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
@@ -123,7 +149,9 @@ body,
         
           <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
         <div id="mws-logo-wrap">
+
             <h3 style='color:white'>星空论坛</h3>   
+
         </div>
     </div>
         
@@ -171,6 +199,7 @@ body,
             </div>
                        
             <!-- Main Navigation -->
+
              <!-- 分类管理 -->
             <div id="mws-navigation">
                 <ul>
@@ -179,10 +208,8 @@ body,
                         <ul class="closed">
                             <li><a href="/admin/category/create">添加分类</a></li>
                             <li><a href="/admin/category">浏览分类</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+
+   
             <!-- 轮播图 -->
             <div id="mws-navigation">
                 <ul>
@@ -208,19 +235,41 @@ body,
                     </li>
                 </ul>
             </div>   
+ 
+
+            <!-- 系统设置 -->
+            <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 系统设置</a>
+                        <ul class="closed">
+                            <li><a href="/admin/sys/web">网站配置</a></li>
+                            <li><a href="/admin/sys/aud">审核配置</a></li>
+                            <li><a href="/admin/sys/jinIP">禁用IP</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>  
+
+
+
             <!-- 友情链接-->
             <div id="mws-navigation">
                 <ul>
                     <li>
                         <a href="#"><i class="icon-list"></i> 友情链接管理</a>
                         <ul class="closed">
-                            <li><a href="form_layouts.html">总览</a></li>
-                            <li><a href="form_elements.html">添加</a></li>
+
+
+                            <li><a href="/admin/friends">浏览链接</a></li>
+                            <li><a href="/admin/friends/create">新建链接</a></li>
+
                         </ul>
                     </li>
                 </ul>
             </div>   
         </div>
+
         
         <!-- Main Container Start -->
         <div id="mws-container" class="clearfix">
@@ -248,9 +297,13 @@ body,
             <!-- Inner Container End -->
                        
             <!-- Footer -->
+
             <div id="mws-footer">
               Copyright Your Website 2018. All Rights Reserved.
             </div>
+
+          
+
             
         </div>
         <!-- Main Container End -->
