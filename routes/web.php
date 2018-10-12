@@ -16,6 +16,27 @@ Route::get('/', function () {
 });
 
 
+
+// Route::get('/admin','admin\IndexController@Index');
+Route::get('/admin/login','admin\LoginController@login');
+Route::resource('admin/user','admin\UserController');
+
+
+
+
+
+//广告管理路由
+Route::resource('admin/ad','admin\AdController');
+//分类管理路由
+Route::resource('admin/category','admin\CategoryController');
+
+
+
+
+//前台登录
+Route::any('/home/login','home\LoginController@login');
+Route::any('/home/dologin','home\LoginController@dologin');
+
 Route::get('/admin/index','admin\IndexController@Index');
 //公共页面
 Route::get('/admin/common','admin\IndexController@common');
@@ -64,6 +85,8 @@ Route::get('/common/home','home\IndexController@cmn');
 
 
 
+
+
 //前台页面
 Route::get('/home/index','home\IndexController@index');
 Route::get('/home/user/update','home\IndexController@update');
@@ -84,3 +107,4 @@ Route::resource('/admin/user','admin\UserController');
 Route::resource('/admin/slideshows','admin\SlideShowsController');
 //轮播图预览
 Route::any('/admin/upload','admin\AjaxController@upload');
+

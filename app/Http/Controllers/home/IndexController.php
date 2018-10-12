@@ -4,11 +4,14 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Model\SlideShows;
 use DB;
+
 class IndexController extends Controller
 {
 	public function index()
 	{
+
 
 
                                     $st = DB::table('sys')->pluck('sstatus');
@@ -17,6 +20,11 @@ class IndexController extends Controller
                                             if($st[0] == '0'){
                                                 return redirect('admin/mai');
                                             }
+
+		$slideShows = SlideShows::Orderby('id','ASC')->get();
+		// var_dump($slideShows);die;
+	
+
 		$rs = DB::table('front_users')->get();
 
                     $res = DB::table('friends')->get();
@@ -24,9 +32,15 @@ class IndexController extends Controller
                     
                         $zx = DB::table('sys')->get();
 
+
 		return view('home.index',['rs'=>$rs,
                                                             'res'=>$res,
-                                                            'zx'=>$zx]);
+                                                            'zx'=>$zx,
+                                                            'slideShows'=>$slideShows]);
+
+		
+
+
 	}
 
 

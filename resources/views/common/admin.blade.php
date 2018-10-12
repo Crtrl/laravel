@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
+
    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="favicon_16.ico"/>
     <link rel="bookmark" href="favicon_16.ico"/>
@@ -22,13 +23,14 @@
 <link rel="stylesheet" href="/admin/css/amazeui.min.css"/>
 <link rel="stylesheet" href="/admin/css/admin.css">
 <script src="/admin/js/jquery.min.js"></script>
-<script src="/admin/js/app.js"></script>
+<!-- <script src="/admin/js/app.js"></script> -->
 
     <script type="text/javascript" src="/admin/js/site.min.js"></script>
 
        <link type="text/css" rel="stylesheet" href="/admin/bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="/admin/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="/admin/bootstrap/js/jquery-1.8.3.js"></script>
+
 
 <!-- Viewport Metatag -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -147,7 +149,9 @@ body,
         
           <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
         <div id="mws-logo-wrap">
-            <span class="mws-stat-value" style="font-size: 20px/1.5 ;">星空论坛</span>    
+
+            <h3 style='color:white'>星空论坛</h3>   
+
         </div>
     </div>
         
@@ -195,6 +199,20 @@ body,
             </div>
                        
             <!-- Main Navigation -->
+
+             <!-- 分类管理 -->
+            <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 分类管理</a>
+                        <ul class="closed">
+                            <li><a href="/admin/category/create">添加分类</a></li>
+                            <li><a href="/admin/category">浏览分类</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+   
             <!-- 轮播图 -->
             <div id="mws-navigation">
                 <ul>
@@ -211,14 +229,16 @@ body,
             <div id="mws-navigation">
                 <ul>
                     <li>
-                        <a href="#"><i class="icon-list"></i> 广告管理</a>
+                        <a href="#"><i class="icon-bullhorn"></i> 广告管理</a>
                         <ul class="closed">
-                            <li><a href="form_layouts.html">总览</a></li>
-                            <li><a href="form_elements.html">添加</a></li>
+                            <li><a href="/admin/ad/create">添加广告</a></li>
+                            <li><a href="/admin/ad">浏览广告</a></li>
+                            
                         </ul>
                     </li>
                 </ul>
             </div>   
+ 
 
             <!-- 系统设置 -->
             <div id="mws-navigation">
@@ -235,6 +255,7 @@ body,
             </div>  
 
 
+
             <!-- 友情链接-->
             <div id="mws-navigation">
                 <ul>
@@ -242,8 +263,10 @@ body,
                         <a href="#"><i class="icon-list"></i> 友情链接管理</a>
                         <ul class="closed">
 
+
                             <li><a href="/admin/friends">浏览链接</a></li>
                             <li><a href="/admin/friends/create">新建链接</a></li>
+
                         </ul>
                     </li>
                 </ul>
@@ -277,9 +300,13 @@ body,
             <!-- Inner Container End -->
                        
             <!-- Footer -->
+
             <div id="mws-footer">
-              Copyright Your Website 2012. All Rights Reserved.
+              Copyright Your Website 2018. All Rights Reserved.
             </div>
+
+          
+
             
         </div>
         <!-- Main Container End -->

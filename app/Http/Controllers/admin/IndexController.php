@@ -9,19 +9,22 @@ class IndexController extends Controller
 {
     public function Index()
     {
-    	
+
     	return view('admin/admin');
     }
+
 
        public function common()
     {
     	return view('common/admin');
     }
 
+
            public function mai()
     {
     	return view('admin/mai');
     }
+
 
 
 }

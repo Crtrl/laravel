@@ -3,6 +3,8 @@
 @section('content')
 
 
+
+
 <style type="text/css" media="screen">
 	#imgs{
 		width: 200px;
@@ -21,34 +23,15 @@
 		<div class="container">
 			<div class="wmuSlider example1">
 			   <div class="wmuSliderWrapper">
+			   		@foreach ($slideShows as $k=>$v)
 					<article style="position: absolute; width: 100%; opacity: 0;"> 
 						<div class="banner-wrap">
-							<div class="banner-text-info banner-text-inf">
-								<h3>Treat yourself with a sweet, freshly baked goodie</h3>
+							<div class="banner-text-info banner-text-inf" style="background:url({{$v['url']}}) no-repeat 0px 0px;">
+								<h3>{{$v['title']}}</h3>
 							</div>
 						</div>
 					</article>
-					<article style="position: absolute; width: 100%; opacity: 0;"> 
-						<div class="banner-wrap">
-							<div class="banner-text-info banner-text-inf1">
-								<h3>Everyone knows, that treating yourself with tasty</h3>
-							</div>
-						</div>
-					</article>
-					<article style="position: absolute; width: 100%; opacity: 0;"> 
-						<div class="banner-wrap">
-							<div class="banner-text-info banner-text-inf2">
-								<h3>Treat yourself with a sweet, freshly baked goodie</h3>
-							</div>
-						</div>
-					</article>
-					<article style="position: absolute; width: 100%; opacity: 0;"> 
-						<div class="banner-wrap">
-							<div class="banner-text-info banner-text-inf3">
-								<h3>Enjoy our tasty array of bakery products!</h3>
-							</div>
-						</div>
-					</article>
+					@endforeach
 				</div>
 			</div>
 				<script src="js/jquery.wmuSlider.js"></script> 

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Model\SlideShow;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Model\SlideShows;
@@ -18,7 +17,6 @@ class SlideShowsController extends Controller
     {
         $rs = SlideShows::Orderby('id','ASC')->get();
         return view('admin.slideshows.index',[
-            'title'=>'轮播图列表',
             'rs'=>$rs
         ]);
     }
@@ -43,6 +41,14 @@ class SlideShowsController extends Controller
      */
     public function store(Request $request)
     {
+        //判断内容是否为空
+        if(!$request->input('title') ){
+            return back()->withErrors(['标题不能为空']);
+        }
+
+        if (!$request->hasFile('file_upload')) {
+            return back()->withErrors(['请选择图片']);
+        }
         //限制轮播图数量
         $num = SlideShows::count();
         // dd($num);
@@ -54,9 +60,9 @@ class SlideShowsController extends Controller
         //判断文件是否有效
         if($file->isValid()){
             //上传文件的后缀名
-            $entension = $file->getClientOriginalExtension();
-            //设置名字  32948324324832894.jpg
-            $newName = date('YmdHis').mt_rand(1000,9999).'.'.$entension;
+            $extension = $file->getClientOriginalExtension();
+            //设置名字  
+            $newName = date('YmdHis').mt_rand(1000,9999).'.'.$extension;
 
             $path = $file->move('uploads',$newName);
 
@@ -92,7 +98,8 @@ class SlideShowsController extends Controller
      */
     public function edit(SlideShows $slideShows,Request $request,$id)
     {
-        
+        $rs = SlideShows::find($id);
+        return view('admin.slideShows.edit',['rs'=>$rs]);
     }
 
     /**
@@ -102,9 +109,42 @@ class SlideShowsController extends Controller
      * @param  \App\Http\Model\SlideShow  $slideShow
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SlideShows $slideShows)
+    public function update(Request $request, SlideShows $slideShows, $id)
     {
-        //
+        $rs = $request->except('_token','_method','file_upload');
+        $rs['title'] = $rs['title'];
+
+        //判断是否有文件上传
+        if($request->hasFile('file_upload')){
+            //删除原图片文件
+            $url = SlideShows::find($id);
+            unlink(public_path().$url->url);
+
+            //保存图片
+            $file = $request->file('file_upload');
+            //判断文件是否有效
+            if($file->isValid()){
+                //上传文件的后缀名
+                $extension = $file->getClientOriginalExtension();
+                //设置名字  
+                $newName = date('YmdHis').mt_rand(1000,9999).'.'.$extension;
+
+                $path = $file->move('uploads',$newName);
+
+                $filepath = '/uploads/'.$newName;
+
+                $rs['url'] = $filepath;
+
+            }
+        }
+        // dd($rs);
+        try{
+            SlideShows::where('id',$id)->update($rs);
+        }catch(\Exception $e){
+            return back()->with('error','修改失败');
+        }
+        
+        return redirect('admin/slideshows')->with('success','修改成功');
     }
 
     /**
@@ -115,14 +155,19 @@ class SlideShowsController extends Controller
      */
     public function destroy(SlideShows $slideShows, $id)
     {
+        
         try{
+            $url = SlideShows::find($id);
+            
+            unlink(public_path().$url->url);
 
             SlideShows::destroy($id);
 
+            return redirect('/admin/slideshows')->with('error','删除成功');
         }catch(\Exception $e){
             return back()->with('error','删除失败');
         }
-        return redirect('/admin/slideshows');
+        
     }
 
 
