@@ -35,11 +35,8 @@ Route::group([],function()
 	Route::get('/home/friends','home\FriendsController@friends');
 	Route::get('/home/face','home\FriendsController@face');
 	Route::get('/home/pwd','home\FriendsController@pwd');
-<<<<<<< HEAD
-	//系统维护
-	Route::get('admin/mai','admin\IndexController@mai');
-=======
->>>>>>> origin/qx
+
+
 	//前台选项卡
 	Route::get('/home/index','home\IndexController@index');
 	Route::get('/home/user/update','home\IndexController@update');
@@ -48,10 +45,8 @@ Route::group([],function()
 	Route::get('/home/user/pwd','home\IndexController@pwd');
 	//前台修改个人信息
 	Route::get('/home/user/profile','home\UserController@profile');
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/qx
+
 });
 
 
@@ -78,10 +73,6 @@ Route::group([],function ()
 	Route::resource('/admin/slideshows','admin\SlideShowsController');
 	//后台用户管理
 	Route::resource('admin/user','admin\UserController');
-<<<<<<< HEAD
-=======
 	//系统维护
 	Route::get('admin/mai','admin\IndexController@mai');
-
->>>>>>> origin/qx
 });
