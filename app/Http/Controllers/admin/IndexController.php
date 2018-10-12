@@ -19,4 +19,12 @@ class IndexController extends Controller
     	return view('common/admin');
     }
 
+
+           public function mai()
+    {
+    	return view('admin/mai');
+    }
+
+
+
 }

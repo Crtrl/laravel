@@ -12,18 +12,34 @@ class IndexController extends Controller
 	public function index()
 	{
 
+
+
+                                    $st = DB::table('sys')->pluck('sstatus');
+
+
+                                            if($st[0] == '0'){
+                                                return redirect('admin/mai');
+                                            }
+
 		$slideShows = SlideShows::Orderby('id','ASC')->get();
 		// var_dump($slideShows);die;
-		return view('home.index',[
-			'slideShows'=>$slideShows
-		]);
+	
 
 		$rs = DB::table('front_users')->get();
 
                     $res = DB::table('friends')->get();
 
+                    
+                        $zx = DB::table('sys')->get();
 
-		return view('home.index',['rs'=>$rs,'res'=>$res]);
+
+		return view('home.index',['rs'=>$rs,
+                                                            'res'=>$res,
+                                                            'zx'=>$zx,
+                                                            'slideShows'=>$slideShows]);
+
+		
+
 
 	}
 
@@ -116,11 +132,15 @@ class IndexController extends Controller
                 }else{
                     return back();
                 }
-                      
-           
-
-
-
             }
-    
+
+             public function cmn()
+            {
+                $rs = DB::table('front_users')->get();
+
+                $zx = DB::table('sys')->get();
+
+                return view('common/home',['rs'=>$rs,'zx'=>$zx]);
+            }
+
 }
