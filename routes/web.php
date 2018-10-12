@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('home/common',function(){
+	return view('/common/home');
+});
 
 
 
@@ -37,10 +40,12 @@ Route::resource('admin/category','admin\CategoryController');
 Route::any('/home/login','home\LoginController@login');
 Route::any('/home/dologin','home\LoginController@dologin');
 
+
+
+//后台主页面
 Route::get('/admin/index','admin\IndexController@Index');
 //公共页面
 Route::get('/admin/common','admin\IndexController@common');
-
 Route::get('/admin/login','admin\LoginController@login');
 
 
