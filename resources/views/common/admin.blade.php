@@ -208,7 +208,10 @@ body,
                         <ul class="closed">
                             <li><a href="/admin/category/create">添加分类</a></li>
                             <li><a href="/admin/category">浏览分类</a></li>
-
+                        </ul>
+                    </li>
+                </ul>
+            </div>
    
             <!-- 轮播图 -->
             <div id="mws-navigation">
