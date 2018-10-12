@@ -10,15 +10,21 @@ use DB;
 class UserController extends Controller
 {
 
+	public function profile()
+	{
+		$rs = DB::table('front_users')->get();
+
+		$zx = DB::table('sys')->get();
+
+
+		
+		return view('home/user/profile',['rs'=>$rs,
+							 'zx'=>$zx]);
+	}
+   
+  
 
    
-        public function profile()
-    {
-        $rs = DB::table('front_users')->get();
-
-       
-        return view('home/user/profile',['rs'=>$rs]);
-    }
 }
 
 

@@ -166,6 +166,7 @@
                                         上传头像:
                                     </td>
                                     <td>
+                                        <img width="100" src="{{$v->face}}">
                                         <input type="file" name="face" />
                                     </td>
                                 </tr>

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>星空论坛StarySky</title>
+@foreach($zx as $k=>$v)
+<title>{{$v->sname}}</title>
+@endforeach
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -111,9 +113,11 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					  </button>
+					  @foreach($zx as $k=>$v)
 						<div class="logo">
-							<h1><a class="navbar-brand" href="index.html"><label>星</label>空<label>论</label>坛<span>S t a r y S k y </span></a></h1>
+							<img src="{{$v->slogo}}" height='100' alt="">
 						</div>
+					 @endforeach
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -127,7 +131,7 @@
 							@if (5>1)
 							@foreach($rs as $k=> $v)
 							<li class="hvr-sweep-to-bottom">
-								<a href="" style="padding: 0px;">
+								<a href="/home/user/profile" style="padding: 0px;">
 								<img src="{{$v->face}}"  width="83" alt="" style="margin: 0px;" />
 								</a>		
 							</li>

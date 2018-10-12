@@ -34,7 +34,8 @@ Route::get('home/pwd','home\FriendsController@pwd');
 //后台友情链接管理
 Route::resource('admin/friends','admin\FriendsController');
 
-//后台系统管理
+//系统维护
+Route::get('admin/mai','admin\IndexController@mai');
 
 
 
@@ -45,25 +46,28 @@ Route::get('/home/user/profile','home\UserController@profile');
 
 
 
+
 //个人用户
 route::any('/home/user/xinxi','home\UserController@xinxi');
 
 
 //后台系统设置
 Route::get('/admin/sys/web','admin\SysController@web');
+Route::post('/admin/sys/update','admin\SysController@update');
 Route::get('/admin/sys/aud','admin\SysController@aud');
 Route::get('/admin/sys/jinIP','admin\SysController@jinIP');
 
 
 
 
+Route::get('/common/home','home\IndexController@cmn');
 
 
 
 //前台页面
 Route::get('/home/index','home\IndexController@index');
 Route::get('/home/user/update','home\IndexController@update');
-Route::get('/common/home','home\IndexController@profile');
+
 Route::post('/home/user/face','home\IndexController@face');
 Route::get('/home/user/pwd','home\IndexController@pwd');
 

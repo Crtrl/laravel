@@ -9,12 +9,24 @@ class IndexController extends Controller
 {
 	public function index()
 	{
+
+
+                                    $st = DB::table('sys')->pluck('sstatus');
+
+
+                                            if($st[0] == '0'){
+                                                return redirect('admin/mai');
+                                            }
 		$rs = DB::table('front_users')->get();
 
                     $res = DB::table('friends')->get();
 
+                    
+                        $zx = DB::table('sys')->get();
 
-		return view('home.index',['rs'=>$rs,'res'=>$res]);
+		return view('home.index',['rs'=>$rs,
+                                                            'res'=>$res,
+                                                            'zx'=>$zx]);
 	}
 
 
@@ -106,11 +118,15 @@ class IndexController extends Controller
                 }else{
                     return back();
                 }
-                      
-           
-
-
-
             }
-    
+
+             public function cmn()
+            {
+                $rs = DB::table('front_users')->get();
+
+                $zx = DB::table('sys')->get();
+
+                return view('common/home',['rs'=>$rs,'zx'=>$zx]);
+            }
+
 }
