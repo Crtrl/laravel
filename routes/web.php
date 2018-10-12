@@ -27,9 +27,9 @@ Route::any('/home/dologin','home\LoginController@dologin');
 Route::group([],function()
 {
 	//前台友情链接
-	Route::get('home/friends','home\FriendsController@friends');
-	Route::get('home/face','home\FriendsController@face');
-	Route::get('home/pwd','home\FriendsController@pwd');
+	Route::get('/home/friends','home\FriendsController@friends');
+	Route::get('/home/face','home\FriendsController@face');
+	Route::get('/home/pwd','home\FriendsController@pwd');
 
 	//前台页面
 	Route::get('/home/index','home\IndexController@index');
