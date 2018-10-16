@@ -13,9 +13,6 @@
 								    color: #02a2aa;
 								    
 								}
-        .SignFlowHomepage{
-            background-image:url("/images/background/ChMkJldLxJ2IUJTeAATEABtMuDMAASC2QDdwugABMQY859.jpg");
-                        }
      </style>
        
     </head>
@@ -45,7 +42,7 @@
                                     <div class="Register">
                                         <div>
                                             <div class="Register-content">
-                                                <form action="/home/dologin" method="post">
+                                                <form action="/home/save" method="post">
 
 
                                                     
@@ -53,7 +50,7 @@
                                                        
                                                         <div class="SignFlowInput SignFlow-accountInputContainer">
                                                             <div class="SignFlow-accountInput Input-wrapper">
-                                                                <input type="tel" value="" name="username" class="Input" placeholder="用户名"
+                                                                <input type="text" value="" name="username" class="Input" placeholder="用户名"
                                                                 />
                                                             </div>
                                                             
@@ -68,15 +65,43 @@
                                                         <div class="SignFlowInput SignFlow-accountInputContainer">
                                                             <div class="SignFlow-accountInput Input-wrapper">
 
-                                                                <input type="tel" value="" name="password" class="Input" placeholder="密码"
+                                                                <input type="password" value="" name="pwd" class="Input" placeholder="密码"
                                                                 />
                                                             </div>
                                                         </div>
                                                     </div>
 
 
-                                                   
+                                                     <div class="SignFlow-account">
+                                                        <div class="SignFlowInput SignFlow-accountInputContainer">
+                                                            <div class="SignFlow-accountInput Input-wrapper">
 
+                                                                <input type="password" value="" name="repwd" class="Input" placeholder="确认密码"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                      <div class="SignFlow-account">
+                                                        <div class="SignFlowInput SignFlow-accountInputContainer">
+                                                            <div class="SignFlow-accountInput Input-wrapper">
+
+                                                                <input type="text" value="" name="tel" class="Input" placeholder="手机号"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                     <div class="SignFlow-account">
+                                                        <div class="SignFlowInput SignFlow-accountInputContainer">
+                                                            <div class="SignFlow-accountInput Input-wrapper">
+
+                                                                <input type="text" value="" name="email" class="Input" placeholder="邮箱地址"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                    
 
 
 
@@ -117,14 +142,20 @@
                                                         </div>
                                                       
                                                     </div> -->
-                                                    {{csrf_field()}}
+                                                  {{csrf_field()}}
                                                     <button type="submit" class="Button Register-submitButton Button--primary Button--blue">
-                                                       登录
+                                                        注册
                                                     </button>
                                                 </form>
                                                 <div class="Register-footer">
-                                                    <span class="Register-declaration" >
-                                                      <a href="http://www.baidu.com">QQ账号登录</a> 
+                                                    <span class="Register-declaration">
+                                                        注册即代表同意
+                                                        <a href="">
+                                                            《星空协议》
+                                                        </a>
+                                                        <a href="">
+                                                            《隐私政策》
+                                                        </a>
                                                     </span>
                                                    
                                                 </div>
@@ -132,9 +163,9 @@
                                         </div>
                                     </div>
                                     <div class="SignContainer-switch">
-                                        没有帐号？
+                                        已有帐号？
                                         <span>
-                                            <a href="/home/register">去注册</a>
+                                            <a href="/home/login">去登录</a>
                                         </span>
                                     </div>
                                     <div class="SignFlowHomepage-qrImage SignFlowHomepage-qrImageHidden">

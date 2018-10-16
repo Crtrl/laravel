@@ -9,12 +9,22 @@ use DB;
 use Hash;
 
 class LoginController extends Controller
-{
+{   
+    /**
+         *  前台登录的页面
+         *
+         *  @return 页面
+         */
      public function login()
     {
     	return view('home.login.login');
     }
 
+    /**
+         *  前台登录信息的处理
+         *
+         *  @return 页面
+         */
     public function dologin(Request $request){
     	//获取信息
     	$res = $request->except('_token');
@@ -34,10 +44,28 @@ class LoginController extends Controller
 
     	}
 
-    	// session(['fid'=>$data->id]);
+    	session(['fid'=>$data->id]);
 
-    	// return redirect('/');
+    	return redirect('/admin/index');
     	//提示信息
-    	echo 123456789;
+    	// echo 123456789;
+    }
+
+
+    /**
+         *  前台注册页面
+         *
+         *  @return 页面
+         */
+    public function register(){
+        return view('home.login.register');
+    }
+    /**
+         *  前台注册的处理
+         *
+         *  @return 页面
+         */
+    public function save(){
+       
     }
 }

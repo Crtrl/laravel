@@ -27,6 +27,9 @@ Route::get('/common/home','home\IndexController@cmn');
 //前台登录
 Route::any('/home/login','home\LoginController@login');
 Route::any('/home/dologin','home\LoginController@dologin');
+//前台注册
+Route::any('/home/register','home\LoginController@register');
+Route::any('/home/save','home\LoginController@save');
 
 //前台路由组
 Route::group([],function()
@@ -35,18 +38,15 @@ Route::group([],function()
 	Route::get('/home/friends','home\FriendsController@friends');
 	Route::get('/home/face','home\FriendsController@face');
 	Route::get('/home/pwd','home\FriendsController@pwd');
-
-
-	//前台选项卡
+		//前台首页
 	Route::get('/home/index','home\IndexController@index');
+	//前台选项卡
 	Route::get('/home/user/update','home\IndexController@update');
 	Route::get('/common/home','home\IndexController@profile');
 	Route::post('/home/user/face','home\IndexController@face');
 	Route::get('/home/user/pwd','home\IndexController@pwd');
 	//前台修改个人信息
 	Route::get('/home/user/profile','home\UserController@profile');
-
-
 });
 
 
@@ -65,7 +65,7 @@ Route::group([],function ()
 	Route::post('/admin/sys/update','admin\SysController@update');
 	//广告管理路由
 	Route::resource('admin/ad','admin\AdController');
-	//分类管理路由
+	//后台类别管理路由
 	Route::resource('admin/category','admin\CategoryController');
 	//后台友情链接管理
 	Route::resource('admin/friends','admin\FriendsController');
