@@ -27,7 +27,7 @@
 
     <script type="text/javascript" src="/admin/js/site.min.js"></script>
 
-       <link type="text/css" rel="stylesheet" href="/admin/bootstrap/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="/admin/bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="/admin/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="/admin/bootstrap/js/jquery-1.8.3.js"></script>
 
@@ -60,75 +60,75 @@
 <link rel="stylesheet" type="text/css" href="/admin/css/themer.css" media="screen">
 
 <style>
-body, 
-#mws-container
-{
-    background-image:url('/admin/images/core/bg/diagonal_striped_brick.png');
-}
+    body, 
+    #mws-container
+    {
+        background-image:url('/admin/images/core/bg/diagonal_striped_brick.png');
+    }
 
-#mws-sidebar, 
-#mws-sidebar-bg, 
-#mws-header, 
-.mws-panel .mws-panel-header, 
-#mws-login, 
-#mws-login .mws-login-lock, 
-.ui-accordion .ui-accordion-header, 
-.ui-tabs .ui-tabs-nav, 
-.ui-datepicker, 
-.fc-event-skin, 
-.ui-dialog .ui-dialog-titlebar, 
-.jGrowl .jGrowl-notification, .jGrowl .jGrowl-closer, 
-#mws-user-tools .mws-dropdown-menu .mws-dropdown-box, 
-#mws-user-tools .mws-dropdown-menu.open .mws-dropdown-trigger
-{
-    background-color:#2f2f33;
-}
+    #mws-sidebar, 
+    #mws-sidebar-bg, 
+    #mws-header, 
+    .mws-panel .mws-panel-header, 
+    #mws-login, 
+    #mws-login .mws-login-lock, 
+    .ui-accordion .ui-accordion-header, 
+    .ui-tabs .ui-tabs-nav, 
+    .ui-datepicker, 
+    .fc-event-skin, 
+    .ui-dialog .ui-dialog-titlebar, 
+    .jGrowl .jGrowl-notification, .jGrowl .jGrowl-closer, 
+    #mws-user-tools .mws-dropdown-menu .mws-dropdown-box, 
+    #mws-user-tools .mws-dropdown-menu.open .mws-dropdown-trigger
+    {
+        background-color:#2f2f33;
+    }
 
-#mws-header
-{
-    border-color:#808080;
-}
+    #mws-header
+    {
+        border-color:#808080;
+    }
 
-.mws-panel .mws-panel-header span, 
-#mws-navigation ul li.active a, 
-#mws-navigation ul li.active span, 
-#mws-user-tools #mws-username, 
-#mws-navigation ul li .mws-nav-tooltip, 
-#mws-user-tools #mws-user-info #mws-user-functions #mws-username, 
-.ui-dialog .ui-dialog-title, 
-.ui-state-default, 
-.ui-state-active, 
-.ui-state-hover, 
-.ui-state-focus, 
-.ui-state-default a, 
-.ui-state-active a, 
-.ui-state-hover a, 
-.ui-state-focus a
-{
-    color:#b0e6ff;
-    text-shadow:0 0 6px rgba(230, 232, 208, 0.4);
-}
+    .mws-panel .mws-panel-header span, 
+    #mws-navigation ul li.active a, 
+    #mws-navigation ul li.active span, 
+    #mws-user-tools #mws-username, 
+    #mws-navigation ul li .mws-nav-tooltip, 
+    #mws-user-tools #mws-user-info #mws-user-functions #mws-username, 
+    .ui-dialog .ui-dialog-title, 
+    .ui-state-default, 
+    .ui-state-active, 
+    .ui-state-hover, 
+    .ui-state-focus, 
+    .ui-state-default a, 
+    .ui-state-active a, 
+    .ui-state-hover a, 
+    .ui-state-focus a
+    {
+        color:#b0e6ff;
+        text-shadow:0 0 6px rgba(230, 232, 208, 0.4);
+    }
 
-#mws-searchbox .mws-search-submit, 
-.mws-panel .mws-panel-header .mws-collapse-button span, 
-.dataTables_wrapper .dataTables_paginate .paginate_disabled_previous, 
-.dataTables_wrapper .dataTables_paginate .paginate_enabled_previous, 
-.dataTables_wrapper .dataTables_paginate .paginate_disabled_next, 
-.dataTables_wrapper .dataTables_paginate .paginate_enabled_next, 
-.dataTables_wrapper .dataTables_paginate .paginate_active, 
-.mws-table tbody tr.odd:hover td, 
-.mws-table tbody tr.even:hover td, 
-.ui-slider-horizontal .ui-slider-range, 
-.ui-slider-vertical .ui-slider-range, 
-.ui-progressbar .ui-progressbar-value, 
-.ui-datepicker td.ui-datepicker-current-day, 
-.ui-datepicker .ui-datepicker-prev, 
-.ui-datepicker .ui-datepicker-next, 
-.ui-accordion-header .ui-accordion-header-icon, 
-.ui-dialog-titlebar-close
-{
-    background-color:#808080;
-}
+    #mws-searchbox .mws-search-submit, 
+    .mws-panel .mws-panel-header .mws-collapse-button span, 
+    .dataTables_wrapper .dataTables_paginate .paginate_disabled_previous, 
+    .dataTables_wrapper .dataTables_paginate .paginate_enabled_previous, 
+    .dataTables_wrapper .dataTables_paginate .paginate_disabled_next, 
+    .dataTables_wrapper .dataTables_paginate .paginate_enabled_next, 
+    .dataTables_wrapper .dataTables_paginate .paginate_active, 
+    .mws-table tbody tr.odd:hover td, 
+    .mws-table tbody tr.even:hover td, 
+    .ui-slider-horizontal .ui-slider-range, 
+    .ui-slider-vertical .ui-slider-range, 
+    .ui-progressbar .ui-progressbar-value, 
+    .ui-datepicker td.ui-datepicker-current-day, 
+    .ui-datepicker .ui-datepicker-prev, 
+    .ui-datepicker .ui-datepicker-next, 
+    .ui-accordion-header .ui-accordion-header-icon, 
+    .ui-dialog-titlebar-close
+    {
+        background-color:#808080;
+    }
 
 
 </style>
@@ -150,7 +150,7 @@ body,
           <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
         <div id="mws-logo-wrap">
 
-            <h3 style='color:white'>星空论坛</h3>   
+            <h3 style='color:white'><a href="/home/index">星空论坛</a></h3>   
 
         </div>
     </div>
@@ -169,12 +169,11 @@ body,
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
-                        Hello, John Doe
+                        {{Session::get('user')['username']}}
                     </div>
                     <ul>
-                      <li><a href="#">Profile</a></li>
-                        <li><a href="#">Change Password</a></li>
-                        <li><a href="index.html">Logout</a></li>
+                        <li><a href="/admin/reset">修改密码</a></li>
+                        <li><a href="/admin/logout">登出</a></li>
                     </ul>
                 </div>
             </div>
@@ -199,6 +198,19 @@ body,
             </div>
                        
             <!-- Main Navigation -->
+
+            <!-- 分类管理 -->
+            <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 后台用户管理</a>
+                        <ul class="closed">
+                            <li><a href="/admin/users">浏览用户</a></li>
+                            <li><a href="/admin/users/create">添加用户</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
              <!-- 分类管理 -->
             <div id="mws-navigation">
@@ -292,19 +304,21 @@ body,
         
           <!-- Inner Container Start -->
             <div class="container">
-            {{-- {{dd($data)}} --}}
         
-            <div class="form-group">
-                @if (count($errors) > 0)
-                <div class="alert alert-danger mws-form-message error">
-                    <ul style="color:red;">
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                <div class="form-group">
+
+                @if(session('success'))  
+                    <div class="mws-form-message success">
+                        {{session('success')}}  
+                    </div>
                 @endif
-            </div>
+
+                @if(session('error'))  
+                    <div class="mws-form-message warning">
+                        {{session('error')}} 
+                    </div>
+                @endif
+                </div>
             
             @section('content')
             
@@ -362,7 +376,7 @@ body,
     @show
     <script>
         $(function () {
-            $('.alert-danger').delay(3000).slideUp(1000);
+            $('.mws-form-message').delay(3000).slideUp(1000);
         })
     </script>
 </body>
