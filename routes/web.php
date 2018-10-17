@@ -14,11 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home/common',function(){
+	return view('/common/home');
+});
 
 
-//后台公共页面
+//后台公共页面d
 Route::get('/admin/common','admin\IndexController@common');
-
 //前台公共页面
 Route::get('/common/home','home\IndexController@cmn');
 
@@ -41,11 +43,8 @@ Route::group([],function()
 	Route::get('/common/home','home\IndexController@profile');
 	Route::post('/home/user/face','home\IndexController@face');
 	Route::get('/home/user/pwd','home\IndexController@pwd');
-
-
 	//前台修改个人信息
 	Route::get('/home/user/profile','home\UserController@profile');
-
 
 
 });
@@ -61,8 +60,6 @@ Route::group([],function ()
 	//后台首页
 	Route::get('/admin/index','admin\IndexController@Index');
 
-	//系统维护
-	Route::get('admin/mai','admin\IndexController@mai');
 
 	//后台系统设置
 	Route::get('/admin/sys/web','admin\SysController@web');
@@ -77,8 +74,8 @@ Route::group([],function ()
 	Route::resource('admin/friends','admin\FriendsController');
 	//轮播图
 	Route::resource('/admin/slideshows','admin\SlideShowsController');
-
 	//后台用户管理
+
 	//用户修改密码
 	Route::get('/admin/reset','admin\ResetController@reset');
 	Route::post('/admin/doreset/{id}','admin\ResetController@doreset');
@@ -86,5 +83,8 @@ Route::group([],function ()
 	Route::any('/admin/logout','admin\ResetController@logout');
 	//用户管理资源路由
 	Route::resource('/admin/users','admin\AdminUsersController');
+
+	//系统维护
+	Route::get('admin/mai','admin\IndexController@mai');
 
 });
