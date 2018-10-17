@@ -4,7 +4,7 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Model\SlideShows;
+use App\Model\Admin\SlideShows;
 use DB;
 
 class IndexController extends Controller

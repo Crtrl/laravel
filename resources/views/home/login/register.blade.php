@@ -50,7 +50,7 @@
                                                        
                                                         <div class="SignFlowInput SignFlow-accountInputContainer">
                                                             <div class="SignFlow-accountInput Input-wrapper">
-                                                                <input type="text" value="" name="username" class="Input" placeholder="用户名"
+                                                                <input type="text" value="" name="username" class="Input" placeholder="用户名(1~8位字符)"
                                                                 />
                                                             </div>
                                                             

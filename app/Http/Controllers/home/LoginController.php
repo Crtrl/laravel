@@ -52,6 +52,8 @@ class LoginController extends Controller
     }
 
 
+
+
     /**
          *  前台注册页面
          *
