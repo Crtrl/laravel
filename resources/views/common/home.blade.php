@@ -5,6 +5,9 @@
 <title>{{$v->sname}}</title>
 @endforeach
 <!-- for-mobile-apps -->
+<script src="/ueditor/ueditor.config.js"></script>
+<script src="/ueditor/ueditor.all.min.js"></script>
+<script src="/ueditor/lang/zh-cn/zh-cn.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -16,6 +19,12 @@
 <link href="/home/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
 <!-- js -->
 <script src="/home/js/jquery-1.11.1.min.js"></script>
+
+<!--bootstrap-->
+     <link type="text/css" rel="stylesheet" href="/admin/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="/admin/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/admin/bootstrap/js/jquery-1.8.3.js"></script>
+
 <!-- //js -->
 <!-- for-gallery-rotation -->
 <script src="/home/js/modernizr.custom.97074.js"></script>
@@ -54,6 +63,11 @@
 .adv .link{ width:100%; height:250px; display:block; z-index:10;}
 .adv .up{ display:block; width:120px; height:12px; background:url(/home/images/arrow.jpg) no-repeat left bottom; position:absolute; left:50%; bottom:0; z-index:20; margin-left:-60px;}
 .adv .down{ display:block; width:120px; height:12px; background:url(/home/images/arrow.jpg) no-repeat left top; position:absolute; left:50%; top:88px; z-index:20; margin-left:-60px;}
+
+
+#img{
+	height: 100px;
+}
 </style>
 <script>
 	$(function(){
@@ -115,7 +129,7 @@
 					  </button>
 					  @foreach($zx as $k=>$v)
 						<div class="logo">
-							<img src="{{$v->slogo}}" height='100' alt="">
+							<img src="{{$v->slogo}}"  id='img' alt="">
 						</div>
 					 @endforeach
 					</div>

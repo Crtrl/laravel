@@ -62,7 +62,17 @@ class SysController extends Controller
         }
     public function aud()
     {
-    	return view('/admin/sys/aud');
+            $skeywords= DB::table('sys')->pluck('skeywords')[0];
+           
+
+    	return view('/admin/sys/aud',['skeywords'=>$skeywords]);
+    }
+
+
+
+    public function upshen()
+    {
+
     }
     public function jinIP()
     {

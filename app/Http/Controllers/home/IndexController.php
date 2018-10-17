@@ -4,7 +4,8 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Model\SlideShows;
+use App\Model\Admin\SlideShows;
+use App\Model\Admin\Cate;
 use DB;
 
 class IndexController extends Controller
@@ -31,12 +32,16 @@ class IndexController extends Controller
 
                     
                         $zx = DB::table('sys')->get();
+                        //遍历前台页面
+                        $cate = Cate::where('id', '1')->first();
+                        
 
-
+                      
 		return view('home.index',['rs'=>$rs,
                                                             'res'=>$res,
                                                             'zx'=>$zx,
-                                                            'slideShows'=>$slideShows]);
+                                                            'slideShows'=>$slideShows,
+                                                            'cate'=>$cate]);
 
 		
 

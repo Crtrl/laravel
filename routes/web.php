@@ -16,8 +16,7 @@ Route::get('/', function () {
 });
 
 
-//后台公共页面
-Route::get('/admin/common','admin\IndexController@common');
+
 
 //前台公共页面
 Route::get('/common/home','home\IndexController@cmn');
@@ -45,6 +44,13 @@ Route::group([],function()
 	Route::post('/home/user/face','home\IndexController@face');
 	Route::get('/home/user/pwd','home\IndexController@pwd');
 
+	//帖子主页
+	Route::get('home/post','home\PostController@post');
+	//获取帖子信息
+	Route::get('home/post/add','home\PostController@add');
+	
+
+
 
 	//前台修改个人信息
 	Route::get('/home/user/profile','home\UserController@profile');
@@ -53,6 +59,8 @@ Route::group([],function()
 
 });
 
+//后台公共页面
+Route::get('/admin/common','admin\IndexController@common');
 
 //后台登陆
 Route::get('/admin/login','admin\LoginController@login');
@@ -68,6 +76,7 @@ Route::group([],function ()
 	Route::get('/admin/sys/aud','admin\SysController@aud');
 	Route::get('/admin/sys/jinIP','admin\SysController@jinIP');
 	Route::post('/admin/sys/update','admin\SysController@update');
+	Route::post('/admin/sys/upshen','admin\SysController@upshen');
 	//广告管理路由
 	Route::resource('admin/ad','admin\AdController');
 	//分类管理路由
@@ -76,6 +85,10 @@ Route::group([],function ()
 	Route::resource('admin/friends','admin\FriendsController');
 	//轮播图
 	Route::resource('/admin/slideshows','admin\SlideShowsController');
+
+	//帖子列表
+	Route::get('admin/post/index','admin\PostController@index');
+	Route::post('admin/post/{id}','admin\PostController@destroy');
 
 	//后台用户管理
 	Route::resource('admin/user','admin\UserController');
