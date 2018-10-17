@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Model;
+namespace App\Model\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
 class SlideShows extends Model
 {
-	//连接表名
+    //连接表名
     protected $table = "slideshows";
 
     //时间戳
@@ -14,4 +14,5 @@ class SlideShows extends Model
 
     //黑名单
     public $guarded = [];
+
 }

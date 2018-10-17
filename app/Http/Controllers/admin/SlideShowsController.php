@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Model\Admin\SlideShows;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Model\SlideShows;
 
 class SlideShowsController extends Controller
 {
@@ -28,9 +28,7 @@ class SlideShowsController extends Controller
      */
     public function create()
     {
-        return view('admin.slideshows.create',[
-            'title'=>'轮播图添加页面',
-        ]);
+        return view('admin.slideshows.create');
     }
 
     /**
@@ -43,17 +41,17 @@ class SlideShowsController extends Controller
     {
         //判断内容是否为空
         if(!$request->input('title') ){
-            return back()->withErrors(['标题不能为空']);
+            return back()->with(['error'=>'标题不能为空']);
         }
 
         if (!$request->hasFile('file_upload')) {
-            return back()->withErrors(['请选择图片']);
+            return back()->with(['error'=>'请选择图片']);
         }
         //限制轮播图数量
         $num = SlideShows::count();
         // dd($num);
         if($num>4){
-            return back()->withErrors(['轮播图最大数量为5个']);
+            return back()->with(['error'=>'轮播图最大数量为5个']);
         }
         //图片上传
         $file = $request->file('file_upload');
@@ -82,7 +80,7 @@ class SlideShowsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Http\Model\SlideShow  $slideShow
+     * @param  \App\Model\Admin\SlideShows  $slideShows
      * @return \Illuminate\Http\Response
      */
     public function show(SlideShows $slideShows)
@@ -93,10 +91,10 @@ class SlideShowsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Http\Model\SlideShow  $slideShow
+     * @param  \App\Model\Admin\SlideShows  $slideShows
      * @return \Illuminate\Http\Response
      */
-    public function edit(SlideShows $slideShows,Request $request,$id)
+    public function edit(SlideShows $slideShows, $id)
     {
         $rs = SlideShows::find($id);
         return view('admin.slideShows.edit',['rs'=>$rs]);
@@ -106,7 +104,7 @@ class SlideShowsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Http\Model\SlideShow  $slideShow
+     * @param  \App\Model\Admin\SlideShows  $slideShows
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, SlideShows $slideShows, $id)
@@ -141,21 +139,20 @@ class SlideShowsController extends Controller
         try{
             SlideShows::where('id',$id)->update($rs);
         }catch(\Exception $e){
-            return back()->with('error','修改失败');
+            return back()->with(['error'=>'修改失败']);
         }
         
-        return redirect('admin/slideshows')->with('success','修改成功');
+        return redirect('admin/slideshows')->with(['success'=>'修改成功']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Http\Model\SlideShow  $slideShow
+     * @param  \App\Model\Admin\SlideShows  $slideShows
      * @return \Illuminate\Http\Response
      */
     public function destroy(SlideShows $slideShows, $id)
     {
-        
         try{
             $url = SlideShows::find($id);
             
@@ -163,12 +160,10 @@ class SlideShowsController extends Controller
 
             SlideShows::destroy($id);
 
-            return redirect('/admin/slideshows')->with('error','删除成功');
+            return redirect('/admin/slideshows')->with(['success'=>'删除成功']);
+            
         }catch(\Exception $e){
-            return back()->with('error','删除失败');
+            return back()->with(['error'=>'删除失败']);
         }
-        
     }
-
-
 }

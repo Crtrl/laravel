@@ -129,7 +129,7 @@
 							<li class="hvr-sweep-to-bottom"><a href="#idpGame" class="scroll">单机游戏</a></li>
 							<li class="hvr-sweep-to-bottom"><a href="#friends" class="scroll">友情链接</a></li>
 
-							@if (5>1)
+							@if (false)
 							@foreach($rs as $k=> $v)
 							<li class="hvr-sweep-to-bottom">
 								<a href="/home/user/profile" style="padding: 0px;">
@@ -145,7 +145,7 @@
 							@endforeach
 
 							@else
-							<li class="hvr-sweep-to-bottom"><a href="" class="scroll">登陆/注册</a></li>
+							<li class="hvr-sweep-to-bottom"><a href="/home/login">登陆/注册</a></li>
 							@endif	
 						</ul>
 					</div><!-- /.navbar-collapse -->					
