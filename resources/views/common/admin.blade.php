@@ -266,6 +266,19 @@
                 </ul>
             </div>  
 
+             <!-- 帖子列表 -->
+            <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-list"></i>帖子列表</a>
+                        <ul class="closed">
+                            <li><a href="/admin/post/index">主贴内容</a></li>
+                      
+                        </ul>
+                    </li>
+                </ul>
+            </div>  
+
 
 
             <!-- 友情链接-->
@@ -315,10 +328,7 @@
                        
             <!-- Footer -->
 
-            <div id="mws-footer">
-              Copyright Your Website 2018. All Rights Reserved.
-            </div>
-
+         
           
 
             

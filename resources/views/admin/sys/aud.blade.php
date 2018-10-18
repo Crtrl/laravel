@@ -8,7 +8,7 @@
     </div>
     <div class="fbneirong">
       <form class="am-form" action="/sys/upshen" method="post" enctype="multipart/form-data">
-        
+        {{csrf_field()}}
         <div class="am-form-group am-cf">
           <p>&nbsp;</p>
           <p>&nbsp;</p>
@@ -19,9 +19,12 @@
         </div>
 		    <div class="am-form-group am-cf">
           <div class="zuo">禁用关键词</div>
+         
           <div class="you">
-            <textarea class="" rows="8" id="doc-ta-1" name="content">{$con}</textarea>
+
+            <textarea class="" rows="8" id="doc-ta-1" name="content">{{$skeywords}}</textarea>
           </div>
+          
         </div>
          <div class="am-form-group am-cf">
           <div class="you" style="margin-left: 11%;">

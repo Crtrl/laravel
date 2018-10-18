@@ -50,6 +50,7 @@
 			<h3 class="ser">网络游戏</h3>
 		<p class="ever">Games are ninth kinds of art. </p>
 			<!-- 论坛帖子入口 -->
+			
 			<div class="services-top">
 				<div class="col-md-6 services-top-left">
 					<div class="services-top-main">
@@ -59,12 +60,15 @@
 							</a>
 						</div>
 						<div class="col-md-6 services-left">
-							<h4>英雄联盟</h4>
+						<a href="" title="">
+							<h4>{{$v->name}}</h4>
 							<p>S8,RISE!<br>大声告诉世界我们是LPL!</p>
+						</a>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 				</div>
+				
 				<div class="clearfix"></div>
 			</div>
 				<!--swipebox -->	
@@ -97,8 +101,11 @@
 							</a>
 						</div>
 						<div class="col-md-6 services-left">
-							<h4>王者荣耀</h4>
-							<p>-破魔之箭-伽罗-<br>"羌笛何须怨杨柳,春风不度玉门关".</p>
+							<a href="/home/post" title=""><h4>{{$cate->name}}</h4></a>
+							<p>回复 : <br></p>
+							<p>帖子 : <br></p>
+							<p>最后发帖时间 :<br></p>
+
 						</div>
 						<div class="clearfix"></div>
 					</div>
