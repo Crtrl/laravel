@@ -24,22 +24,24 @@ Route::get('/admin/common','admin\IndexController@common');
 //前台公共页面
 Route::get('/common/home','home\IndexController@cmn');
 
-//前台登录
-Route::any('/home/login','home\LoginController@login');
-Route::any('/home/dologin','home\LoginController@dologin');
-//前台注册
-Route::any('/home/register','home\LoginController@register');
-Route::any('/home/save','home\LoginController@save');
 
+
+
+//前台登录
+	Route::any('/home/login','home\LoginController@login');
+	Route::any('/home/dologin','home\LoginController@dologin');
+//前台注册
+	Route::any('/home/register','home\LoginController@register');
+	Route::any('/home/save','home\LoginController@save');
+//前台首页
+	Route::get('/home/index','home\IndexController@index');
 //前台路由组
-Route::group([],function()
+Route::group(['middleware'=>'homelogin'],function()
 {
 	//前台友情链接
 	Route::get('/home/friends','home\FriendsController@friends');
 	Route::get('/home/face','home\FriendsController@face');
 	Route::get('/home/pwd','home\FriendsController@pwd');
-		//前台首页
-	Route::get('/home/index','home\IndexController@index');
 	//前台选项卡
 	Route::get('/home/user/update','home\IndexController@update');
 	Route::get('/common/home','home\IndexController@profile');
@@ -47,7 +49,12 @@ Route::group([],function()
 	Route::get('/home/user/pwd','home\IndexController@pwd');
 	//前台修改个人信息
 	Route::get('/home/user/profile','home\UserController@profile');
+	//前台退出
+	Route::any('/home/loginout','home\LoginController@loginout');	
 });
+
+
+
 
 
 //后台登陆

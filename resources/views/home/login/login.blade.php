@@ -53,7 +53,7 @@
                                                        
                                                         <div class="SignFlowInput SignFlow-accountInputContainer">
                                                             <div class="SignFlow-accountInput Input-wrapper">
-                                                                <input type="tel" value="" name="username" class="Input" placeholder="用户名"
+                                                                <input type="tel" value="" name="fname" class="Input" placeholder="用户名"
                                                                 />
                                                             </div>
                                                             
@@ -68,7 +68,7 @@
                                                         <div class="SignFlowInput SignFlow-accountInputContainer">
                                                             <div class="SignFlow-accountInput Input-wrapper">
 
-                                                                <input type="tel" value="" name="password" class="Input" placeholder="密码"
+                                                                <input type="password" value="" name="password" class="Input" placeholder="密码"
                                                                 />
                                                             </div>
                                                         </div>
@@ -124,7 +124,7 @@
                                                 </form>
                                                 <div class="Register-footer">
                                                     <span class="Register-declaration" >
-                                                      <a href="http://www.baidu.com">QQ账号登录</a> 
+                                                      <!-- <a href="http://www.baidu.com">QQ账号登录</a>  -->
                                                     </span>
                                                    
                                                 </div>

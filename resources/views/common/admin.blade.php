@@ -17,17 +17,15 @@
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
-    <link rel="icon" type="image/png" href="/admin/i/favicon.png">
+<link rel="icon" type="image/png" href="/admin/i/favicon.png">
 <link rel="apple-touch-icon-precomposed" href="/dist/i/app-icon72x72@2x.png">
 <meta name="apple-mobile-web-app-title" content="Amaze UI" />
 <link rel="stylesheet" href="/admin/css/amazeui.min.css"/>
 <link rel="stylesheet" href="/admin/css/admin.css">
 <script src="/admin/js/jquery.min.js"></script>
 <!-- <script src="/admin/js/app.js"></script> -->
-
     <script type="text/javascript" src="/admin/js/site.min.js"></script>
-
-       <link type="text/css" rel="stylesheet" href="/admin/bootstrap/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="/admin/bootstrap/css/bootstrap.css">
     <script type="text/javascript" src="/admin/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="/admin/bootstrap/js/jquery-1.8.3.js"></script>
 
