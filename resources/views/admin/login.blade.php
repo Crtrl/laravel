@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Bootflat-Admin Template</title>
+    <title>StarySky</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="favicon_16.ico"/>
     <link rel="bookmark" href="favicon_16.ico"/>
@@ -26,8 +26,18 @@
   </head>
   <body>
     <div class="container">
-      <form class="form-signin" role="form" action="index.html">
+      <form class="form-signin" role="form" action="/admin/dologin" method="post">
+        {{csrf_field()}}
         <h3 class="form-signin-heading">星空论坛</h3>
+          @if (count($errors))
+          <div class="mws-form-message error">
+                <ul style="list-style: none;color: red;">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
         <div class="form-group">
           <div class="input-group">
             <div class="input-group-addon">
@@ -50,13 +60,10 @@
             <div class="input-group-addon">
               <i class="glyphicon glyphicon-comment"></i>
             </div>
-            <input type="text" class="form-control" name="username" id="username" placeholder="请输入验证码" autocomplete="off" />
+            <input type="text" class="form-control" name="captcha" id="captcha" placeholder="请输入验证码" autocomplete="off" />
           </div>
+          <img src="{{captcha_src('inverse')}}" onclick="this.src='/captcha/default?'+Math.random()">
         </div>
-
-        <label class="checkbox">
-          <input type="checkbox" value="remember-me"> &nbsp 记住用户名和密码
-        </label>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
       </form>
 

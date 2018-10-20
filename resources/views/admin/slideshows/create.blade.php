@@ -13,19 +13,20 @@
     	<div class="mws-form-block">
             <div class="mws-form-row">
                 <label class="mws-form-label"><p>图片预览</p></label>
-                <div id="mws-crop-parent" class="mws-form-item" style="width: 1000px;height: 500px;border:blue solid 1px;overflow: hidden;">
+                <div id="mws-crop-parent" class="mws-form-item" style="height: 600px;overflow: hidden;">
                     <img  alt="" id="prev">
                 </div>
 			</div>
             <div class="mws-form-row">
                 <div class="mws-form-item">
-                	<label><p>添加标题</p></label>
+                	<label><p>标题</p><span class="required">*</span></label>
                     <input type="text" name="title" class="small">
                 </div>
             </div>
             <div class="mws-form-row">
                 <div class="mws-form-cols">
                 	<label>选择图片
+                    <span class="required">*</span>
                     <input type="file" name="file_upload" id="file_upload">
                 	</label>
                 </div>

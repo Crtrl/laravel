@@ -11,7 +11,6 @@ class FriendsController extends Controller
    	{	
    		$rs = DB::table('friends')->get();
 
-   		
    		return view('home/friends',['rs'=>$rs]);
    	}
 

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Config;
-
+use App\Model\Admin\Friends;
 class FriendsController extends Controller
 {
     /**
@@ -19,9 +19,9 @@ class FriendsController extends Controller
          //$rs = DB::table('friends')->get();
         $fname = $request->input('fname');
 
-        $rs = DB::table('friends')->where('fname','like','%'.$fname.'%')->get();
+        $rs = Friends::where('fname','like','%'.$fname.'%')->get();
 
-         $friends = DB::table('friends')->paginate(5);
+         $friends = Friends::paginate(5);
 
     
  
@@ -77,7 +77,7 @@ class FriendsController extends Controller
 
         
             //dd($res);
-            $rs = DB::table('friends')->insert($res);
+            $rs = Friends::insert($res);
 
           if($rs){
             return redirect('/admin/friends');
@@ -105,7 +105,7 @@ class FriendsController extends Controller
      */
     public function edit($id)
     {
-        $res = DB::table('friends')->where('fid',$id)->first();
+        $res = Friends::where('fid',$id)->first();
 
    
         return view('/admin/friends/edit',['res'=>$res]);
@@ -139,7 +139,7 @@ class FriendsController extends Controller
 
                 try{
            
-            $rs = DB::table('friends')->where('fid',$id)->update($res);
+            $rs =Friends::where('fid',$id)->update($res);
 
 
             if($rs){
@@ -165,7 +165,7 @@ class FriendsController extends Controller
     {
          
            
-            $res = DB::table('friends')->where('fid',$id)->delete();
+            $res = Friends::where('fid',$id)->delete();
 
             return redirect('/admin/friends');
     }
