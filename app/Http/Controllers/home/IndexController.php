@@ -5,12 +5,12 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\SlideShows;
+
 use App\Model\Admin\Front_users;
 use App\Model\Admin\Post;
 use App\Model\Home\Sys;
 
 use App\Model\Admin\Cate;
-
 use DB;
 
 class IndexController extends Controller
@@ -33,7 +33,7 @@ class IndexController extends Controller
 		// var_dump($slideShows);die;
 	
 
-		$rs = Front_users::where('fid','2')->get();
+		$rs = Front_users::where('fid',session('fid'))->get();
 
                     $res = DB::table('friends')->get();
 
@@ -51,10 +51,12 @@ class IndexController extends Controller
                                                             'res'=>$res,
                                                             'zx'=>$zx,
                                                             'slideShows'=>$slideShows,
+
                                                             'cate'=>$cate,
                                                          ]);
 
 		
+
 
 
 
@@ -154,7 +156,7 @@ class IndexController extends Controller
 		// var_dump($slideShows);die;
 	
 
-		$rs = Front_users::where('fid','2')->get();
+		$rs = Front_users::where('fid',session('fid'))->get();
 		
                     $res = DB::table('friends')->get();
 

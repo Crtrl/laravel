@@ -142,25 +142,32 @@
 							<li class="hvr-sweep-to-bottom"><a href="#mobileGame" class="scroll">手机游戏</a></li>
 							<li class="hvr-sweep-to-bottom"><a href="#idpGame" class="scroll">单机游戏</a></li>
 							<li class="hvr-sweep-to-bottom"><a href="#friends" class="scroll">友情链接</a></li>
+\		
+							
+\
 
-							@if (true)
-							@foreach($rs as $k=> $v)
-							<li class="hvr-sweep-to-bottom">
+						@php
+                    		$res = DB::table('front_users')->where('fid',session('fid'))->first();
+               			@endphp
+               			@if($res)
+               		
+               			 <li class="hvr-sweep-to-bottom">
+\
 								<a href="/home/user/profile" style="padding: 0px;">
-								<img src="{{$v->face}}"  width="83" alt="" style="margin: 0px;" />
+								<img src="{{$res->face}}"  width="83" alt="" style="margin: 0px;" />
 								</a>		
 							</li>
-							
+						
 							<li class="">
-								<div><a href="/home/user/profile" class="btn btn-warning btn-default" style='color:blue'>{{$v->fname}}</a></div>
+								<div><a href="/home/user/profile" class="btn btn-warning btn-default" style='color:blue'>Hello, {{$res->fname}}</a></div>
 								<div><a href="/home/user/profile" class="btn btn-warning btn-default" style='color:blue'>个人中心</a></div>
-								<div><a href="" class="btn btn-warning btn-default" style="width: 100%">退出</a></div>
+								<div><a href="/home/loginout" class="btn btn-warning btn-default" style="width: 100%">退出</a></div>
 							</li>
-							@endforeach
 
-							@else
-							<li class="hvr-sweep-to-bottom"><a href="/home/login">登陆/注册</a></li>
-							@endif	
+						@else
+							<li class="hvr-sweep-to-bottom"><a href="/home/login" >登陆/注册</a></li>
+						@endif		
+
 						</ul>
 					</div><!-- /.navbar-collapse -->					
 				</nav>			

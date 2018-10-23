@@ -17,11 +17,11 @@ class UserController extends Controller
 
 	public function profile()
 	{
-		$rs = Front_users::where('fid','2')->get();
+		$rs = Front_users::where('fid',session('fid'))->get();
 
 		$zx = Sys::get();
 
-			$zname = Front_users::where('fid','2')->get()[0]['fname'];
+			$zname = Front_users::where('fid',session('fid'))->get()[0]['fname'];
 
 
 
