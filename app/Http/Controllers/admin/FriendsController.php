@@ -19,18 +19,12 @@ class FriendsController extends Controller
          //$rs = DB::table('friends')->get();
         $fname = $request->input('fname');
 
-        $rs = Friends::where('fname','like','%'.$fname.'%')->get();
-
-         $friends = Friends::paginate(5);
-
-    
- 
-
+        $rs = Friends::where('fname','like','%'.$fname.'%')->paginate(5);
        
         return view('admin/friends/index',[
             
             'rs'=>$rs,
-               'friends'=>$friends,
+              
             'fname'=>$fname,
             'request'=>$request
             ]);

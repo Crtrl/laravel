@@ -7,8 +7,8 @@
       <dl class="am-icon-home" style="float: right;"> 当前位置： 首页 > <a href="#">禁用IP</a></dl>
     </div>
     <div class="fbneirong">
-      <form class="am-form" action="/sys/doJin/" method="post" enctype="multipart/form-data">
-        
+      <form class="am-form" action="/admin/sys/upjin" method="post" enctype="multipart/form-data">
+        	{{csrf_field()}}
         <div class="am-form-group am-cf">
           <p>&nbsp;</p>
           <p>&nbsp;</p>
@@ -20,19 +20,22 @@
 		    <div class="am-form-group am-cf">
           <div class="zuo">禁用IP</div>
           <div class="you">
+
+          @foreach($Front_users as $k=>$v)
             <ul>
-              {foreach $jin as $v}
-              <li style="list-style:none;height:30px;border-bottom:1px dashed #888"><input  type="checkbox" name="rip" value="{$v.rip}" {if in_array($v.rip,$ips)}{/if}>  {:long2ip($v.rip)}</li>
-              {/foreach}
+              	
+              <li style="list-style:none;height:30px;border-bottom:1px dashed #888"><input  type="checkbox" name="status[]" value="{{$v->fid}}" checked="@if($v->status == '0') checked @endif " >{{$v->fname}}  </li>
+            
             </ul>
+
+              @endforeach
               
-              
-              
+             
           </div>
         </div>
          <div class="am-form-group am-cf">
           <div class="you" style="margin-left: 11%;">
-              <button type="submit" class="am-btn am-btn-success am-radius" >确认内容</button>
+              <button type="submit" class="am-btn am-btn-success am-radius" >禁用</button>
           </div>
         </div>
       </form>

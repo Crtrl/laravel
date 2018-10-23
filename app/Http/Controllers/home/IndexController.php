@@ -5,18 +5,25 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\SlideShows;
-<<<<<<< HEAD
+use App\Model\Admin\Front_users;
+use App\Model\Admin\Post;
+use App\Model\Home\Sys;
+
 use App\Model\Admin\Cate;
-=======
->>>>>>> 78d36fded0600d2f1ca5bc0902b28de1fedd9d4c
+
 use DB;
 
 class IndexController extends Controller
 {
+
+
+
+
+    //公共页面
 	public function index()
 	{
 
-        $st = DB::table('sys')->pluck('sstatus');
+        $st = Sys::pluck('sstatus');
 
         if($st[0] == '0'){
             return redirect('admin/mai');
@@ -26,44 +33,40 @@ class IndexController extends Controller
 		// var_dump($slideShows);die;
 	
 
-		$rs = DB::table('front_users')->get();
+		$rs = Front_users::where('fid','2')->get();
 
                     $res = DB::table('friends')->get();
 
                     
-                        $zx = DB::table('sys')->get();
+                        $zx = Sys::get();
                         //遍历前台页面
                         $cate = Cate::where('id', '1')->first();
+
+                       
                         
 
-<<<<<<< HEAD
+
                       
 		return view('home.index',['rs'=>$rs,
                                                             'res'=>$res,
                                                             'zx'=>$zx,
                                                             'slideShows'=>$slideShows,
-                                                            'cate'=>$cate]);
+                                                            'cate'=>$cate,
+                                                         ]);
 
 		
-=======
 
-		return view('home.index',[
-            'rs'=>$rs,
-            'res'=>$res,
-            'zx'=>$zx,
-            'slideShows'=>$slideShows]);
->>>>>>> 78d36fded0600d2f1ca5bc0902b28de1fedd9d4c
 
 
 	}
 
-
+        //修改个人信息
 	public function update(Request $request)
     {
         $res = $request ->except('_token');
 
         try {
-            $rs = DB::table('front_users') ->update($res);
+            $rs = Front_users::update($res);
 
             if ($rs) {
 
@@ -76,7 +79,7 @@ class IndexController extends Controller
         }
     }
 
-
+    //修改头像
     public function face(Request $request) 
     {
             $res = $request ->only('face');
@@ -98,7 +101,7 @@ class IndexController extends Controller
 
             try {
 
-                $rs = DB::table('front_users') ->update($res);
+                $rs = Front_users::update($res);
 
                 if ($rs) {
 
@@ -112,13 +115,13 @@ class IndexController extends Controller
 
         }
 
-
+//  修改密码
         public function pwd(Request $request)
         {
 
             //表单验证
             //获取数据库密码
-            $pass = DB::table('front_users')->first();
+            $pass = Front_users::first();
 
               
             
@@ -133,7 +136,7 @@ class IndexController extends Controller
            
             $re['pwd'] = $request->repass;
            
-            $data  = DB::table('front_users')->update($rs);
+            $data  = Front_users::update($rs);
 
 
             if($data && $rs['pwd'] == $re['pwd']){
@@ -143,13 +146,53 @@ class IndexController extends Controller
             }
         }
 
-        public function cmn()
+
+        public function my()
         {
-            $rs = DB::table('front_users')->get();
 
-            $zx = DB::table('sys')->get();
+        		$slideShows = SlideShows::Orderby('id','ASC')->get();
+		// var_dump($slideShows);die;
+	
 
-            return view('common/home',['rs'=>$rs,'zx'=>$zx]);
+		$rs = Front_users::where('fid','2')->get();
+		
+                    $res = DB::table('friends')->get();
+
+                    
+                        $zx = Sys::get();
+                        //遍历前台页面
+                        $cate = Cate::where('id', '1')->first();
+
+                       
+                        $zname = $rs[0]['fname'];
+                        $post =Post::where('zname',$zname)->paginate(10);
+
+                      
+		return view('home/user/my',['rs'=>$rs,
+                                                            'res'=>$res,
+                                                            'zx'=>$zx,
+                                                            'slideShows'=>$slideShows,
+                                                            'cate'=>$cate,
+                                                            'post'=>$post
+                                                         ]);
+
         }
+
+            public function del(Request $request,$id)
+            {
+                   
+            $res = Post::where('id',$id)->delete();
+
+            return redirect('/home/user/my');
+            }
+
+        public function sc()
+        {
+
+     
+        }
+
+
+   
 
 }

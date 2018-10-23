@@ -27,7 +27,7 @@
 					<article style="position: absolute; width: 100%; opacity: 0;"> 
 						<div class="banner-wrap">
 							<div class="banner-text-info banner-text-inf" style="background:url({{$v['url']}}) no-repeat 0px 0px;">
-								<h3>{{$v['title']}}</h3>
+								<h3 >{{$v['title']}}</h3>
 							</div>
 						</div>
 					</article>
@@ -61,7 +61,7 @@
 						</div>
 						<div class="col-md-6 services-left">
 						<a href="" title="">
-							<h4>{{$v->name}}</h4>
+							<h4 >{{$v->name}}</h4>
 							<p>S8,RISE!<br>大声告诉世界我们是LPL!</p>
 						</a>
 						</div>

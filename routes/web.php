@@ -44,12 +44,26 @@ Route::group([],function()
 	Route::get('/common/home','home\IndexController@profile');
 	Route::post('/home/user/face','home\IndexController@face');
 	Route::get('/home/user/pwd','home\IndexController@pwd');
+	//我的帖子
+	Route::get('home/user/my','home\IndexController@my');
+	Route::get('home/user/sc','home\IndexController@sc');
+	//删除我的帖子
+	Route::get('home/user/{id}','home\IndexController@del');
 
 
 	//帖子主页
 	Route::get('home/post','home\PostController@post');
+
+	//帖子收藏
+
+	
+	
+	
+
+
 	//获取帖子信息
 	Route::get('home/post/add','home\PostController@add');
+
 	
 	//前台修改个人信息
 	Route::get('/home/user/profile','home\UserController@profile');
@@ -74,9 +88,12 @@ Route::group([],function ()
 	//后台系统设置
 	Route::get('/admin/sys/web','admin\SysController@web');
 	Route::get('/admin/sys/aud','admin\SysController@aud');
+	//禁用IP
 	Route::get('/admin/sys/jinIP','admin\SysController@jinIP');
+
 	Route::post('/admin/sys/update','admin\SysController@update');
 	Route::post('/admin/sys/upshen','admin\SysController@upshen');
+	Route::post('/admin/sys/upjin','admin\SysController@upjin');
 	//广告管理路由
 	Route::resource('admin/ad','admin\AdController');
 	//分类管理路由
@@ -89,7 +106,13 @@ Route::group([],function ()
 
 	//帖子列表
 	Route::get('admin/post/index','admin\PostController@index');
+	//帖子删除
 	Route::post('admin/post/{id}','admin\PostController@destroy');
+	//帖子加亮
+	Route::get('admin/post/lit/{id}','admin\PostController@light');
+	//帖子置顶
+	Route::get('admin/post/top/{id}','admin\PostController@top');
+	
 
 
 	//后台用户管理

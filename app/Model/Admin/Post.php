@@ -30,4 +30,9 @@ class Post extends Model
 	 * @var array
 	 */
 	protected $guarded = [];
+
+    public function users()
+    {
+        return $this->belongTo('App\Model\Admin\Front_users','tid','id');
+    }
 }
