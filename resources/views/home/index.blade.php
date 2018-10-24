@@ -1,7 +1,7 @@
 @extends('common.home')
 
 @section('content')
-<style type="text/css" media="screen">
+<style type="text/css" media="screen">00
 	#imgs{
 		width: 200px;
 		height: 100px;
@@ -28,8 +28,8 @@
 			   		@foreach ($slideShows as $k=>$v)
 					<article style="position: absolute; width: 100%; opacity: 0;"> 
 						<div class="banner-wrap">
-							<div class="banner-text-info banner-text-inf" style="background:url({{$v['url']}}) no-repeat 0px 0px;">
-								<h3>{{$v['title']}}</h3>
+							<div class="banner-text-info banner-text-inf" style="background:url({{$v['url']}}); width: 100%; height: 20%; background-size: 100% ;">
+								<h3 >{{$v['title']}}</h3>
 							</div>
 						</div>
 					</article>
@@ -44,7 +44,7 @@
 	</div>
 <!-- //banner-text -->
 
-@foreach($rs as $k=>$v)
+@foreach($gname as $k=>$v)
 
 <div id="mobileGame" class="services">
 		<div class="container">
@@ -66,7 +66,9 @@
 							</a>
 						</div>
 						<div class="col-md-6 services-left">
+
 							<a href="/home/post/{{$vv->gid}}" title=""><h4>{{$vv->gname}}</h4></a>
+
 						</div>
 						
 					</div>

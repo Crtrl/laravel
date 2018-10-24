@@ -62,7 +62,7 @@
             </div>
             <input type="text" class="form-control" name="captcha" id="captcha" placeholder="请输入验证码" autocomplete="off" />
           </div>
-          <img src="{{captcha_src('inverse')}}" onclick="this.src='/captcha/default?'+Math.random()">
+          <img src="{{captcha_src()}}" onclick="this.src='/captcha/default?'+Math.random()">
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
       </form>

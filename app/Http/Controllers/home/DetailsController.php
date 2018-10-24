@@ -69,15 +69,16 @@ class DetailsController extends Controller
         // dd($data);
         $front = DB::table('Front_users')->where('fid',session('fid'))->first();
        // $com = DB::table('comments')->get();
-        
-       // $post = Post::where('id',$id)->get();
-      
-       // $a = '';
-       // foreach ($data as $k => $v) {
-       //    $a = $v->fuid;
-       // }
 
-      // $fronts = Front_users::where('fid',$a)->get();
+       $post = Post::where('id',$id)->get();
+      
+       $a = '';
+       foreach ($data as $k => $v) {
+          $a = $v->fuid;
+       }
+       echo $a;
+       die;
+      $fronts = Front_users::where('fid',$a)->get();
     
       $comments = Comments::where('post_id',$id)->get();
         
@@ -88,7 +89,8 @@ class DetailsController extends Controller
             'front'     => $front,
             'countView' => $countView,
             'comments'  => $comments,
-                    
+            'post'      => $post,
+            'fronts'    => $fronts
         ]);
     }
 

@@ -26,14 +26,15 @@
           <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
             <thead>
               <tr class="am-success">
-                <th class="table-check"><button class="am-btn am-btn-default am-btn-xs am-text-danger" title="批量删除"><span class="am-icon-trash-o" ></span></button></th>
+                
                 <th class="table-id">ID</th>
                 <th class="table-title">板块名称</th>
                 <th class="table-title">帖子名称</th>
                 <th class="table-title">发表者</th>
                 <th class="table-title">是否屏蔽</th>
                 <th class="table-title">发表时间</th>
-                <th class="table-title">发表端ip</th>
+                  <th class="table-title">审核</th>
+                 <th class="table-title">等级</th>
                 <th class="table-author am-hide-sm-only">操作</th>
             
               </tr>
@@ -41,58 +42,68 @@
             <tbody>
             	@foreach($post as $k=>$v)
 
-
-
-
-
-
-
 <tr>
-                <th class="table-check"><input type="checkbox" name="pids[]" value="{{$v->id}}"/></th>
+               
                 <td>{{$v->id}}</td>
                 <td>
                   @foreach ($cate as $val)
                     @if($v->cid == $val->id) 
                         {{$val->name}}
                       @endif
-                  @endforeach
+                 @endforeach
                 </td>
                 <td><a href="">{{$v->title}}</a></td>
                 <td>
-                  @foreach($front_users as $value)
-                    @if ($v->uid  == $value->fid)
-                      {{$value->fname}}
-                    @endif
-                  @endforeach
+                 
+                  
+                      {{$v->zname}}
+                     
+                   
                 </td>
                 <td>@if ($v->status)否@else 是@endif</td>
-                <td>{{$v->ptime}}</td>
-                <td>{{$v->pip}}</td>
+                <td> {{date('Y年m月d日 H时i分s秒',$v->ptime)}}</td>
+     
                 
-                <td >
+                <td><a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/jin/{{$v->id}}" title="" >禁用帖子</a>
+                 <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/ip/{{$v->id}}" title="" >禁用IP</a>
+                 <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/jieip/{{$v->id}}" title="" >解禁IP</a>
+                </td>
+
  </form>
-              	
-                  
+              	 <td>
+                          <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/lit/{{$v->id}}" title="" >加亮</a>
+                          <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/top/{{$v->id}}" title="" >置顶</a>
+
+                 </td>
+                  <td>
                     <form action='/admin/post/{{$v->id}}' method='post'>
                       {{csrf_field()}}
                       <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除帖子"><span class="am-icon-trash-o" >删除</span></button>
-                        
-                       
-                    </from>
-               
+
+                   </from>
+
+
+
+                    </td>
+
                  
 </tr>
              @endforeach
 
 
 
-
+   
 
 
               
             </tbody>
           </table>
-           
+            <div class="container text-center " id='' >
+  
+    
+           {{ $post->links() }}
+
+          </div>
           <hr />
           <p>注:多读书 多看报</p>
        

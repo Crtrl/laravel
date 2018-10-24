@@ -90,7 +90,7 @@
     <div class="container">
   
     
-     {{ $friends->links() }}
+     {{ $rs->links() }}
 
     </div>
   

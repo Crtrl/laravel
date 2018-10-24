@@ -5,10 +5,13 @@ return [
     'characters' => '2346789abcdefghjmnpqrtuxyzABCDEFGHJMNPQRTUXYZ',
 
     'default'   => [
-        'length'    => 5,
+        'length'    => 3,
         'width'     => 120,
         'height'    => 36,
         'quality'   => 90,
+        'fontColors'=> ['#000'],
+        'lines'     => 0,
+        'bgImage'   => false,
     ],
 
     'flat'   => [

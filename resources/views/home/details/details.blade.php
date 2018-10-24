@@ -286,7 +286,7 @@
                                                 <img class="authicn vm" id="authicon29310434" src="http://www.discuz.net/static/image/common/online_supermod.gif"
                                                 />
                                                 <em id="authorposton29310434">
-                                                    发表于 发表时间
+                                                    发表于 {{date('Y-m-d H:i:s',$v->ctime)}}
                                                 </em>
                                                 <span class="pipe">
                                                     |

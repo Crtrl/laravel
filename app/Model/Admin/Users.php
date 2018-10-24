@@ -21,10 +21,20 @@ class Users extends Model
      */
     public $timestamps = false;
 
-     /**
+    /**
 	 * 不可被批量赋值的属性。
 	 *
 	 * @var array
 	 */
 	protected $guarded = [];
+
+    /**
+     * 定义与App\Model\Role的多对多关系。
+     *
+     * @var function
+     */
+    public function role()
+    {
+        return $this->belongsToMany(Role::class, 'admin_users_role', 'users_id', 'role_id');
+    }
 }

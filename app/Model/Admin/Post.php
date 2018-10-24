@@ -30,14 +30,16 @@ class Post extends Model
 	 * @var array
 	 */
 	protected $guarded = [];
+
    
 
     /**
          *  
          *多对一关联用户表
-         *  @return 页面
+         *  @return 页面0
          */
     public function users(){
         return $this->belongsTo(\App\Model\home\Front_users::class,'fuid','fid');
+
     }
 }

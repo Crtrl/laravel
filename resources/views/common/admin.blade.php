@@ -212,6 +212,32 @@
                 </ul>
             </div>
 
+            <!-- 角色管理 -->
+            <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 角色管理</a>
+                        <ul class="closed">
+                            <li><a href="/admin/role">浏览角色</a></li>
+                            <li><a href="/admin/role/create">添加角色</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 权限管理 -->
+            <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 权限管理</a>
+                        <ul class="closed">
+                            <li><a href="/admin/permission">浏览权限</a></li>
+                            <li><a href="/admin/permission/create">添加权限</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
              <!-- 分类管理 -->
             <div id="mws-navigation">
                 <ul>
@@ -260,7 +286,7 @@
                         <ul class="closed">
                             <li><a href="/admin/sys/web">网站配置</a></li>
                             <li><a href="/admin/sys/aud">审核配置</a></li>
-                            <li><a href="/admin/sys/jinIP">禁用IP</a></li>
+                        
                         </ul>
                     </li>
                 </ul>

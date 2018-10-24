@@ -2,7 +2,7 @@
 <html>
 <head>
 @foreach($zx as $k=>$v)
-<title>{{$v->sname}}</title>
+<title  >{{$v->sname}}</title>
 @endforeach
 <!-- for-mobile-apps -->
 <script src="/ueditor/ueditor.config.js"></script>
@@ -142,6 +142,7 @@
 							<li class="hvr-sweep-to-bottom"><a href="#mobileGame" class="scroll">手机游戏</a></li>
 							<li class="hvr-sweep-to-bottom"><a href="#idpGame" class="scroll">单机游戏</a></li>
 							<li class="hvr-sweep-to-bottom"><a href="#friends" class="scroll">友情链接</a></li>
+
 
 
 						@php

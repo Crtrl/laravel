@@ -62,7 +62,7 @@
 
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" style="width: 120px;" aria-label="Platform(s): activate to sort column ascending">
-                            权限
+                            角色
                         </th>
 
                           <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
@@ -90,21 +90,24 @@
                             {{$v->email}}
                         </td>
                         <td class=" ">
-                            {{$v->auth}}
+                            @foreach($role as $i=>$j)
+                                @if(in_Array($j->id,explode(',',$v->role))){{$j->rolename}}
+                                @endif
+                            @endforeach
                         </td>
                         <td class=" ">
                             {{$v->addtime}}
                         </td>          
                         <td class=" ">
                             <a class='btn btn-primary' href="/admin/users/{{$v->id}}/edit">修改</a>
-                              <form action="/admin/users/{{$v->id}}" method='post' style='display:inline'>
+                            <form action="/admin/users/{{$v->id}}" method='post' style='display:inline'>
                                 
                                 {{csrf_field()}}
                                 {{method_field('DELETE')}}
 
                                 <button class='btn btn-danger'>删除</button>
-
                             </form>
+
                         </td>
                     </tr>
                     @endforeach
