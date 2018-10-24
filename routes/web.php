@@ -57,16 +57,14 @@ Route::group([],function()
 
 });
 
-//后台公共页面
-Route::get('/admin/common','admin\IndexController@common');
 
 //后台登陆
 Route::get('/admin/login','admin\LoginController@login');
 Route::post('/admin/dologin','admin\LoginController@dologin');
 
+
 //后台路由组
-Route::group([],function ()
-{
+Route::group(['middleware'=>['adminlogin']],function () {
 	//后台首页
 	Route::get('/admin/index','admin\IndexController@Index');
 
@@ -99,8 +97,12 @@ Route::group([],function ()
 	Route::post('/admin/doreset/{id}','admin\ResetController@doreset');
 	//用户退出
 	Route::any('/admin/logout','admin\ResetController@logout');
-	//用户管理资源路由
+	//用户管理
 	Route::resource('/admin/users','admin\AdminUsersController');
+	//角色管理
+	Route::resource('/admin/role','admin\RoleController');
+	//权限管理
+	Route::resource('/admin/permission','admin\PermissionController');
 
 	//系统维护
 	Route::get('admin/mai','admin\IndexController@mai');

@@ -5,10 +5,7 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\SlideShows;
-<<<<<<< HEAD
 use App\Model\Admin\Cate;
-=======
->>>>>>> 78d36fded0600d2f1ca5bc0902b28de1fedd9d4c
 use DB;
 
 class IndexController extends Controller
@@ -36,23 +33,13 @@ class IndexController extends Controller
                         $cate = Cate::where('id', '1')->first();
                         
 
-<<<<<<< HEAD
                       
 		return view('home.index',['rs'=>$rs,
-                                                            'res'=>$res,
-                                                            'zx'=>$zx,
-                                                            'slideShows'=>$slideShows,
-                                                            'cate'=>$cate]);
+                                'res'=>$res,
+                                'zx'=>$zx,
+                                'slideShows'=>$slideShows,
+                                'cate'=>$cate]);
 
-		
-=======
-
-		return view('home.index',[
-            'rs'=>$rs,
-            'res'=>$res,
-            'zx'=>$zx,
-            'slideShows'=>$slideShows]);
->>>>>>> 78d36fded0600d2f1ca5bc0902b28de1fedd9d4c
 
 
 	}
