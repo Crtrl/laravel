@@ -132,7 +132,6 @@
        
 </table>
 
-
     <br><br><br>
 <div>
    <div id="list-content" >
@@ -160,7 +159,7 @@
                                 今日:
                             </strong>
                             <!-- 显示今天所发的帖子 -->
-                            <b>6</b>
+                            <b>{{$today}}</b>
                             <span>|</span>
                             <strong>
                                 主题:
@@ -169,11 +168,11 @@
                             <b>{{$cate->name}}</b>
                             <span>|</span>
                             <strong>
-                                帖数:
+                                总帖数:
                             </strong>
                             <!-- 显示帖子总数 -->
                            
-                            <b>56</b>
+                            <b>{{$zong}}</b>
                             
                         </span>
                         <strong style="display:block;min-width:300px; color:white;" id='nn'>我很喜欢听你的歌 那么你呢?</strong>
@@ -209,11 +208,12 @@
                                 <th>作者 </th>
                                 <th>发表时间</th>
                                 <th>内容简介&nbsp; &nbsp;</th>
+                                <th>收藏</th>
                             </tr>
                     @foreach($list as $k=>$vv)    
                             <tr class="active">
                                 <td class="success">
-                                    @if($vv->jin==1)
+                                    @if($vv->liang==1)
                                     <img src='/home/images/topichot.gif'/>
                                     @endif
                                     &nbsp;                             
@@ -224,17 +224,17 @@
                            <!--帖子标题 -->
                                 <td >
                                  
-                                    <h4><a href="/ViewPost/{$v.id}" {if $v.liang==1}style="color:red"{/if}>{{$vv->title}}</a> </h4>
+                                    <h4><a href="">{{$vv->title}}</a> </h4>
                                   
                                 </td>
                                  <!--帖子作者 -->
                            
-                                @foreach($rs as $k=>$val)
+                              
 
                                 <td colspan="" rowspan="" headers="">
-                                        {{$val->fname}}
+                                        {{$vv->zname}}
                                 </td>
-                                @endforeach
+                               
                                   <!--发帖时间 -->
                                  <td>
                                 
@@ -245,6 +245,10 @@
                                     <div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
                                         {{$vv->content}}
                                     </div>
+                                </td>
+
+                                <td>
+                                    <a href="/home/post/sc" title="">收藏</a>
                                 </td>
                                 
                             </tr>

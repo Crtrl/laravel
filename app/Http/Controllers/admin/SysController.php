@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
+use App\Model\Home\Sys;
+use App\Model\Admin\Front_users;
+
 class SysController extends Controller
 {
     public function web(Request $request)
     {
-            $rs = DB::table('sys')->get();
+            $rs = Sys::get();
 
 
     	return view('/admin/sys/web',['rs'=>$rs]);
@@ -20,6 +22,7 @@ class SysController extends Controller
 
 
                 $res = $request->except('_token','_method','slogo');
+
 
             if($request->hasFile('slogo')){
 
@@ -36,18 +39,18 @@ class SysController extends Controller
 
               }
 
-          
 
 
 
-                        try{
+                        try{ 
            
-            $rs = DB::table('sys')->update($res);
+            $rs =Sys::where('sid',1)->update($res);
+
 
 
             if($rs){
 
-                return redirect('/admin/sys/web');
+                return redirect('/home/index');
             }
         }catch(\Exception $e){
 
@@ -55,14 +58,10 @@ class SysController extends Controller
 
         }
 
-
-
-
-
-        }
+  }
     public function aud()
     {
-            $skeywords= DB::table('sys')->pluck('skeywords')[0];
+            $skeywords= Sys::pluck('skeywords')[0];
            
 
     	return view('/admin/sys/aud',['skeywords'=>$skeywords]);
@@ -74,9 +73,34 @@ class SysController extends Controller
     {
 
     }
+
+
+
     public function jinIP()
     {
-    	return view('/admin/sys/jinIP');
+
+    	$Front_users = Front_users::get();
+
+    	//dd($Front_users);
+
+    	return view('/admin/sys/jinIP',['Front_users'=>$Front_users]);
     }
+
+    public function upjin(Request $request)
+    {
+        $rs = $request->input('status');
+    
+
+
+ 
+
+      
+
+
+       $Front_users = Front_users::where('fid',$rs)->update(['status'=>0]);
+
+}
+   
+
 
 }

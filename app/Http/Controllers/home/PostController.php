@@ -8,7 +8,7 @@ use App\Model\Home\Sys;
 use App\Model\Admin\Front_users;
 use App\Model\Admin\Cate;
 use App\Model\Admin\Post;
-use App\Model\Admin\ront_users;
+
 
 class PostController extends Controller
 {
@@ -18,34 +18,44 @@ class PostController extends Controller
     	$zx = Sys::get();
 
     		
-    	$rs = Front_users::get();
+    	$rs = Front_users::where('fid','1')->get();
+
+ 
 
     	$cate = Cate::where('id','1')->get()[0];
 
     	$title = $request->input('title');
 
-    	$list =Post::where('cid','4')->where('title','like','%'.$title.'%')->get();
+    	$list =Post::where('cid','4')->orderby('top','asc')->where('title','like','%'.$title.'%')->get();
+
+    	//获取最近24小时发的帖子
+    	$time = time() - 3600*24;
+    	//获取最近24小时发帖数量
+    	$sum = Post::where('ptime','>',$time)->get();
+    	 $today = count($sum);
 
     	
-            
+    	 //计算帖子总数
+    	 $zq = Post::get();
+
+    	 $zong = count($zq);
 
     	
 
+
+    	
     
-
-    	
- 	
-    	/*$aa =  date('Y-m-d h:i:s', time()); 
-    	dd($aa);*/
-    
-    	return view('home/post/post',['title'=>$title,'request'=>$request,'zx'=>$zx,'rs'=>$rs,'cate'=>$cate,'list'=>$list]);
+    	return view('home/post/post',['today'=>$today,'zong'=>$zong,'title'=>$title,'request'=>$request,'zx'=>$zx,'rs'=>$rs,'cate'=>$cate,'list'=>$list]);
 
     }
 
 	 //接收帖子
  	public function add(Request $request)
  	{
+
  		$sj =  $request->all();
+
+
 
                               $qp = $sj['content'];
 
@@ -57,6 +67,10 @@ class PostController extends Controller
                         $sj['cid'] = '4';
 
  		$sj['ptime'] =   time(); 
+
+      $rz = Front_users::where('fid','1')->get()[0]['fname'];
+
+      $sj['zname'] = $rz;
 	
  		/*$ft = front_users::pluck('fname');
  		dd($ft);*/
@@ -73,6 +87,9 @@ class PostController extends Controller
 
  		
  	}
+
+
+
 
 
 

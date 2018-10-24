@@ -3,7 +3,7 @@
 @section('content')
 
 <style type="text/css">
-    #lg{ height: 140px; } body{ background:url("/images/3.jpg"); background-size:2200px;
+    #lg{ height: 140px; } body{ background:url("/images/3.jpg");  background-size:2200px;
     } #xinxi{ float:left; margin-top: -550px; margin-left: 700px; padding-top:
     50px; width: 400px; }
     #d2{
@@ -15,6 +15,22 @@
      #d4{
         display: none;
     }
+    #d5{
+    	display: none;
+
+    }
+
+    #tz{
+    	width: 800px;
+    	 float:left;
+    	 margin-top: -450px;
+    	  margin-left: 500px;
+
+    }
+
+   
+    	
+   
 </style>
 <div>
     <a href="/home/index">
@@ -24,11 +40,10 @@
 <div class='container'>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+   <br>
+   <br>
+      
+   <br>
     <li onclick="dianji(1)" style="list-style-type:none">
         <button type="button" class="btn  btn-primary">
             修改信息
@@ -37,9 +52,7 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
+ 
     <li onclick="dianji(2)" style="list-style-type:none">
         <button type="button" class="btn  btn-primary">
             修改密码
@@ -48,8 +61,8 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
+  <br>
+
     <li onclick="dianji(3)" style="list-style-type:none">
         <button type="button" class="btn  btn-primary">
             修改头像
@@ -58,9 +71,8 @@
     <br>
     <br>
     <br>
-    </br>
     <br>
-    <br>
+
     <li onclick="dianji(4)" style="list-style-type:none">
         <button type="button" class="btn  btn-primary">
             我的关注
@@ -69,16 +81,40 @@
     <br>
     <br>
     <br>
+   <br>
+
+   
+      <li onclick="dianji(5)" style="list-style-type:none">
+       <a href="/home/user/my" title=""> <button type="button" class="btn  btn-primary">
+            我的帖子
+        </button></a>
+    </li>
     <br>
-    </br>
     <br>
     <br>
+  <br>
+ 
+   
+    
+          <li onclick="dianji(6)" style="list-style-type:none">
+       <a href="/home/user/sc" title=""> <button type="button" class="btn  btn-primary">
+            我的收藏
+        </button></a>
+    </li>
+    <br>
+    <br>
+    <br>
+  <br>
+  
     </div>
     <form action='/home/user/update' method="get" class='col-md-offset-2'
     id='xinxi'>
         <!-- 修改信息 -->
         <div id='d1'>
-            <div class="form-group">
+        <div class="">
+        	
+        </div>
+            <div class="form-group ">
             @foreach($rs as $k=>$v)
                 <label for="exampleInputEmail1">
                    昵称
@@ -176,19 +212,26 @@
     <!-- 我的关注 -->
       <form  action="/home/user/pwd" method="get" class='col-md-offset-2' id='xinxi'>
         <div id='d4'>
+        <table border="1">
+    
+   
                     <tr>
                                     <td>我关注的用户</td>
                                     <td>关注用户所发帖子数</td>
                                     <td></td>
-                                </tr>
-                                <tr>
+                    </tr>
+                         
+                    <tr>
                                     <td></td>
                                     <td></td>
-                                    <td>取消关注</td>
-                                </tr>
-                               
+                                    <td class="noguan" href=''>取消关注</td>
+                     </tr>
+                                
+           </table>           
         </div>
     </form>
+
+
      
 </div>
 </div>
@@ -215,7 +258,7 @@
             //选项卡JS设置
             function dianji(sum) {
                 var i;
-                for (i = 1; i <= 4; i++) {
+                for (i = 1; i <= 5; i++) {
                     if (i == sum) {
                         document.getElementById("d" + i).style.display = "block";
                     } else {

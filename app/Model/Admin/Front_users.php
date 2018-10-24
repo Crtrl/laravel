@@ -32,4 +32,9 @@ class Front_users extends Model
 	 */
 	
 	protected $guarded = [];
+
+    public function posts()
+    {
+        return $this->hasMany('App\Model\Admin\Post','tid','fid');
+    }
 }

@@ -53,7 +53,7 @@
                                                        
                                                         <div class="SignFlowInput SignFlow-accountInputContainer">
                                                             <div class="SignFlow-accountInput Input-wrapper">
-                                                                <input type="tel" value="" name="username" class="Input" placeholder="用户名"
+                                                                <input type="tel" value="" name="fname" class="Input" placeholder="用户名"
                                                                 />
                                                             </div>
                                                             
@@ -68,7 +68,7 @@
                                                         <div class="SignFlowInput SignFlow-accountInputContainer">
                                                             <div class="SignFlow-accountInput Input-wrapper">
 
-                                                                <input type="tel" value="" name="password" class="Input" placeholder="密码"
+                                                                <input type="password" value="" name="password" class="Input" placeholder="密码"
                                                                 />
                                                             </div>
                                                         </div>
@@ -124,7 +124,7 @@
                                                 </form>
                                                 <div class="Register-footer">
                                                     <span class="Register-declaration" >
-                                                      <a href="http://www.baidu.com">QQ账号登录</a> 
+                                                      <!-- <a href="http://www.baidu.com">QQ账号登录</a>  -->
                                                     </span>
                                                    
                                                 </div>
@@ -134,7 +134,7 @@
                                     <div class="SignContainer-switch">
                                         没有帐号？
                                         <span>
-                                            去注册
+                                            <a href="/home/register">去注册</a>
                                         </span>
                                     </div>
                                     <div class="SignFlowHomepage-qrImage SignFlowHomepage-qrImageHidden">
@@ -148,26 +148,26 @@
                         <footer class="SignFlowHomepage-footer">
                            
                             <div class="ZhihuRights">
-                                <a target="_blank" rel="noopener noreferrer" href="http://www.baidu.com">
+                                <a target="_blank" rel="noopener noreferrer" href="#">
                                     关于星空
                                 </a>
                                 
-                               <a target="_blank" rel="noopener noreferrer" href="http://www.baidu.com">
+                               <a target="_blank" rel="noopener noreferrer" href="#">
                                     广告服务
                                 </a>
-                                 <a target="_blank" rel="noopener noreferrer" href="http://www.baidu.com">
+                                 <a target="_blank" rel="noopener noreferrer" href="#">
                                     技术支持
                                 </a>
-                               
+                              
                             </div>
                             <div class="ZhihuReports">
-                                <a target="_blank" rel="noopener noreferrer" href="https://zhuanlan.zhihu.com/p/28852607">
+                                <a target="_blank" rel="noopener noreferrer" href="#">
                                     侵权举报
                                 </a>
-                                <a target="_blank" rel="noopener noreferrer" href="http://www.12377.cn">
+                                <a target="_blank" rel="noopener noreferrer" href="#">
                                     网上有害信息举报专区
                                 </a>
-                                <a target="_blank" rel="noopener noreferrer" href="/jubao">
+                                <a target="_blank" rel="noopener noreferrer" href="#">
                                     儿童色情信息举报专区
                                 </a>
                                 <span>

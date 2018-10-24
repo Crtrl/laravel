@@ -21,8 +21,12 @@ class PostController extends Controller
 		foreach($cate as $k=>$v){
 			$ct[] = $v['id'];
 		}
+
+		
 		// dd($ct);
-		$post = Post::whereIn('cid',$ct)->get();
+		$post = Post::whereIn('cid',$ct)->paginate(10);
+
+
 		return view('admin/post/index',['post'=>$post,'cate'=>$cate,'front_users'=>$front_users,'request'=>$request]);
 	}
 
@@ -35,6 +39,23 @@ class PostController extends Controller
 	   
 	         return redirect('/admin/post/index'); 
  		
+	}
+
+	public function light($id)
+	{
+
+		Post::where('id',$id)->update(['liang'=>'1']);	
+
+		return redirect('/admin/post/index'); 
+
+	}
+	public function top($id)
+	{
+
+
+		Post::where('id',$id)->update(['top'=>'1']);	
+
+		return redirect('/admin/post/index'); 
 	}
 
 
