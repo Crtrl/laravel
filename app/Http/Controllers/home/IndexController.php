@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\SlideShows;
 use App\Model\Admin\Front_users;
+use App\Model\Admin\Friends;
+use App\Model\Admin\Cate;
 use App\Model\Admin\Post;
 use App\Model\Home\Sys;
 
@@ -27,7 +29,7 @@ class IndexController extends Controller
 		// var_dump($slideShows);die;
 	
 		$rs = Front_users::where('fid',session('fid'))->get();
-        $res = DB::table('friends')->get(); 
+        $res = Friends::get(); 
         $zx = Sys::get();
         //遍历前台页面
         $cate = Cate::where('id', '1')->first();
