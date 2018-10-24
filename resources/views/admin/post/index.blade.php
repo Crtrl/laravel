@@ -33,7 +33,7 @@
                 <th class="table-title">发表者</th>
                 <th class="table-title">是否屏蔽</th>
                 <th class="table-title">发表时间</th>
-                <th class="table-title">发表端ip</th>
+                  <th class="table-title">审核</th>
                  <th class="table-title">等级</th>
                 <th class="table-author am-hide-sm-only">操作</th>
             
@@ -62,9 +62,13 @@
                 </td>
                 <td>@if ($v->status)否@else 是@endif</td>
                 <td> {{date('Y年m月d日 H时i分s秒',$v->ptime)}}</td>
-                <td>{{$v->pip}}</td>
+     
                 
-                
+                <td><a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/jin/{{$v->id}}" title="" >禁用帖子</a>
+                 <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/ip/{{$v->id}}" title="" >禁用IP</a>
+                 <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/jieip/{{$v->id}}" title="" >解禁IP</a>
+                </td>
+
  </form>
               	 <td>
                           <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/lit/{{$v->id}}" title="" >加亮</a>

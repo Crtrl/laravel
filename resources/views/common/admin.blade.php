@@ -285,7 +285,7 @@
                         <ul class="closed">
                             <li><a href="/admin/sys/web">网站配置</a></li>
                             <li><a href="/admin/sys/aud">审核配置</a></li>
-                            <li><a href="/admin/sys/jinIP">禁用IP</a></li>
+                        
                         </ul>
                     </li>
                 </ul>

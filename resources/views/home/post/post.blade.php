@@ -28,36 +28,29 @@
 
 <style media="screen">
     #tz{
-         width: 300px;
+        width: 300px;
         border: solid 2px green;
     }
 
     #cc{
-               background-image: url(/images/u2.jpg);
-               
-              background-size:1200px;
-               
-              
-
-            }
+        background-image: url(/images/u2.jpg);              
+        background-size:1200px;              
+    }
     
     body{
           
-            background:url("/images/you.jpg") 1700px 0 no-repeat,
-                
-                     url("/images/zuo.jpg") 0 0 no-repeat;
-               
-           background-attachment: fixed;
-                  line-height: normal;
-                 font-weight: normal;
-                background-size:contain;
-
-
+        background:url("/images/you.jpg") right top no-repeat,            
+        url("/images/zuo.jpg") left top no-repeat;  
+        background-size:100% 100%;
+        background-attachment: fixed;
+        line-height: normal;
+        font-weight: normal;
+        background-size:contain;
     }
     
     #cb{
-            background: gray;
-            width: 100%;
+        background: gray;
+        width: 100%;
     }
 
     .cx{
@@ -70,9 +63,9 @@
     }
 
     .cv{
-            float: right;
-            line-height: 50px;
-            font-size: 20px;
+        float: right;
+        line-height: 50px;
+        font-size: 20px;
     }
 
     .cc{
@@ -82,17 +75,14 @@
     }
 
     #img{
-
-            width: 300px;
-            height: 100px;
+        width: 300px;
+        height: 100px;
     }
 
     #ss{
-    
-       width: 26px;
+        width: 26px;
         font-size: 15px;
         margin-top: 10px;
-
     }
     .bb{
         font-size: 30px;
@@ -131,29 +121,26 @@
     
        
 </table>
-
-    <br><br><br>
-<div>
-   <div id="list-content" >
-            <div class="container" >
-                <div class="bNav">
-                
-                
-                
-                </div>
-                <br><br><br>
-<div  id = 'cc'>
-                <div id="list-detail"  style="color:white;">
-                    <h3><a href="/home/index" title="">首页</a>->{{$cate->name}}</h3>
-                    <div>
-                        <!-- 获得板块缩略图 -->
+        <br><br><br>
+    <div>
+       <div id="list-content" >
+                <div class="container" >
+                    <div class="bNav">
+                    
+                    </div>
+                    <br><br><br>
+                <div  id = 'cc'>
+                    <div id="list-detail"  style="color:white;">
+                        <h3><a href="/home/index" title="">首页</a>->{{$cate->name}}</h3>
+                        <div>
+                            <!-- 获得板块缩略图 -->
+                               
+                        <strong>
+                            @foreach($rs as $k=> $v)
+                            <img src="{{$v->face}}" width="120" alt="">
+                            @endforeach
+                        </strong>
                            
-                           <strong>
-                                        @foreach($rs as $k=> $v)
-                      <img src="{{$v->face}}" width="120"alt="">
-                    @endforeach
-                    </strong>
-                       
                         <span style="color:white;" class="bb" >
                             <strong >
                                 今日:
@@ -176,122 +163,102 @@
                             
                         </span>
                         <strong style="display:block;min-width:300px; color:white;" id='nn'>我很喜欢听你的歌 那么你呢?</strong>
-                    </div>
-
-</div>
-                    <form action="/home/post" method="get"  style="float:right;height:40px">
-                  
-
-                        <input type="text" name="title" id='mm'  value="{{$request->title}}"  placeholder="请输入帖子标题关键字" style="width:300px;height:35px" >
-                        <button type="">
-                       <span id='ss'  class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                    </form>
-                     </div>
-                    <div class="clear"></div>
-                    <div class="list-page">
-                        <div class="page">
-                          
                         </div>
 
-
-                        
-                                          </div>
-
-
-
-                                  
-                    <div class="container">
-                        <table class="table table-striped  ">
-                            <tr id='as'>
-                                <th>&nbsp;</th>
-                                <th>标题 </th>
-                                <th>作者 </th>
-                                <th>发表时间</th>
-                                <th>内容简介&nbsp; &nbsp;</th>
-                                <th>收藏</th>
-                            </tr>
-                    @foreach($list as $k=>$vv)    
-                            <tr class="active">
-                                <td class="success">
-                                    @if($vv->liang==1)
-                                    <img src='/home/images/topichot.gif'/>
-                                    @endif
-                                    &nbsp;                             
-                                           @if($vv->top==1)
-                                    <img src='/home/images/headtopic_3.gif'/>
-                                    @endif
-                                </td>
-                           <!--帖子标题 -->
-                                <td >
-                                 
-                                    <h4><a href="">{{$vv->title}}</a> </h4>
-                                  
-                                </td>
-                                 <!--帖子作者 -->
-                           
-                              
-
-                                <td colspan="" rowspan="" headers="">
-                                        {{$vv->zname}}
-                                </td>
-                               
-                                  <!--发帖时间 -->
-                                 <td>
-                                
-                                  {{date('Y年m月d日 H时i分s秒',$vv->ptime)}}
-                                </td>
-                                <!--内容简介 -->
-                                <td >
-                                    <div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                        {{$vv->content}}
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <a href="/home/post/sc" title="">收藏</a>
-                                </td>
-                                
-                            </tr>
-                            @endforeach
-                  
-                        </table>
                     </div>
-                    
+                    <!-- 查询 -->
+                    <form action="/home/post" method="get"  style="float:right;height:40px">               
+                        <input type="text" name="title" id='mm'  value="{{$request->title}}"  placeholder="请输入帖子标题关键字" style="width:300px;height:35px" >
+                        <button type="">
+                        <span id='ss'  class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </form>
                 </div>
+                <div class="clear"></div>
+                <!-- 帖子列表 -->
+                <div class="container">
+                    <table class="table table-striped  ">
+                        <tr id='as'>
+                            <th>&nbsp;</th>
+                            <th>标题 </th>
+                            <th>作者 </th>
+                            <th>发表时间</th>
+                            <th>内容简介&nbsp; &nbsp;</th>
+                            <th>收藏</th>
+                        </tr>
+                        @foreach($list as $k=>$vv)    
+                        <tr class="active">
+                            <td class="success">
+                                @if($vv->liang==1)
+                                <img src='/home/images/topichot.gif'/>
+                                @endif
+                                &nbsp;                             
+                                @if($vv->top==1)
+                                <img src='/home/images/headtopic_3.gif'/>
+                                @endif
+                            </td>
+                        <!--帖子标题 -->
+                            <td>
+                                <h4><a href="">{{$vv->title}}</a> </h4>
+                            </td>
+                        <!--帖子作者 -->
+                            <td colspan="" rowspan="" headers="">
+                                    {{$vv->zname}}
+                            </td>
+                           
+                        <!--发帖时间 -->
+                            <td>
+                              {{date('Y年m月d日 H时i分s秒',$vv->ptime)}}
+                            </td>
+                        <!--内容简介 -->
+                            <td >
+                                <div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                    {{$vv->content}}
+                                </div>
+                            </td>
+                        <!-- 收藏 -->
+                            <td>
+                                <a href="/home/post/sc" title="">收藏</a>
+                            </td>
+                            
+                        </tr>
+                        @endforeach
+              
+                    </table>
+                </div>
+                
             </div>
         </div>
+    </div>
 
-        <br><br><br>
-        
-                    <form action='/home/post/add' method="get"   enctype="multipart/form-data">
+            <br><br><br>
+            <!-- 快速发帖 -->
+            <form action='/home/post/add' method="get"   enctype="multipart/form-data">
+                <div class="success container col-md-offset-2" id='sf'> <h2>快速发帖:</h2></div>  
+                <div class="container col-md-offset-4" > 帖子标题 : <input type="text" name="title" id='tz' value="" placeholder="">
+                </div>
 
-              <div class="success container col-md-offset-2" id='sf'> <h2>快速发帖:</h2></div>  
-<div class="container col-md-offset-4" >
-        帖子标题 : <input type="text" name="title" id='tz' value="" placeholder="">
-</div>
-<br><br><br>
-        <div class="container">
-          <script class="col-md-offset-1" id="editor" name="content" type="text/plain" style="width:1024px;height:300px;">
-              
+                <br><br><br>
+                <div class="container">
+                    <script class="col-md-offset-1" id="editor" name="content" type="text/plain" style="width:1024px;height:300px;">
+                          
+                    </script>
+                </div>
 
+                <br><br><br><br>
 
+                <div class="list-page">
+                    <button type="submit"  class='btn-danger col-md-offset-6' style="width:100px;height:50px" >发帖</button>
+                           
+                </div>
 
-          </script>
-          </div>
-             <br><br><br><br>
-          <div class="list-page">
-                        <button type="submit"  class='btn-danger col-md-offset-6' style="width:100px;height:50px" >发帖</button>
-                   
-                    </div>
-
-</form>
+            </form>
 <!-- 
               //实例化编辑器
     //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例 -->
-  
-<script type="text/javascript">
+    <!-- 编辑机器实例化 -->
+    <script type="text/javascript">
         var ue = UE.getEditor('editor');
 
-</script>
+    </script>
 </table>
-        </body>
+</body>

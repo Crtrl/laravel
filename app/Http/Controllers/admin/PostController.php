@@ -59,6 +59,75 @@ class PostController extends Controller
 	}
 
 
+	public function jin($id)
+	{
+		try{
+		           
+		          $rs = Post::where('id',$id)->delete();
 
+
+		 if($rs){
+
+		           return redirect('/admin/index')->with('success','禁用成功');
+		           }
+		        }catch(\Exception $e){
+
+		            return back()->with('error','禁用失败');
+
+		        }
+	}
+
+
+	public function ip($id)
+	{
+
+			
+
+
+
+			try{
+		           
+		         $zname = Post::where('id',$id)->get()[0]['zname'];
+			$front_users = Front_users::where('fname',$zname)->update(['status'=>0]);
+
+
+		 if($front_users){
+
+		           return redirect('/admin/post/index')->with('success','禁用IP成功');
+		           }
+		        }catch(\Exception $e){
+
+		            return back()->with('error','禁用IP失败');
+
+		        }
+
+
+
+
+	
+	}
+
+
+	public function jieip($id)
+	{
+
+
+
+			try{
+		           
+		         $zname = Post::where('id',$id)->get()[0]['zname'];
+			$front_users = Front_users::where('fname',$zname)->update(['status'=>1]);
+
+			
+		 if($front_users){
+
+		           return redirect('/admin/post/index')->with('success','解禁IP成功');
+		           }
+		        }catch(\Exception $e){
+
+		            return back()->with('error','解禁IP失败');
+
+		        }
+	}
    
 }
