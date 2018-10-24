@@ -63,22 +63,18 @@
                 </div>
                 <div class="mws-form-row bordered">
 				    <label class="mws-form-label">
-				        权限
+				        角色
 				    </label>
 				    <div class="mws-form-item clearfix">
 				        <ul class="mws-form-list inline">
+                            @foreach($role as $k=>$v)
 				            <li>
-				                <input type="checkbox" name="auth[]" value="1">
+				                <input type="checkbox" name="role[]" value="{{$v->id}}">
 				                <label>
-				                    超级管理员
+				                    {{$v->rolename}}
 				                </label>
 				            </li>
-				            <li>
-				                <input type="checkbox" name="auth[]" value="2" checked="true">
-				                <label>
-				                    普通管理员
-				                </label>
-				            </li>
+                            @endforeach
 				        </ul>
 				    </div>
 				</div>
