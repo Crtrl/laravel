@@ -63,28 +63,32 @@ class DetailsController extends Controller
         $post->save();
         // 赋值并分配
         $countView = $post->val;
-
+      
         //根据id获取数据
-       //  $data = DB::table('post')->where('id',$id)->first();
-       //  $front = DB::table('Front_users')->where('fid',session('fid'))->first();
-       // $comments = DB::table('comments')->get();
+        $data = DB::table('post')->where('id',$id)->first();
+        // dd($data);
+        $front = DB::table('Front_users')->where('fid',session('fid'))->first();
+       // $com = DB::table('comments')->get();
+        
+       // $post = Post::where('id',$id)->get();
+      
+       // $a = '';
+       // foreach ($data as $k => $v) {
+       //    $a = $v->fuid;
+       // }
 
-       $data = Post::where('id',$id)->get();
-       $a = '';
-       foreach ($data as $k => $v) {
-          $a = $v->fuid;
-       }
-      $front = Front_users::where('fid',$a)->get();
-      // dd($front);
+      // $fronts = Front_users::where('fid',$a)->get();
+    
       $comments = Comments::where('post_id',$id)->get();
-      // dd($comments);
-
+        
+        
         return view('home/details/details',[
             'title'     => '帖子详情页',
             'data'      => $data,
             'front'     => $front,
             'countView' => $countView,
-            'comments'  => $comments
+            'comments'  => $comments,
+                    
         ]);
     }
 

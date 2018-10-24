@@ -55,10 +55,10 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::get('home/post/{id}','home\PostController@post');
 	//获取帖子信息
 	Route::get('home/post/add','home\PostController@add');
-	//帖子详情页
-	Route::resource('/home/details','home\DetailsController');
 	//前台修改个人信息
 	Route::get('/home/user/profile','home\UserController@profile');
+	//帖子详情页
+	Route::resource('/home/details','home\DetailsController');
 	//前台退出
 	Route::any('/home/loginout','home\LoginController@loginout');
 	//前台评论

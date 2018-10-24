@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="/css/details_one.css"/>
         <link rel="stylesheet" type="text/css" href="/css/details_two.css" />
        <link rel="stylesheet" href="/layui/css/layui.css">
-        <script src="/layui/layui.all.js"></script>
+    <script src="/layui/layui.all.js"></script>
         <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
     </head>
     
@@ -40,16 +40,14 @@
                     <em>
                         &rsaquo;
                     </em>
-                    <a href="/home/post">
+                    <a href="">
                         论坛列表
                     </a>
                     <em>
                         &rsaquo;
                     </em>
                      <a href="#">
-                        @foreach($data as $k=>$v)
-
-                        @endforeach
+                        {{$data->title}}
                     </a>
                 </div>
             </div>
@@ -65,11 +63,11 @@
                     <div class="pgt">
                     </div>
                     <span class="y pgb">
-                        <a href="/home/post">
+                        <a href="">
                             返回列表
                         </a>
                     </span>
-                    <a id="newspecial"  href="/home/post" title="发新帖">
+                    <a id="newspecial"  href="" title="发新帖">
                         <img src="/images/details/pn_post.png" alt="发新帖" />
                     </a>
                 </div>
@@ -102,7 +100,8 @@
                                 <h1 class="ts">
                                
                                     <span id="thread_subject">
-                                        帖子名称:   {{$data->title}}
+                                        帖子名称: {{$data->title}}
+                                       
                                     </span>
                                 </h1>
                              
@@ -133,7 +132,7 @@
                                         <div class="pi">
                                             <div class="authi">
                                                 <a href="/home/user/profile" target="_blank" class="xw1">
-                                                   {{$front->fname}}
+                                                 {{$front->fname}}
                                                 </a>
                                             </div>
                                         </div>
@@ -148,9 +147,7 @@
                                             <div class="avatar">
                                                 <!-- 评论者头像 -->
                                                 <a href="/home/user/profile" class="avtm" target="_blank">
-                                                    <img src="{{$front->face}}"
-                                                    onerror="this.onerror=null;this.src='http://uc.discuz.net/images/noavatar_middle.gif'"
-                                                    />
+                                                    <img src="{{$front->face}}" />
                                                 </a>
                                             </div>
                                         </div>
@@ -195,7 +192,7 @@
                                               <div class="t_fsz">
                                                 <table cellspacing="0" cellpadding="0">
                                                     <tr>
-                                                       <td>{{$data->content}}</td>  
+                                                       <td>{{$data->content}} </td>  
                                                     </tr>
                                                 </table>
                                             </div>
@@ -242,12 +239,11 @@
                                 </td>
                             </tr>
                         </table>
-                      
                     </div>
 
                     <!-- 第一个评论 -->
-                    @foreach($comments as $k=>$v)
-                    <div id="post_29310434">
+                 @foreach($comments as $k => $v)
+                     <div id="post_29310434">
                         <table id="pid29310434" class="plhin" summary="pid29310434" cellspacing="0"
                         cellpadding="0">
                             <tr>
@@ -256,7 +252,7 @@
                                         <div class="pi">
                                             <div class="authi">
                                                 <a href="/home/user/profile" target="_blank" class="xw1">
-                                                  {{$v->user_id}}
+                                                {{$v->user_id}}
                                                 </a>
                                             </div>
                                         </div>
@@ -264,7 +260,7 @@
                                         <div>
                                             <div class="avatar">
                                                 <a href="#">
-                                                    <img src="{{$v->user_id}}"
+                                                    <img src="用户头像"
                                                     />
                                                 </a>
                                             </div>
@@ -290,7 +286,7 @@
                                                 <img class="authicn vm" id="authicon29310434" src="http://www.discuz.net/static/image/common/online_supermod.gif"
                                                 />
                                                 <em id="authorposton29310434">
-                                                    发表于 {{date('Y-m-d H:i:s',$v->ctime)}}
+                                                    发表于 发表时间
                                                 </em>
                                                 <span class="pipe">
                                                     |
@@ -307,7 +303,9 @@
                                             <div class="t_fsz">
                                                 <table cellspacing="0" cellpadding="0">
                                                     <tr>
-                                                       <td>{!! $v->content !!}</td>  
+                                                       <td>
+                                                       {!! $v->content !!}
+                                                    </td>  
                                                     </tr>
                                                 </table>
                                             </div>
@@ -338,8 +336,8 @@
                                 </td>
                             </tr>
                         </table>
-                    </div>
-                    @endforeach
+                    </div> 
+                 @endforeach
 
 
                         <!-- 第二个评论       -->
