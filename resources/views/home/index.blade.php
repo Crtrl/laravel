@@ -26,7 +26,7 @@
 			   		@foreach ($slideShows as $k=>$v)
 					<article style="position: absolute; width: 100%; opacity: 0;"> 
 						<div class="banner-wrap">
-							<div class="banner-text-info banner-text-inf" style="background:url({{$v['url']}}) no-repeat 0px 0px;">
+							<div class="banner-text-info banner-text-inf" style="background:url({{$v['url']}}); width: 100%; height: 20%; background-size: 100% ;">
 								<h3 >{{$v['title']}}</h3>
 							</div>
 						</div>

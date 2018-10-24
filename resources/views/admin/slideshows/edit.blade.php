@@ -43,39 +43,28 @@
 
 <!-- 图片预览功能 -->
 <script>
-	 $(function () {
-        $("#file_upload").change(function () {
-            uploadImage();
-        })
-    })
-    function uploadImage() {
-    //  判断是否有选择上传文件
-        var imgPath = $("#file_upload").val();
-        if (imgPath == "") {
-            alert("请选择上传图片！");
-            return;
-        }
-        //判断上传文件的后缀名
-        var strExtension = imgPath.substr(imgPath.lastIndexOf('.') + 1);
-        if (strExtension != 'jpg' && strExtension != 'gif'
-            && strExtension != 'png' && strExtension != 'bmp') {
-            alert("请选择图片文件");
-            return;
-        }
-        var formData = new FormData($('#form_upload')[0]);
-        $.ajax({
-            type: "POST",
-            url: "/admin/upload",
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(data) {
-                $('#prev').attr('src','/'+data);
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                alert("上传失败，请检查网络后重试");
-            }
+    $(function() {
+            $("#file_upload").change(function() {
+                 var imgPath = $("#file_upload").val();
+                if (imgPath == "") {
+                    alert("请选择上传图片！");
+                    return;
+                }
+                //判断上传文件的后缀名
+                var strExtension = imgPath.substr(imgPath.lastIndexOf('.') + 1);
+                if (strExtension != 'jpg' && strExtension != 'gif'
+                    && strExtension != 'png' && strExtension != 'bmp') {
+                    alert("请选择图片文件");
+                    return;
+                }
+                var $file = $(this);
+                var objUrl = $file[0].files[0];
+                //获得一个http格式的url路径:mozilla(firefox)||webkit or chrome  
+                var windowURL = window.URL || window.webkitURL;
+                //createObjectURL创建一个指向该参数对象(图片)的URL  
+                var dataURL = windowURL.createObjectURL(objUrl);
+                $("#prev").attr("src", dataURL);
+            });
         });
-    }
 </script>
 @stop
