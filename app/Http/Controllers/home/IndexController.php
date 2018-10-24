@@ -5,7 +5,7 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\SlideShows;
-use App\Model\Admin\Front_users;
+use App\Model\home\Front_users;
 use App\Model\Admin\Friends;
 use App\Model\Admin\Cate;
 
@@ -49,6 +49,7 @@ class IndexController extends Controller
 	
 
 		$rs = Front_users::where('fid',session('fid'))->get();
+      
         $res = Friends::get(); 
         $zx = Sys::get();
         //遍历前台页面

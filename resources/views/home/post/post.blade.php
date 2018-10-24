@@ -206,7 +206,7 @@
                             </td>
                         <!--帖子标题 -->
                             <td>
-                                <h4><a href="">{{$vv->title}}</a> </h4>
+                                <h4><a href="/home/details/{{$vv->id}}">{{$vv->title}}</a> </h4>
                             </td>
                         <!--帖子作者 -->
                             <td colspan="" rowspan="" headers="">

@@ -19,7 +19,7 @@ class DetailsController extends Controller
     public function index()
     {
         //
-        // echo "index";
+        echo "index";
         
     }
 
@@ -54,6 +54,7 @@ class DetailsController extends Controller
      */
     public function show($id)
     {
+        // echo 'show';die;
     //访问数量
         // 查询数据
         $post = Post::find($id);
@@ -64,20 +65,20 @@ class DetailsController extends Controller
         // 赋值并分配
         $countView = $post->val;
       
-        //根据id获取数据
+ //根据id获取数据
         $data = DB::table('post')->where('id',$id)->first();
         // dd($data);
+        //获取用户信息
         $front = DB::table('Front_users')->where('fid',session('fid'))->first();
        // $com = DB::table('comments')->get();
 
        $post = Post::where('id',$id)->get();
       
        $a = '';
-       foreach ($data as $k => $v) {
+       foreach ($post as $k => $v) {
           $a = $v->fuid;
        }
-       echo $a;
-       die;
+       
       $fronts = Front_users::where('fid',$a)->get();
     
       $comments = Comments::where('post_id',$id)->get();

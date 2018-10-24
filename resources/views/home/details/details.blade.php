@@ -242,7 +242,7 @@
                     </div>
 
                     <!-- 第一个评论 -->
-                 @foreach($comments as $k => $v)
+                 @foreach($comments as $key => $val)
                      <div id="post_29310434">
                         <table id="pid29310434" class="plhin" summary="pid29310434" cellspacing="0"
                         cellpadding="0">
@@ -252,7 +252,9 @@
                                         <div class="pi">
                                             <div class="authi">
                                                 <a href="/home/user/profile" target="_blank" class="xw1">
-                                                {{$v->user_id}}
+                                                @foreach($fronts as $k => $v)
+                                                        {{$v->fname}}
+                                                
                                                 </a>
                                             </div>
                                         </div>
@@ -260,12 +262,13 @@
                                         <div>
                                             <div class="avatar">
                                                 <a href="#">
-                                                    <img src="用户头像"
+                                                    <img src="{{$v->face}}"
                                                     />
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
+                                    @endforeach
                                 </td>
                                 <td class="plc">
                                     <div class="pi">
@@ -286,7 +289,7 @@
                                                 <img class="authicn vm" id="authicon29310434" src="http://www.discuz.net/static/image/common/online_supermod.gif"
                                                 />
                                                 <em id="authorposton29310434">
-                                                    发表于 {{date('Y-m-d H:i:s',$v->ctime)}}
+                                                    发表于 {{date('Y-m-d H:i:s',$val->ctime)}}
                                                 </em>
                                                 <span class="pipe">
                                                     |
@@ -304,7 +307,7 @@
                                                 <table cellspacing="0" cellpadding="0">
                                                     <tr>
                                                        <td>
-                                                       {!! $v->content !!}
+                                                       {!! $val->content !!}
                                                     </td>  
                                                     </tr>
                                                 </table>

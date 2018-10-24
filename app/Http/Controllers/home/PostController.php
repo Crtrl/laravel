@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Home\Sys;
-use App\Model\Admin\Front_users;
+use App\Model\home\Front_users;
 use App\Model\Admin\Cate;
 use App\Model\Admin\Post;
 
-use App\Model\Admin\Front_users;
+
 use DB;
 use App\Model\Admin\Category;
 
