@@ -145,7 +145,11 @@
                 <br><br><br>
 <div  id = 'cc'>
                 <div id="list-detail"  style="color:white;">
-                    <h3><a href="/home/index" title="">首页</a>->{{$cate->name}}</h3>
+                    <h3><a href="/home/index" title="">首页</a>->
+                    @foreach ($res as $k=>$v)
+                        {{$v->gname}}
+                    @endforeach
+                    </h3>
                     <div>
                         <!-- 获得板块缩略图 -->
                            
@@ -166,7 +170,10 @@
                                 主题:
                             </strong>
                             <!-- 显示帖子所在的板块名称 -->
-                            <b>{{$cate->name}}</b>
+                            <b>  @foreach ($res as $k=>$v)
+                                    {{$v->gname}}
+                                 @endforeach
+                            </b>
                             <span>|</span>
                             <strong>
                                 帖数:
@@ -224,13 +231,13 @@
                            <!--帖子标题 -->
                                 <td >
                                  
-                                    <h4><a href="/ViewPost/{$v.id}" {if $v.liang==1}style="color:red"{/if}>{{$vv->title}}</a> </h4>
+                                    <h4><a href="/home/details/{{$vv->id}}" {if $v.liang==1}style="color:red"{/if}>{{$vv->title}}</a> </h4>
                                   
                                 </td>
                                  <!--帖子作者 -->
-                           
+                                
                                 @foreach($rs as $k=>$val)
-
+                                
                                 <td colspan="" rowspan="" headers="">
                                         {{$val->fname}}
                                 </td>
@@ -276,6 +283,7 @@
           </div>
              <br><br><br><br>
           <div class="list-page">
+
                         <button type="submit"  class='btn-danger col-md-offset-6' style="width:100px;height:50px" >发帖</button>
                    
                     </div>

@@ -9,11 +9,13 @@ use App\Model\Admin\Front_users;
 use App\Model\Admin\Cate;
 use App\Model\Admin\Post;
 use App\Model\Admin\ront_users;
+use DB;
+use App\Model\Admin\Category;
 
 class PostController extends Controller
 {
     //帖子主页
-    public function post(Request $request)
+    public function post(Request $request,$id)
     {
     	$zx = Sys::get();
 
@@ -26,8 +28,10 @@ class PostController extends Controller
 
     	$list =Post::where('cid','4')->where('title','like','%'.$title.'%')->get();
 
-    	
-            
+      $res = DB::table('games')->where('gid',$id)->get();
+    
+
+     
 
     	
 
@@ -38,7 +42,7 @@ class PostController extends Controller
     	/*$aa =  date('Y-m-d h:i:s', time()); 
     	dd($aa);*/
     
-    	return view('home/post/post',['title'=>$title,'request'=>$request,'zx'=>$zx,'rs'=>$rs,'cate'=>$cate,'list'=>$list]);
+    	return view('home/post/post',['title'=>$title,'request'=>$request,'zx'=>$zx,'rs'=>$rs,'cate'=>$cate,'list'=>$list,'res'=>$res]);
 
     }
 

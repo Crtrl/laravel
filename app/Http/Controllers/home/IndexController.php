@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Admin\SlideShows;
 
 use App\Model\Admin\Cate;
-
+use App\Model\Admin\AD;
 
 use DB;
 
@@ -35,14 +35,30 @@ class IndexController extends Controller
                         //遍历前台页面
                         $cate = Cate::where('id', '1')->first();
                         
+                        //前台广告管理
+        $ad = DB::table('poster')->where('status','1')->get();
+        // dd($ad);
+       // foreach ($ad as $k => $v) {
+       //     echo $v->status;
+       // }
+       //     die; 
 
-
-                      
+       //前台分类管理  
+       $category =  DB::table('games')->get();
+       $rs = DB::table('games')->where('pid','0')->get();
+       // dd($category);
+     
+    
 		return view('home.index',['rs'=>$rs,
                                                             'res'=>$res,
                                                             'zx'=>$zx,
                                                             'slideShows'=>$slideShows,
-                                                            'cate'=>$cate]);
+                                                            'cate'=>$cate,
+                                                            'ad'=>$ad,
+                                                            'category'=>$category,
+                                                            'rs'=>$rs
+                                                       
+                                                        ]);
 	}
 
 

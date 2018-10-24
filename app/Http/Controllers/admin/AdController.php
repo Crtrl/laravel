@@ -20,6 +20,8 @@ class AdController extends Controller
     {
         // echo '浏览广告';
         $rs = DB::table('poster')->get();
+
+        // $rs['addtime'] = time();
         // echo '<pre>';
         // var_dump($rs);
         return view('admin/ad/index',['title'=>'广告列表页','rs'=>$rs,'request'=>$request]);
@@ -46,8 +48,8 @@ class AdController extends Controller
     {
 
         $res = $request->except('_token','img');
-      // dump($res);
-
+      // dd($res);
+        // dd($request->hasFile('img'));
         //文件上传
         if($request->hasFile('img')){
 
@@ -62,6 +64,7 @@ class AdController extends Controller
         }
 
         $res['url'] = '/uploads/'.$name.'.'.$suffix;
+        $res['addtime'] = time();
             
             $rs = Ad::create($res);
 
