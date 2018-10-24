@@ -68,7 +68,7 @@ class IndexController extends Controller
         $res = $request ->except('_token');
 
         try {
-            $rs = Front_users::update($res);
+            $rs = Front_users::where('fid',session('fid'))->update($res);
 
             if ($rs) {
 
@@ -86,6 +86,11 @@ class IndexController extends Controller
     {
             $res = $request ->only('face');
 
+
+
+
+
+
             if ($request ->hasFile('face')) {
 
                 //自定义名字
@@ -100,10 +105,11 @@ class IndexController extends Controller
                 $res['face'] = '/uploads/'.$name.'.'.$suffix;
 
             }
+            //dd($res);
 
             try {
 
-                $rs = Front_users::update($res);
+                $rs = Front_users::where('fid',session('fid'))->update($res);
 
                 if ($rs) {
 
@@ -123,29 +129,41 @@ class IndexController extends Controller
 
             //表单验证
             //获取数据库密码
-            $pass = Front_users::first();
+            $pass = Front_users::where('fid',session('fid'))->get()[0]['pwd'];
+          
+            $decrypted = decrypt($pass);
 
-              
+       
             
             //获取旧密码
             $oldpass = $request->oldpass;
-
-            if($pass->pwd != $oldpass){
-                return back()->with('error','原密码错误');
+          
+         
+            if($decrypted != $oldpass){
+                return redirect('/home/user/profile');
             }
 
+
+            //新密码
             $rs['pwd'] = $request->password;
-           
+                 
+
+
+            //确认密码
             $re['pwd'] = $request->repass;
-           
-            $data  = Front_users::update($rs);
 
+            if($rs['pwd'] != $re['pwd']){
+               
+                return back()->with(['error'=>'两次密码不一致']);
+            } 
 
-            if($data && $rs['pwd'] == $re['pwd']){
+            $new['pwd'] = encrypt($rs['pwd']);   
+          
+            $data  = Front_users::where('fid',session('fid'))->update($new);
+            if($data){
                 return redirect('/home/index');
-            }else{
-                return back();
             }
+
         }
 
 

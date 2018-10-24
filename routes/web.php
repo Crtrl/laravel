@@ -62,8 +62,12 @@ Route::group(['middleware'=>'homelogin'],function()
 	//帖子主页
 	Route::get('home/post','home\PostController@post');
 
-	//帖子收藏
-
+	//帖子禁用
+	Route::get('/admin/post/jin/{id}','admin\PostController@jin');
+	//IP禁用
+	Route::get('/admin/post/ip/{id}','admin\PostController@ip');
+	//IP解禁
+	Route::get('/admin/post/jieip/{id}','admin\PostController@jieip');
 	
 	
 	
@@ -98,9 +102,6 @@ Route::group([],function ()
 	//后台系统设置
 	Route::get('/admin/sys/web','admin\SysController@web');
 	Route::get('/admin/sys/aud','admin\SysController@aud');
-	//禁用IP
-	Route::get('/admin/sys/jinIP','admin\SysController@jinIP');
-
 	Route::post('/admin/sys/update','admin\SysController@update');
 	Route::post('/admin/sys/upshen','admin\SysController@upshen');
 	Route::post('/admin/sys/upjin','admin\SysController@upjin');

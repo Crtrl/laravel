@@ -18,7 +18,7 @@ class PostController extends Controller
     	$zx = Sys::get();
 
     		
-    	$rs = Front_users::where('fid','1')->get();
+    	$rs = Front_users::where('fid',session('fid'))->get();
 
  
 
@@ -49,46 +49,36 @@ class PostController extends Controller
 
     }
 
-	 //接收帖子
+	 //发送帖子
  	public function add(Request $request)
  	{
+          try{
+                 	    $sj = $request ->all();
+                $qp = $sj['content'];
 
- 		$sj =  $request->all();
+                $sj['content'] = trim($qp, '</p>');
 
+                $sj['cid'] = '4';
 
+                $sj['ptime'] = time();
 
-                              $qp = $sj['content'];
+                $rz = Front_users::where('fid', session('fid'))->get()[0]['fname'];
 
-                              $sj['content'] = trim($qp,'</p>');
+                $sj['zname'] = $rz;
 
-                             
+                $zz = Front_users::where('fid',session('fid'))->pluck('status')[0];
+               
+               
+                if ($zz == '1') {
+                       $rs = Post::insert($sj);
 
+                    return redirect('/home/post');
+                  }
+                }catch(\Exception $e){
+                    return redirect('/home/post');
+                }
 
-                        $sj['cid'] = '4';
-
- 		$sj['ptime'] =   time(); 
-
-      $rz = Front_users::where('fid','1')->get()[0]['fname'];
-
-      $sj['zname'] = $rz;
-	
- 		/*$ft = front_users::pluck('fname');
- 		dd($ft);*/
- 	
- 		   $rs = Post::insert($sj);
- 		  
-
-      
-          if($rs){
-            return redirect('/home/post');
-          }else{
-            return redirect('/home/post');
-          }
-
- 		
- 	}
-
-
+                }
 
 
 
