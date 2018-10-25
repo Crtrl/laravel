@@ -31,8 +31,9 @@ class Post extends Model
 	 */
 	protected $guarded = [];
 
-    public function users()
+    //与前台用户关联
+    public function FrontUsers()
     {
-        return $this->belongTo('App\Model\Admin\Front_users','tid','id');
+        return $this->belongTo('App\Model\Admin\Front_users','id','favorite');
     }
 }

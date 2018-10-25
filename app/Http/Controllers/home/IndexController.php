@@ -176,10 +176,46 @@ class IndexController extends Controller
             return redirect('/home/user/my');
         }
 
-        public function sc()
-        {
 
-     
+
+        /**
+         * 收藏帖子功能
+        **/
+        public function sc(Request $request, $id)
+        {
+            $uid = session('fid');
+            $user_fav = Front_users::where('fid',session('fid'))->select('favorite')->first();
+            //判断发送的请求
+            if($request->input('actionType') == 1){
+                //将帖子的ID插入数据库中
+                $rs['favorite'] = ltrim($user_fav->favorite.$id.',',',');
+                try{
+                    $user_fav::where('fid',$uid)->update($rs);
+                    $status = 1;
+                    $message = '收藏成功';
+                }catch(\Exception $e){
+                    $status = 0;
+                    $message = '操作失败';
+                }
+            } else {
+                //将帖子的ID从数据中删除
+                $rs['favorite'] = ltrim(str_replace($id.',', '', $user_fav->favorite),',');
+                // return $rs;
+                try{
+                    $user_fav::where('fid',$uid)->update($rs);
+                    $status = 2;
+                    $message = "取消收藏";
+                }catch(\Exception $e){
+                    $status = 0;
+                    $message = '操作失败';
+                }
+            }
+           
+            //返回json字符串
+            return response()->json([
+                'status' => $status,
+                'message' => $message
+            ]);
         }
 
 

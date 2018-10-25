@@ -17,9 +17,9 @@ class PostController extends Controller
     {
     	$zx = Sys::get();
 
-    		
-    	$rs = Front_users::where('fid',session('fid'))->get();
-
+    	//获取当前登录用户的信息	
+    	$rs = Front_users::where('fid',session('fid'))->first();
+        // dd(explode(',',$rs->favorite));
  
 
     	$cate = Cate::where('id','1')->get()[0];
@@ -32,7 +32,7 @@ class PostController extends Controller
     	$time = time() - 3600*24;
     	//获取最近24小时发帖数量
     	$sum = Post::where('ptime','>',$time)->get();
-    	 $today = count($sum);
+    	$today = count($sum);
 
     	
     	 //计算帖子总数
@@ -40,11 +40,6 @@ class PostController extends Controller
 
     	 $zong = count($zq);
 
-    	
-
-
-    	
-    
     	return view('home/post/post',['today'=>$today,'zong'=>$zong,'title'=>$title,'request'=>$request,'zx'=>$zx,'rs'=>$rs,'cate'=>$cate,'list'=>$list]);
 
     }
@@ -53,7 +48,7 @@ class PostController extends Controller
  	public function add(Request $request)
  	{
           try{
-                 	    $sj = $request ->all();
+                $sj = $request ->all();
                 $qp = $sj['content'];
 
                 $sj['content'] = trim($qp, '</p>');
