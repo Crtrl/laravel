@@ -31,6 +31,7 @@ class Post extends Model
 	 */
 	protected $guarded = [];
 
+
     //与前台用户关联
     public function FrontUsers()
     {

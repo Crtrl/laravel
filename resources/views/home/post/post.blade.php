@@ -39,13 +39,14 @@
     
     body{
           
-        background:url("/images/you.jpg") right top no-repeat,            
-        url("/images/zuo.jpg") left top no-repeat;  
-        background-size:100% 100%;
-        background-attachment: fixed;
-        line-height: normal;
-        font-weight: normal;
-        background-size:contain;
+
+            background:url("/images/33.jpg");
+            background-size:2200px 2100px;
+            background-repeat:no-repeat;
+                
+       
+
+
     }
     
     #cb{
@@ -121,25 +122,29 @@
     
        
 </table>
-        <br><br><br>
-    <div>
-       <div id="list-content" >
-                <div class="container" >
-                    <div class="bNav">
-                    
-                    </div>
-                    <br><br><br>
-                <div  id = 'cc'>
-                    <div id="list-detail"  style="color:white;">
-                        <h3><a href="/home/index" title="">首页</a>->{{$cate->name}}</h3>
-                        <div>
-                            <!-- 获得板块缩略图 -->
-                               
-                        <strong>
-                            
-                            <img src="{{$rs->face}}" width="120" alt="">
-                           
-                        </strong>
+
+    <br><br><br>
+<div>
+   <div id="list-content" >
+            <div class="container" >
+                <div class="bNav">
+                
+                
+                
+                </div>
+                <br><br><br>
+<div  id = 'cc'>
+                <div id="list-detail"  style="color:white;">
+                    <h3><a href="/home/index" title="">首页</a>->
+                    @foreach ($res as $k=>$v)
+                        {{$v->gname}}
+                    @endforeach
+                    </h3>
+                    <div>
+                        <!-- 获得板块缩略图 -->
+		@foreach($rs as $k=>$vz)
+			<img src="{{$vz->face}}"  width="83" alt="" style="margin: 0px;" />
+	
                            
                         <span style="color:white;" class="bb" >
                             <strong >
@@ -152,26 +157,49 @@
                                 主题:
                             </strong>
                             <!-- 显示帖子所在的板块名称 -->
-                            <b>{{$cate->name}}</b>
+                            <b>  @foreach ($res as $k=>$v)
+                                    {{$v->gname}}
+                                 @endforeach
+                            </b>
                             <span>|</span>
                             <strong>
                                 总帖数:
                             </strong>
+
                             <!-- 显示帖子总数 -->
                            
                             <b>{{$zong}}</b>
                             
                         </span>
-                        <strong style="display:block;min-width:300px; color:white;" id='nn'>我很喜欢听你的歌 那么你呢?</strong>
+                        <strong style="display:block;min-width:300px; color:white;" id='nn'>{{$vz->descript}}</strong>
                         </div>
-
+</div>
                     </div>
+                    	@endforeach
+                          <div class="container">
+        
+                <div class="form-group">
+
+                @if(session('success'))  
+                    <div class="mws-form-message success">
+                        {{session('success')}}  
+                    </div>
+                @endif
+
+                @if(session('error'))  
+                    <div class="mws-form-message warning">
+                        {{session('error')}} 
+                    </div>
+                @endif
+                </div>
+            
                     <!-- 查询 -->
                     <form action="/home/post" method="get"  style="float:right;height:40px">               
                         <input type="text" name="title" id='mm'  value="{{$request->title}}"  placeholder="请输入帖子标题关键字" style="width:300px;height:35px" >
                         <button type="">
                         <span id='ss'  class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                     </form>
+
                 </div>
                 <div class="clear"></div>
                 <!-- 帖子列表 -->
@@ -229,32 +257,50 @@
                         @endforeach
               
                     </table>
+
                 </div>
                 
             </div>
         </div>
     </div>
 
-            <br><br><br>
-            <!-- 快速发帖 -->
-            <form action='/home/post/add' method="get"   enctype="multipart/form-data">
-                <div class="success container col-md-offset-2" id='sf'> <h2>快速发帖:</h2></div>  
-                <div class="container col-md-offset-4" > 帖子标题 : <input type="text" name="title" id='tz' value="" placeholder="">
-                </div>
 
-                <br><br><br>
-                <div class="container">
-                    <script class="col-md-offset-1" id="editor" name="content" type="text/plain" style="width:1024px;height:300px;">
+        <br><br><br>
+
+          <div class="container text-center " id='' >
+  
+    
+           {{ $list->links() }}
+
+          </div>
+
+                @foreach($rs as $k=>$v)
+                        {{$v->gid}}
+                @endforeach
+                    <form action='/home/post/add/{{$gn->gid}}' method="post"   enctype="multipart/form-data">
+                    {{csrf_field()}}
+              <div class="success container col-md-offset-2" style='color:red' id='sf'> <h2>快速发帖:</h2></div>  
+<div class="container col-md-offset-4" style="color:red" >
+        帖子标题 : <input type="text" name="title" id='tz' value="" placeholder="">
+</div>
+<br><br><br>
+        <div class="container">
+          <script class="col-md-offset-1" id="editor" name="content" type="text/plain" style="width:1024px;height:300px;">
+              
+
                           
                     </script>
                 </div>
 
+
                 <br><br><br><br>
+
 
                 <div class="list-page">
                     <button type="submit"  class='btn-danger col-md-offset-6' style="width:100px;height:50px" >发帖</button>
                            
                 </div>
+
 
             </form>
 <!-- 

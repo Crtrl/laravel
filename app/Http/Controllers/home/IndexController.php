@@ -5,11 +5,15 @@ namespace App\Http\Controllers\home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\SlideShows;
-use App\Model\Admin\Front_users;
+use App\Model\home\Front_users;
 use App\Model\Admin\Friends;
-use App\Model\Admin\Cate;
+use App\Model\Home\Games;
+
+use App\Model\Admin\AD;
+
 use App\Model\Admin\Post;
 use App\Model\Home\Sys;
+
 use DB;
 
 class IndexController extends Controller
@@ -29,17 +33,39 @@ class IndexController extends Controller
 		// var_dump($slideShows);die;
 	
 
+
+		
+                        
+         //前台广告管理
+        $ad = DB::table('poster')->where('status','1')->get();
+        //前台分类管理  
+       $category =  DB::table('games')->get();
+       $gname = DB::table('games')->where('pid','0')->get();
+       
+     
+    
+		
+  
+	
+
 		$rs = Front_users::where('fid',session('fid'))->get();
+      
         $res = Friends::get(); 
         $zx = Sys::get();
         //遍历前台页面
-        $cate = Cate::where('id', '1')->first();
+        $gn = Games::where('gid', '70')->first();
                       
 		return view('home.index',['rs'=>$rs,
                                 'res'=>$res,
                                 'zx'=>$zx,
                                 'slideShows'=>$slideShows,
-                                'cate'=>$cate]);
+                                'gn'=>$gn,
+                                'ad'  => $ad,
+                                'category' => $category,
+                                'gname' => $gname
+
+                            ]);
+
 
 	}
 
@@ -151,7 +177,7 @@ class IndexController extends Controller
             $res = DB::table('friends')->get();
             $zx = Sys::get();
             //遍历前台页面
-            $cate = Cate::where('id', '1')->first();
+            $gn = Games::where('gid', '70')->first();
 
            
             $zname = $rs[0]['fname'];
@@ -162,7 +188,7 @@ class IndexController extends Controller
                                         'res'=>$res,
                                         'zx'=>$zx,
                                         'slideShows'=>$slideShows,
-                                        'cate'=>$cate,
+                                        'gn'=>$gn,
                                         'post'=>$post
                                      ]);
 

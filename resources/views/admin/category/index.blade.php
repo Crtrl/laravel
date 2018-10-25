@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="mws-panel grid_8">
-    <div class="mws-panel-header">
+    <div class="mws-panel-header" style="height: 50px;">
         <span>
             <i class="icon-table">
             </i>
@@ -117,7 +117,7 @@
             </div>
             
             <style>
-                .pagination li{
+               .pagination li{
                     float: left;
                     height: 20px;
                     padding: 0 10px;
@@ -141,7 +141,7 @@
                     }
 
 
-                    .pagination .active{
+                    .pagination .active span{
                             background-color: #c5d52b;
                             color: #323232;
                     border: none;
@@ -149,7 +149,7 @@
                     box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
                     }
 
-                    .pagination .disabled{
+                    .pagination .disabled span{
                         color: #666666;
                         cursor: default;
                     }
@@ -157,6 +157,7 @@
                     .pagination{
                         margin:0px;
                     }
+
 
             </style>
 
