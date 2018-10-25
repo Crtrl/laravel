@@ -146,7 +146,7 @@
                         <!-- 获得板块缩略图 -->
 		@foreach($rs as $k=>$vz)
 			<img src="{{$vz->face}}"  width="83" alt="" style="margin: 0px;" />
-		@endforeach
+	
                            
                         <span style="color:white;" class="bb" >
                             <strong >
@@ -173,10 +173,11 @@
                             <b>{{$zong}}</b>
                             
                         </span>
-                        <strong style="display:block;min-width:300px; color:white;" id='nn'>我很喜欢听你的歌 那么你呢?</strong>
+                        <strong style="display:block;min-width:300px; color:white;" id='nn'>{{$vz->descript}}</strong>
                         </div>
-
+</div>
                     </div>
+                    	@endforeach
                           <div class="container">
         
                 <div class="form-group">
