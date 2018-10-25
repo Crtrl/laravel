@@ -43,14 +43,11 @@
     
     body{
           
-            background:url("/images/you.jpg") 1700px 0 no-repeat,
+            background:url("/images/33.jpg");
+            background-size:2200px 2100px;
+            background-repeat:no-repeat;
                 
-                     url("/images/zuo.jpg") 0 0 no-repeat;
-               
-           background-attachment: fixed;
-                  line-height: normal;
-                 font-weight: normal;
-                background-size:contain;
+       
 
 
     }
@@ -262,11 +259,18 @@
         </div>
 
         <br><br><br>
-        
-                    <form action='/home/post/add' method="get"   enctype="multipart/form-data">
 
-              <div class="success container col-md-offset-2" id='sf'> <h2>快速发帖:</h2></div>  
-<div class="container col-md-offset-4" >
+          <div class="container text-center " id='' >
+  
+    
+           {{ $list->links() }}
+
+          </div>
+        
+                    <form action='/home/post/add' method="post"   enctype="multipart/form-data">
+                    {{csrf_field()}}
+              <div class="success container col-md-offset-2" style='color:red' id='sf'> <h2>快速发帖:</h2></div>  
+<div class="container col-md-offset-4" style="color:red" >
         帖子标题 : <input type="text" name="title" id='tz' value="" placeholder="">
 </div>
 <br><br><br>

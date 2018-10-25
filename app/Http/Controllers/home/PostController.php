@@ -26,7 +26,7 @@ class PostController extends Controller
 
     	$title = $request->input('title');
 
-    	$list =Post::where('cid','4')->orderby('top','asc')->where('title','like','%'.$title.'%')->get();
+    	$list =Post::where('cid','4')->orderby('top','asc')->where('title','like','%'.$title.'%')->paginate(8);
 
     	//获取最近24小时发的帖子
     	$time = time() - 3600*24;
@@ -53,7 +53,8 @@ class PostController extends Controller
  	public function add(Request $request)
  	{
           try{
-                 	    $sj = $request ->all();
+                 	    $sj = $request ->except('_token');
+                	//去除<p>标签
                 $qp = $sj['content'];
 
                 $sj['content'] = trim($qp, '</p>');
@@ -67,15 +68,16 @@ class PostController extends Controller
                 $sj['zname'] = $rz;
 
                 $zz = Front_users::where('fid',session('fid'))->pluck('status')[0];
-               
-               
+             
                 if ($zz == '1') {
                        $rs = Post::insert($sj);
+
+
 
                     return redirect('/home/post');
                   }
                 }catch(\Exception $e){
-                    return redirect('/home/post');
+                    return redirect('/home/index');
                 }
 
                 }

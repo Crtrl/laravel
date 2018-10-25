@@ -158,7 +158,7 @@
 							</li>
 						
 							<li class="">
-								<div><a href="/home/user/profile" class="btn btn-warning btn-default" style='color:blue'>Hello, {{$res->fname}}</a></div>
+								<div  style='color:gold'>Hello, {{$res->fname}}</div>
 								<div><a href="/home/user/profile" class="btn btn-warning btn-default" style='color:blue'>个人中心</a></div>
 								<div><a href="/home/loginout" class="btn btn-warning btn-default" style="width: 100%">退出</a></div>
 							</li>

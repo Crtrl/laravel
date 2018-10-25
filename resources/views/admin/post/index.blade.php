@@ -1,110 +1,151 @@
 @extends('common.admin')
 
-
 @section('content')
 
-<div class="admin-biaogelist">
-    <div class="listbiaoti am-cf">
-      <ul class="am-icon-users"> 帖子列表</ul>
-      <dl class="am-icon-home" style="float: right;">当前位置： 首页 > <a href="#">帖子列表</a></dl>
-      <!--这里打开的是新页面-->
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span>
+            <i class="icon-table">
+            </i>
+            后台用户列表
+        </span>
     </div>
-         <form action="/admin/post/index" method="get"  >
+    <div class="mws-panel-body no-padding">
+        <div role="grid" class="dataTables_wrapper" id="DataTables_Table_1_wrapper">
         
-            <div class="am-u-sm-12 am-u-md-12 am-u-lg-3 .hidden-xs" >
-              <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
-                <input type="text" class="am-form-field " name="name" value='{{$request->name}}'  placeholder="关键字查询" >
+        <form action="/admin/post/index" method='get'>
 
-                  <span class="am-input-group-btn" >
-                  <button class="am-btn  am-btn-success am-btn-success tpl-table-list-field am-icon-search" type="submit"></button>
-                  </span>
-              </div>
+            <div class="dataTables_filter" id="DataTables_Table_1_filter">
+                <label>
+                    关键字:
+                    <input type="text" name="name" value='{{$request->name}}' laceholder="关键字查询"  aria-controls="DataTables_Table_1">
+                </label>
+                <button class='btn btn-info'>搜索</button>
             </div>
-          </form>
-          <p>&nbsp;</p>
 
-          <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
-            <thead>
-              <tr class="am-success">
-                
-                <th class="table-id">ID</th>
-                <th class="table-title">板块名称</th>
-                <th class="table-title">帖子名称</th>
-                <th class="table-title">发表者</th>
-                <th class="table-title">是否屏蔽</th>
-                <th class="table-title">发表时间</th>
-                  <th class="table-title">审核</th>
-                 <th class="table-title">等级</th>
-                <th class="table-author am-hide-sm-only">操作</th>
+            </form>
             
-              </tr>
-            </thead>
-            <tbody>
-            	@foreach($post as $k=>$v)
+            <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1"
+            aria-describedby="DataTables_Table_1_info">
+                <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" style="width: 30px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                            ID
+                        </th>
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" style="width: 160px;" aria-label="Browser: activate to sort column ascending">
+                            板块名称
+                        </th>
+                      
+                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" style="width: 120px;" aria-label="Platform(s): activate to sort column ascending">
+                            帖子名称
+                        </th>
 
-<tr>
-               
-                <td>{{$v->id}}</td>
-                <td>
-                  @foreach ($cate as $val)
-                    @if($v->cid == $val->id) 
-                        {{$val->name}}
-                      @endif
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" style="width: 120px;" aria-label="Platform(s): activate to sort column ascending">
+                            发表者
+                        </th>
+
+                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" style="width: 120px;" aria-label="Platform(s): activate to sort column ascending">
+                           是否屏蔽
+                        </th>
+
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" style="width: 120px;" aria-label="Platform(s): activate to sort column ascending">
+                            发表时间
+                        </th>
+
+
+                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" style="width: 120px;" aria-label="Platform(s): activate to sort column ascending">
+                           审核
+                        </th>
+
+                           <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" style="width: 120px;" aria-label="Platform(s): activate to sort column ascending">
+                           等级
+                        </th>
+
+
+                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" style="width: 97px;" aria-label="CSS grade: activate to sort column ascending">
+                            操作
+                        </th>
+                    </tr>
+                </thead>
+                <tbody role="alert" aria-live="polite" aria-relevant="all">
+                    
+                    @foreach($post as $k => $v)
+                    <tr class="@if($k % 2 == 0)odd @else even @endif">
+                        <td class="">
+                            {{$v->id}}
+                        </td>
+                        <td class=" ">
+                        @foreach($cate as $k=>$val)
+                        @if($v->cid == $val->id) 
+                            {{$val->name}}
+                         @endif
                  @endforeach
-                </td>
-                <td><a href="">{{$v->title}}</a></td>
-                <td>
-                 
-                  
-                      {{$v->zname}}
-                     
-                   
-                </td>
-                <td>@if ($v->status)否@else 是@endif</td>
-                <td> {{date('Y年m月d日 H时i分s秒',$v->ptime)}}</td>
-     
-                
-                <td><a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/jin/{{$v->id}}" title="" >禁用帖子</a>
-                 <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/ip/{{$v->id}}" title="" >禁用IP</a>
-                 <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/jieip/{{$v->id}}" title="" >解禁IP</a>
-                </td>
 
- </form>
-              	 <td>
+                        </td>
+                        <td class=" ">
+                            <a href="" title="">
+                            {{$v->title}}
+                            </a>
+                        </td>
+                        <td class=" ">
+                            {{$v->zname}}
+                        </td>
+                    <td>@if ($v->status)否@else 是@endif</td>
+                    <td> {{date('Y年m月d日 H时i分s秒',$v->ptime)}}</td>     
+
+
+                     <td><a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/jin/{{$v->id}}" title="" >禁用帖子</a>
+                     <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/ip/{{$v->id}}" title="" >禁用IP</a>
+                     <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/jieip/{{$v->id}}" title="" >解禁IP</a>
+                    </td>
+
+
+                    <td>
                           <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/lit/{{$v->id}}" title="" >加亮</a>
                           <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/top/{{$v->id}}" title="" >置顶</a>
 
                  </td>
-                  <td>
-                    <form action='/admin/post/{{$v->id}}' method='post'>
-                      {{csrf_field()}}
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-round" title="删除帖子"><span class="am-icon-trash-o" >删除</span></button>
+                        <td class=" ">
+                            <form action="/admin/friends/{{$v->fid}}" method='post' style='display:inline'>
+                                
+                                {{csrf_field()}}
+                                {{method_field('DELETE')}}
 
-                   </from>
+                                <button class='btn btn-danger'>删除</button>
+                            </form>
 
+                        </td>
+                    </tr>
+                    @endforeach
 
+                  
+                </tbody>
+            </table>
+     
+            
+            <style type="text/css">
+                ul.pagination{
+                    height: 10px;
+                    margin-top: 2px;
+                    float: right;    
 
-                    </td>
+                }
+            </style>
 
-                 
-</tr>
-             @endforeach
+           
 
+        </div>
+    </div>
+</div>
 
-
-   
-
-
-              
-            </tbody>
-          </table>
-            <div class="container text-center " id='' >
   
-    
-           {{ $post->links() }}
-
-          </div>
-          <hr />
-          <p>注:多读书 多看报</p>
-       
-@stop
+    @stop
