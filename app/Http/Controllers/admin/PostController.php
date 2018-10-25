@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\Post;
-use App\Model\Admin\Cate;
+use App\Model\Home\Games;
 use App\Model\Admin\Front_users;
 class PostController extends Controller
 {
@@ -13,21 +13,23 @@ class PostController extends Controller
 	{
 		$front_users = Front_users::get();
 		
-		  $name = $request->input('name');
+		  $gname = $request->input('gname');
 
 
-		$cate = Cate::where('name','like','%'.$name.'%')->orderby('id','desc')->get();
+		$gn = Games::where('gname','like','%'.$gname.'%')->orderby('gid','asc')->get();
 		$ct = [];
-		foreach($cate as $k=>$v){
-			$ct[] = $v['id'];
+		foreach($gn as $k=>$v){
+			$ct[] = $v['gid'];
 		}
 
 		
+
+		
 		// dd($ct);
-		$post = Post::whereIn('cid',$ct)->paginate(10);
+		$post = Post::whereIn('cid',$ct)->paginate(6);
 
 
-		return view('admin/post/index',['post'=>$post,'cate'=>$cate,'front_users'=>$front_users,'request'=>$request]);
+		return view('admin/post/index',['post'=>$post,'gn'=>$gn,'front_users'=>$front_users,'request'=>$request]);
 	}
 
 
@@ -121,7 +123,7 @@ class PostController extends Controller
 			
 		 if($front_users){
 
-		           return redirect('/admin/post/index')->with('success','解禁IP成功');
+		           return redirect('/admin/post/index')->with(['success'=>'解禁IP成功']);
 		           }
 		        }catch(\Exception $e){
 

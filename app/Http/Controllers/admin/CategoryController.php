@@ -48,19 +48,26 @@ class CategoryController extends Controller
          //select *,concat(path,gid) as paths from category order by paths
         $rs = Category::select(DB::raw('*,concat(path,gid) as paths'))->
             orderBy('paths')->get();
+            // dd($rs);
         //父类与子类上下区别
+           
             foreach($rs as $k => $v){
             //path  0,1,4
             $n = substr_count($v -> path, ',') - 1;
             $v->gname = str_repeat('&nbsp;', $n * 8).'|--'.$v -> gname;
             // $v->catename = str_repeat('|--', $n).$v -> catename;
+          
         }
+        // dd($arr);
+         
+       //添加分类页面
+     return view('admin.category.add',['title'=>'添加分类','rs'=>$rs]);
 
+       
         // 有条件用get,没有条件用all
         // echo 'create';
         // $ra = Category::selete();
-        //添加分类页面
-        return view('admin.category.add',['title'=>'添加分类','rs'=>$rs]);
+        
     }
 
     /**
@@ -73,11 +80,25 @@ class CategoryController extends Controller
     {
         //
         // echo 'store';
-      
-
         //获取数据,处理数据
-        $rs = $request->except('_token');
-        // dump($rs);
+        $rs = $request->except('_token','img');
+        // dd($rs);
+         //文件上传
+        if($request->hasFile('img')){
+
+            //自定义名字
+            $name = time().rand(1111,9999);
+
+            //获取后缀
+            $suffix = $request->file('img')->getClientOriginalExtension(); 
+
+            //移动
+            $request->file('img')->move('uploads',$name.'.'.$suffix);
+             $rs['url'] = '/uploads/'.$name.'.'.$suffix;
+        }
+
+        
+        // dd($rs);
         if($rs['pid'] == '0'){
             $rs['path'] = '0,';
         }else{
@@ -86,6 +107,7 @@ class CategoryController extends Controller
              $rs['path'] = $data->path.$data->gid.',';
                          //父类的path0,  +  子类的pid3  + ,
         }
+      // dd(Category::create($rs));  
         //往数据库填加数据
         try{
            

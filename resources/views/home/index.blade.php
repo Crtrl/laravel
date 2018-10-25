@@ -1,22 +1,24 @@
 @extends('common.home')
 
 @section('content')
-
-
-
-
-<style type="text/css" media="screen">
+<style type="text/css" media="screen">00
 	#imgs{
 		width: 200px;
 		height: 100px;
 	}
 </style>
+
 <!-- 广告 -->
-	<div class='adv' style="background:url(http://demo.lanrenzhijia.com/2015/slide0311/images/big.jpg) no-repeat center top #7B010B;">
-		<a href='http://www.adv.com/' target='_blank' class='link'></a>
+
+		@foreach($ad as $k =>$v)
+	
+		<div class='adv' style="background:url({{$v->url}}) no-repeat center top #7B010B;">
+			<a href='http://www.adv.com/' target='_blank' class='link'></a>
+	
+		@endforeach		
 		<a href='javascript:;' class='up'></a>
 	</div>
-
+	
 <!-- 前台轮播图 -->
 <!-- banner-text -->
 	<div class="banner-text">
@@ -26,7 +28,7 @@
 			   		@foreach ($slideShows as $k=>$v)
 					<article style="position: absolute; width: 100%; opacity: 0;"> 
 						<div class="banner-wrap">
-							<div class="banner-text-info banner-text-inf" style="background:url({{$v['url']}}) no-repeat 0px 0px;">
+							<div class="banner-text-info banner-text-inf" style="background:url({{$v['url']}}); width: 100%; height: 20%; background-size: 100% ;">
 								<h3 >{{$v['title']}}</h3>
 							</div>
 						</div>
@@ -42,109 +44,46 @@
 	</div>
 <!-- //banner-text -->
 
+@foreach($gname as $k=>$v)
 
-<!-- 网络游戏 -->
-<!-- services -->
-	<div id="netGame" class="services">
+<div id="mobileGame" class="services">
 		<div class="container">
-			<h3 class="ser">网络游戏</h3>
-		<p class="ever">Games are ninth kinds of art. </p>
+			<h3 class="ser">
+							{{$v->gname}}
+			</h3>
+		<p class="ever"> </p>
 			<!-- 论坛帖子入口 -->
-			
-			<div class="services-top">
-				<div class="col-md-6 services-top-left">
+		
+		@foreach($category as $kk=>$vv)
+		@if($vv->pid == $v->gid)
+			<div class="services-top" ">
+				<div class="col-md-6 services-top-left" style="float: left; width: 30%; margin-top: 10px; margin-bottom:10px; ">
 					<div class="services-top-main">
+						
 						<div class="col-md-6 services-left service-img" style="width: 30%;">
-							<a href="images/55.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
-								<img src="images/55.jpg" alt="" class="img-responsive" />
+							<a href="/home/post" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="{{$vv->url}}" alt="" class="img-responsive" />
 							</a>
 						</div>
 						<div class="col-md-6 services-left">
-						<a href="" title="">
-							<h4 >{{$v->name}}</h4>
-							<p>S8,RISE!<br>大声告诉世界我们是LPL!</p>
-						</a>
+
+							<a href="/home/post/{{$vv->gid}}" title=""><h4>{{$vv->gname}}</h4></a>
+
 						</div>
-						<div class="clearfix"></div>
+						
 					</div>
 				</div>
 				
-				<div class="clearfix"></div>
-			</div>
-				<!--swipebox -->	
-				<link rel="stylesheet" href="/home/css/swipebox.css">
-					<script src="js/jquery.swipebox.min.js"></script> 
-					<script type="text/javascript">
-						jQuery(function($) {
-							$(".swipebox").swipebox();
-						});
-					</script>
-				<!--//swipebox Ends -->
-		</div>
-	</div>
-<!-- 	<div class="services1"></div> -->
-<!-- //services -->
-
-<!-- 手机游戏 -->
-<!-- services -->
-	<div id="mobileGame" class="services">
-		<div class="container">
-			<h3 class="ser">手机游戏</h3>
-		<p class="ever">随时随地享受乐趣. </p>
-			<!-- 论坛帖子入口 -->
-			<div class="services-top">
-				<div class="col-md-6 services-top-left">
-					<div class="services-top-main">
-						<div class="col-md-6 services-left service-img" style="width: 30%;">
-							<a href="images/55.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
-								<img src="images/55.jpg" alt="" class="img-responsive" />
-							</a>
-						</div>
-						<div class="col-md-6 services-left">
-							<a href="/home/post" title=""><h4>{{$cate->name}}</h4></a>
-							<p>回复 : <br></p>
-							<p>帖子 : <br></p>
-							<p>最后发帖时间 :<br></p>
-
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-				<div class="clearfix"></div>
+			
+			@endif
+			@endforeach
+			<div class="clearfix"></div>
 			</div>
 		</div>
 	</div>
-<!-- 	<div class="services1"></div> -->
 
-<!-- 单机游戏 -->
-<!-- services -->
-	<div id="idpGame" class="services">
-		<div class="container">
-			<h3 class="ser">单机游戏</h3>
-		<p class="ever">十一过了,该收拾一下准备过年放假了. </p>
-			<!-- 论坛帖子入口 -->
-			<div class="services-top">
-				<div class="col-md-6 services-top-left">
-					<div class="services-top-main">
-						<div class="col-md-6 services-left service-img" style="width: 30%;">
-							<a href="images/55.jpg" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
-								<img src="images/55.jpg" alt="" class="img-responsive" />
-							</a>
-						</div>
-						<div class="col-md-6 services-left">
-							<h4>无双大蛇3</h4>
-							<p>蛇魔远吕智,再临!</p>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-	</div>
-<!-- 	<div class="services1"></div> -->
-<!-- //services -->
 
+@endforeach
 <!-- 友情链接 -->
 <!-- gallery -->
  
@@ -180,6 +119,4 @@
 	</div>
 
 <!-- //gallery -->
-
-
 @stop

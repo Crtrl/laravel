@@ -18,7 +18,7 @@
             <div class="dataTables_filter" id="DataTables_Table_1_filter">
                 <label>
                     关键字:
-                    <input type="text" name="name" value='{{$request->name}}' laceholder="关键字查询"  aria-controls="DataTables_Table_1">
+                    <input type="text" name="gname" value='{{$request->gname}}' laceholder="关键字查询"  aria-controls="DataTables_Table_1">
                 </label>
                 <button class='btn btn-info'>搜索</button>
             </div>
@@ -48,10 +48,7 @@
                             发表者
                         </th>
 
-                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 120px;" aria-label="Platform(s): activate to sort column ascending">
-                           是否屏蔽
-                        </th>
+             
 
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" style="width: 120px;" aria-label="Platform(s): activate to sort column ascending">
@@ -84,9 +81,9 @@
                             {{$v->id}}
                         </td>
                         <td class=" ">
-                        @foreach($cate as $k=>$val)
-                        @if($v->cid == $val->id) 
-                            {{$val->name}}
+                        @foreach($gn as $k=>$val)
+                        @if($v->cid == $val->gid) 
+                            {{$val->gname}}
                          @endif
                  @endforeach
 
@@ -99,7 +96,7 @@
                         <td class=" ">
                             {{$v->zname}}
                         </td>
-                    <td>@if ($v->status)否@else 是@endif</td>
+                
                     <td> {{date('Y年m月d日 H时i分s秒',$v->ptime)}}</td>     
 
 
@@ -115,7 +112,7 @@
 
                  </td>
                         <td class=" ">
-                            <form action="/admin/friends/{{$v->fid}}" method='post' style='display:inline'>
+                            <form action="/admin/friends" method='post' style='display:inline'>
                                 
                                 {{csrf_field()}}
                                 {{method_field('DELETE')}}
@@ -140,7 +137,16 @@
 
                 }
             </style>
+                        <style type="text/css">
+                ul.pagination{
+                    height: 10px;
+                    margin-top: 2px;
+                    float: right;    
 
+                }
+            </style>
+
+            {{ $post->links() }}          
            
 
         </div>

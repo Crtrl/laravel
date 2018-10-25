@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="mws-panel grid_8">
-    <div class="mws-panel-header">
+    <div class="mws-panel-header"  style="height: 50px;">
         <span>
             <i class="icon-table">
             </i>
@@ -104,19 +104,22 @@
                             
                             
                         </td>
-                       
-                        <td class=" ">
-                           广告内容
+                     
+                        <td class="">
+                           {{$v->content}} 
                            
                         </td>
 
                         <td class=" ">
-                           添加时间
+                           {{date('Y-m-d H:i:s',$v->addtime)}}
                            
                         </td>
                         <td class=" ">
-                         
-                            状态
+                        @if($v->status == 1)
+                                启用
+                            @else
+                                禁用
+                            @endif
                         </td>
                          <td class=" ">
                             <a class='btn btn-primary' href="/admin/ad/{{$v->posterid}}/edit">修改</a>

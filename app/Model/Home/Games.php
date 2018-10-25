@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Model\Admin;
+namespace App\Model\home;
 
 use Illuminate\Database\Eloquent\Model;
 
-class cate extends Model
+class Games extends Model
 {
+    //
      //
      /**
      * 与模型关联的数据表
      *
      * @var string
      */
-    protected $table = 'cate';
+    protected $table = 'Games';
 
     //主键
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'gid';
 
     /**
      * 该模型是否被自动维护时间戳
@@ -30,5 +31,6 @@ class cate extends Model
 	 * @var array
 	 */
 	protected $guarded = [];
-}
 
+	 
+}

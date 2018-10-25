@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="mws-panel grid_8">
-  <div class="mws-panel-header">
+  <div class="mws-panel-header"  style="height: 50px;">
       <span>{{$title}}</span>
     </div>
     <div class="mws-panel-body no-padding">
@@ -43,8 +43,13 @@
                       <div style="position: relative;" class="fileinput-holder"><input type="file" name='img' style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></div>
                     </div>
                 </div>
-          
-        <!--   <div class="mws-form-row">
+           <div class="mws-form-row">
+                                    <label class="mws-form-label">广告内容 <span class="required"></span></label>
+                                    <div class="mws-form-item">
+                                        <textarea name="content" rows="" cols=""  class="required large">{{$res->content}}</textarea>
+                                    </div>
+                                </div>
+          <div class="mws-form-row">
             <label class="mws-form-label">状态</label>
             <div class="mws-form-item clearfix">
               <ul class="mws-form-list inline">
@@ -53,7 +58,7 @@
               
               </ul>
             </div>
-          </div> -->
+          </div>
         </div>
         <div class="mws-button-row">
           {{csrf_field()}}

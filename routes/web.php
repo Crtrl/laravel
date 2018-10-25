@@ -59,9 +59,25 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::get('home/user/{id}','home\IndexController@del');
 
 
-	//帖子主页
-	Route::get('home/post','home\PostController@post');
 
+	
+	
+
+	
+
+	
+	
+
+	//前台退出
+	Route::any('/home/loginout','home\LoginController@loginout');
+	//前台评论
+	Route::any('/home/comments','home\CommentsController@comments');
+	//帖子详情页
+	Route::resource('/home/details','home\DetailsController');
+});
+
+	//帖子主页
+	Route::get('home/post/{id}','home\PostController@post');
 	//帖子禁用
 	Route::get('/admin/post/jin/{id}','admin\PostController@jin');
 	//IP禁用
@@ -69,18 +85,8 @@ Route::group(['middleware'=>'homelogin'],function()
 	//IP解禁
 	Route::get('/admin/post/jieip/{id}','admin\PostController@jieip');
 	
-	
-	
-
-
 	//获取帖子信息
-	Route::post('home/post/add','home\PostController@add');
-
-	
-	
-	//前台退出
-	Route::any('/home/loginout','home\LoginController@loginout');	
-});
+	Route::post('home/post/add/{id}','home\PostController@add');
 
 
 

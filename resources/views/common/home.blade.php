@@ -69,6 +69,7 @@
 	height: 100px;
 }
 </style>
+
 <script>
 	$(function(){
 
@@ -110,6 +111,22 @@
 	});
 </script>
 <!-- 广告结束 -->
+        <div class="container">
+        
+                <div class="form-group">
+
+                @if(session('success'))  
+                    <div class="mws-form-message success">
+                        {{session('success')}}  
+                    </div>
+                @endif
+
+                @if(session('error'))  
+                    <div class="mws-form-message warning">
+                        {{session('error')}} 
+                    </div>
+                @endif
+                </div>
 
 </head>
 
