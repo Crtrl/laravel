@@ -16,7 +16,8 @@ class FriendsController extends Controller
      */
     public function index(Request $request)
     {
-         //$rs = DB::table('friends')->get();
+        
+         //后台友情链接模糊查询
         $fname = $request->input('fname');
 
         $rs = Friends::where('fname','like','%'.$fname.'%')->paginate(5);

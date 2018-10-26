@@ -39,13 +39,14 @@
     
     body{
           
-        background:url("/images/you.jpg") right top no-repeat,            
-        url("/images/zuo.jpg") left top no-repeat;  
-        background-size:100% 100%;
-        background-attachment: fixed;
-        line-height: normal;
-        font-weight: normal;
-        background-size:contain;
+
+            background:url("/images/33.jpg");
+            background-size:2200px 2100px;
+            background-repeat:no-repeat;
+                
+       
+
+
     }
     
     #cb{
@@ -143,7 +144,9 @@
                     </h3>
                     <div>
                         <!-- 获得板块缩略图 -->
-
+		@foreach($rs as $k=>$vz)
+			<img src="{{$vz->face}}"  width="83" alt="" style="margin: 0px;" />
+	
                            
                         <span style="color:white;" class="bb" >
                             <strong >
@@ -164,15 +167,34 @@
                             <strong>
                                 总帖数:
                             </strong>
+
                             <!-- 显示帖子总数 -->
                            
                             <b>{{$zong}}</b>
                             
                         </span>
-                        <strong style="display:block;min-width:300px; color:white;" id='nn'>我很喜欢听你的歌 那么你呢?</strong>
+                        <strong style="display:block;min-width:300px; color:white;" id='nn'>{{$vz->descript}}</strong>
                         </div>
-
+</div>
                     </div>
+                    	@endforeach
+                          <div class="container">
+        
+                <div class="form-group">
+
+                @if(session('success'))  
+                    <div class="mws-form-message success">
+                        {{session('success')}}  
+                    </div>
+                @endif
+
+                @if(session('error'))  
+                    <div class="mws-form-message warning">
+                        {{session('error')}} 
+                    </div>
+                @endif
+                </div>
+            
                     <!-- 查询 -->
                     <form action="/home/post" method="get"  style="float:right;height:40px">               
                         <input type="text" name="title" id='mm'  value="{{$request->title}}"  placeholder="请输入帖子标题关键字" style="width:300px;height:35px" >
@@ -239,19 +261,34 @@
         </div>
     </div>
 
-            <br><br><br>
-            <!-- 快速发帖 -->
-            <form action='/home/post/add' method="get"   enctype="multipart/form-data">
-                <div class="success container col-md-offset-2" id='sf'> <h2>快速发帖:</h2></div>  
-                <div class="container col-md-offset-4" > 帖子标题 : <input type="text" name="title" id='tz' value="" placeholder="">
-                </div>
 
-                <br><br><br>
-                <div class="container">
-                    <script class="col-md-offset-1" id="editor" name="content" type="text/plain" style="width:1024px;height:300px;">
+        <br><br><br>
+
+          <div class="container text-center " id='' >
+  
+    
+           {{ $list->links() }}
+
+          </div>
+
+                @foreach($rs as $k=>$v)
+                        {{$v->gid}}
+                @endforeach
+                    <form action='/home/post/add/{{$gn->gid}}' method="post"   enctype="multipart/form-data">
+                    {{csrf_field()}}
+              <div class="success container col-md-offset-2" style='color:red' id='sf'> <h2>快速发帖:</h2></div>  
+<div class="container col-md-offset-4" style="color:red" >
+        帖子标题 : <input type="text" name="title" id='tz' value="" placeholder="">
+</div>
+<br><br><br>
+        <div class="container">
+          <script class="col-md-offset-1" id="editor" name="content" type="text/plain" style="width:1024px;height:300px;">
+              
+
                           
                     </script>
                 </div>
+
 
                 <br><br><br><br>
 

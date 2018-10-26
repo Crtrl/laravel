@@ -46,7 +46,7 @@
     
         <div class="am-form-group am-cf">
           <div class="zuo" >头像图：</div>
-          <div class="you"><input name="fpic"  type="file"  id="doc-ipt-file-1"> </div>
+          <div class="you"><input name="fpic"  type="file"   id="doc-ipt-file-1"> </div>
         </div>
         
        <!--  <div class="am-form-group am-cf">
@@ -58,7 +58,7 @@
         
         <div class="am-form-group am-cf">
           <div class="you" style="margin-left: 11%;">
-              <button type="reset" class="am-btn am-btn-success am-radius" id='aa'>重置</button>&nbsp;  &raquo; &nbsp; <button type="submit" class="am-btn am-btn-secondary am-radius">提交</button>
+             ;<button type="submit" class="am-btn am-btn-secondary am-radius col-md-offset-5">提交</button>
           </div>
         </div>
       </form>

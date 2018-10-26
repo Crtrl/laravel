@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Admin\SlideShows;
 use App\Model\home\Front_users;
 use App\Model\Admin\Friends;
-use App\Model\Admin\Cate;
+use App\Model\Home\Games;
 
 use App\Model\Admin\AD;
 
@@ -53,13 +53,13 @@ class IndexController extends Controller
         $res = Friends::get(); 
         $zx = Sys::get();
         //遍历前台页面
-        $cate = Cate::where('id', '1')->first();
+        $gn = Games::where('gid', '70')->first();
                       
 		return view('home.index',['rs'=>$rs,
                                 'res'=>$res,
                                 'zx'=>$zx,
                                 'slideShows'=>$slideShows,
-                                'cate'=>$cate,
+                                'gn'=>$gn,
                                 'ad'  => $ad,
                                 'category' => $category,
                                 'gname' => $gname
@@ -177,7 +177,7 @@ class IndexController extends Controller
             $res = DB::table('friends')->get();
             $zx = Sys::get();
             //遍历前台页面
-            $cate = Cate::where('id', '1')->first();
+            $gn = Games::where('gid', '70')->first();
 
            
             $zname = $rs[0]['fname'];
@@ -188,7 +188,7 @@ class IndexController extends Controller
                                         'res'=>$res,
                                         'zx'=>$zx,
                                         'slideShows'=>$slideShows,
-                                        'cate'=>$cate,
+                                        'gn'=>$gn,
                                         'post'=>$post
                                      ]);
 
