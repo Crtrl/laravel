@@ -43,7 +43,7 @@
             </form>
             <!-- 删除帖子 -->
             <td>
-                <form action='/home/user/{{$vv->id}}' method='get' >
+                <form action='/home/user/del/{{$vv->id}}' method='get' >
                     <button class='btn btn-danger' >
                         删除
                     </button>

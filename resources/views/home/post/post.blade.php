@@ -317,9 +317,10 @@
 
                 // 获取帖子id
                 var url = $(this).attr("data-href");
-
+                
                 //声明$(this)
                 var bts = $(this);
+                
                 $.ajax({
                     url: url,
                     data: {actionType: actionType},
