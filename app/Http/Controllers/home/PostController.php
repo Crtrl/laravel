@@ -82,7 +82,7 @@ class PostController extends Controller
                 $sj['zname'] = $rz;
 
                 $zz = Front_users::where('fid',session('fid'))->pluck('status')[0];
-               
+               $sj['fuid'] =  session('fid');
                
                 if ($zz == '1') {
                        $rs = Post::insert($sj);

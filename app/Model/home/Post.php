@@ -41,5 +41,12 @@ class Post extends Model
          return $this->hasMany(\App\Model\home\Comments::class, 'post_id', 'id');
     }
 
+
+    /**
+    一对多关联评论表
+     **/
+    public function author () {
+         return $this->belongsTo(\App\Model\home\Front_users::class, 'user_id', 'id');
+    }
 }
 
