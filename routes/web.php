@@ -73,7 +73,7 @@ Route::group(['middleware'=>'homelogin'],function()
 	//前台评论
 	Route::any('/home/comments','home\CommentsController@comments');
 	//帖子详情页
-	Route::resource('/home/details/{id}','home\DetailsController');
+	Route::resource('/home/details','home\DetailsController');
 });
 
 	//帖子主页
