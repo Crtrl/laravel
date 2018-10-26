@@ -22,34 +22,32 @@
 <!-- 前台轮播图 -->
 <!-- banner-text -->
 	<div class="banner-text">
-		<div class="container">
-			<div class="wmuSlider example1">
-			   <div class="wmuSliderWrapper">
-			   		@foreach ($slideShows as $k=>$v)
-					<article style="position: absolute; width: 100%; opacity: 0;"> 
-						<div class="banner-wrap">
-							<div class="banner-text-info banner-text-inf" style="background:url({{$v['url']}}); width: 100%; height: 20%; background-size: 100% ;">
-								<h3 >{{$v['title']}}</h3>
-							</div>
+		<div class="wmuSlider example1">
+		   <div class="wmuSliderWrapper">
+		   		@foreach ($slideShows as $k=>$v)
+				<article style="position: absolute; width: 100%; opacity: 0;"> 
+					<div class="banner-wrap">
+						<div class="banner-text-info banner-text-inf" style="background:url({{$v['url']}}); width: 100%; height: 20%; background-size: 100% ;">
+							<h3 >{{$v['title']}}</h3>
 						</div>
-					</article>
-					@endforeach
-				</div>
+					</div>
+				</article>
+				@endforeach
 			</div>
-				<script src="js/jquery.wmuSlider.js"></script> 
-					<script>
-						$('.example1').wmuSlider();         
-					</script> 
 		</div>
+			<script src="js/jquery.wmuSlider.js"></script> 
+			<script>
+				$('.example1').wmuSlider();         
+			</script> 
 	</div>
 <!-- //banner-text -->
 
 @foreach($gname as $k=>$v)
 
-<div id="mobileGame" class="services">
+<div id="BBS" class="services">
 		<div class="container">
 			<h3 class="ser">
-							{{$v->gname}}
+				{{$v->gname}}
 			</h3>
 		<p class="ever"> </p>
 			<!-- 论坛帖子入口 -->
@@ -74,11 +72,11 @@
 					</div>
 				</div>
 				
-			
+			</div>
 			@endif
 			@endforeach
 			<div class="clearfix"></div>
-			</div>
+			
 		</div>
 	</div>
 

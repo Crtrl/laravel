@@ -202,8 +202,20 @@ class IndexController extends Controller
             return redirect('/home/user/my');
         }
 
-
-
+        /**
+         * 我的收藏帖子
+        **/
+        public function collects()
+        {
+            $users = Front_users::find(session('fid'));
+            $post = $users->posts()->whereIn('id',explode(',', $users->favorite))->paginate(10);
+            // dd($post);
+            $zx = Sys::get();
+            return view('home.user.sc',[
+                'post'=>$post,
+                'zx'=>$zx
+                ]);
+        }
         /**
          * 收藏帖子功能
         **/

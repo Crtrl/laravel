@@ -79,7 +79,7 @@
                     float: right;                
                 }
             </style>
-         
+            {{$rs->links()}}
 
         </div>
     </div>

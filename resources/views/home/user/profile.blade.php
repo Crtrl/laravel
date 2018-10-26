@@ -87,7 +87,7 @@
    
     
           <li onclick="dianji(6)" style="list-style-type:none">
-       <a href="/home/user/sc" title=""> <button type="button" class="btn  btn-primary">
+       <a href="/home/user/collects" title=""> <button type="button" class="btn  btn-primary">
             我的收藏
         </button></a>
     </li>
