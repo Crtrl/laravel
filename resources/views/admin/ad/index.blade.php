@@ -36,7 +36,7 @@
             <div class="dataTables_filter" id="DataTables_Table_1_filter">
                 <label>
                     商家名称:
-                    <input type="text" name='postername' value="{{$request->postername}}" aria-controls="DataTables_Table_1">
+                    <input type="text" name='postername' value=" {{$request->postername}}" aria-controls="DataTables_Table_1">
                 </label>
 
                  
@@ -70,7 +70,7 @@
 
 						  <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" style="width: 120px;" aria-label="Platform(s): activate to sort column ascending">
-                            广告内容
+                            广告链接
                         </th>
 
                           <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
@@ -139,7 +139,7 @@
                 </tbody>
             </table>
             <div class="dataTables_info" id="DataTables_Table_1_info">
-                Showing 1 to 10 of 57 entries
+                版权所有.违版必究
             </div>
             <style type="text/css">
                 .pagination li{

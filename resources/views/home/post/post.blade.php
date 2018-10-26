@@ -226,7 +226,7 @@
                             </td>
                         <!--帖子标题 -->
                             <td>
-                                <h4><a href="">{{$v->title}}</a> </h4>
+                                <h4><a href="/home/details/{{$v->id}}?b={{$id}}">{{$v->title}}</a> </h4>
                             </td>
                         <!--帖子作者 -->
                             <td colspan="" rowspan="" headers="">
@@ -278,6 +278,7 @@
                         {{$v->gid}}
                 @endforeach
                     <form action='/home/post/add/{{$gn->gid}}' method="post"   enctype="multipart/form-data">
+
                     {{csrf_field()}}
               <div class="success container col-md-offset-2" style='color:red' id='sf'> <h2>快速发帖:</h2></div>  
 <div class="container col-md-offset-4" style="color:red" >
@@ -285,10 +286,7 @@
 </div>
 <br><br><br>
         <div class="container">
-          <script class="col-md-offset-1" id="editor" name="content" type="text/plain" style="width:1024px;height:300px;">
-              
-
-                          
+          <script class="col-md-offset-1" id="editor" name="content" type="text/plain" style="width:1024px;height:300px;">       
                     </script>
                 </div>
 

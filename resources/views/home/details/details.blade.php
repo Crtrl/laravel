@@ -40,8 +40,8 @@
                     <em>
                         &rsaquo;
                     </em>
-                    <a href="">
-                        论坛列表
+                    <a href="/home/post/{{$g}}">
+                       {{$games->gname}}
                     </a>
                     <em>
                         &rsaquo;
@@ -63,11 +63,11 @@
                     <div class="pgt">
                     </div>
                     <span class="y pgb">
-                        <a href="">
+                        <a href="/home/post/{{$g}}">
                             返回列表
                         </a>
                     </span>
-                    <a id="newspecial"  href="" title="发新帖">
+                    <a id="newspecial"  href="/home/post/{{$g}}" title="发新帖">
                         <img src="/images/details/pn_post.png" alt="发新帖" />
                     </a>
                 </div>
@@ -91,7 +91,7 @@
                                         回复:
                                     </span>
                                     <span class="xi1">
-                                        3
+                                        {{$count}}
                                     </span>
                                 </div>
                             </td>

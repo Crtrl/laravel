@@ -24,16 +24,21 @@ class CategoryController extends Controller
          $rs = Category::select(DB::raw('*,concat(path,gid) as paths'))->
         where('gname','like','%'.$request->input('gname').'%')->//搜索
         orderBy('paths')->
-        paginate($request->input('num',10));//分页
+        paginate($request->input('num',50));//分页
+
           //父类与子类上下区别
          foreach($rs as $k => $v){
             //path  0,1,4
             $n = substr_count($v -> path, ',') - 1;
             $v->gname = str_repeat('&nbsp;', $n * 8).'|--'.$v -> gname;
             // $v->catename = str_repeat('|--', $n).$v -> catename;
+            $arr[] = $v;
+
         }
+        $count = count($arr);
+    
         //后台浏览页面
-        return view('admin.category.index',['title'=>'分类列表','rs'=>$rs,'request'=>$request]);
+        return view('admin.category.index',['title'=>'分类列表','rs'=>$rs,'request'=>$request,'count'=>$count]);
 
     }
 

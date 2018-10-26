@@ -41,8 +41,8 @@ class IndexController extends Controller
         //前台分类管理  
        $category =  DB::table('games')->get();
        $gname = DB::table('games')->where('pid','0')->get();
-       
      
+        
     
 		
   
@@ -63,11 +63,12 @@ class IndexController extends Controller
                                 'ad'  => $ad,
                                 'category' => $category,
                                 'gname' => $gname
-
+                            
                             ]);
+            }
 
 
-	}
+	
 
         //修改个人信息
     	public function update(Request $request)

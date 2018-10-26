@@ -45,12 +45,12 @@
                     </div>
                 </div>
 
-                  <div class="mws-form-row">
-                                    <label class="mws-form-label">广告内容 <span class="required"></span></label>
-                                    <div class="mws-form-item">
-                                        <textarea name="content" rows="" cols="" class="required large"></textarea>
-                                    </div>
-                                </div>
+                   <div class="mws-form-row">
+            <label class="mws-form-label">广告链接</label>
+            <div class="mws-form-item">
+              <input type="text" class="small" name='content'>
+            </div>
+          </div>
           
           <div class="mws-form-row">
             <label class="mws-form-label">状态</label>

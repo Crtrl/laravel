@@ -22,7 +22,7 @@ class PostController extends Controller
 			$ct[] = $v['gid'];
 		}
 
-		
+	
 
 		
 		// dd($ct);

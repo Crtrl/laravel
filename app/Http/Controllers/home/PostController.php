@@ -50,7 +50,8 @@ class PostController extends Controller
     	 $zq = Post::get();
 
     	 $zong = count($zq);
-    	return view('home/post/post',['today'=>$today,'zong'=>$zong,'title'=>$title,'request'=>$request,'zx'=>$zx,'rs'=>$rs,'gn'=>$gn,'list'=>$list,'res'=>$res]);
+
+    	return view('home/post/post',['today'=>$today,'zong'=>$zong,'title'=>$title,'request'=>$request,'zx'=>$zx,'rs'=>$rs,'gn'=>$gn,'list'=>$list,'res'=>$res,'id'=>$id]);
 
 
     }
@@ -58,10 +59,14 @@ class PostController extends Controller
 	 //发送帖子
  	public function add(Request $request,$id)
  	{
+        // echo $id;die;
+          
+        
+
           try{
-
+                //获取百度编辑器传输过来的内容
                 $sj = $request ->except('_token');
-
+               
                 //去除<p>标签
                 $qp = $sj['content'];
 
@@ -70,9 +75,9 @@ class PostController extends Controller
                 $sj['cid'] = $id;
 
                 $sj['ptime'] = time();
-
+ 
                 $rz = Front_users::where('fid', session('fid'))->get()[0]['fname'];
-
+               
                 $sj['zname'] = $rz;
 
                 $zz = Front_users::where('fid',session('fid'))->pluck('status')[0];

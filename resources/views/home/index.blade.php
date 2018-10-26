@@ -1,7 +1,7 @@
 @extends('common.home')
 
 @section('content')
-<style type="text/css" media="screen">00
+<style type="text/css" media="screen">
 	#imgs{
 		width: 200px;
 		height: 100px;
@@ -13,7 +13,7 @@
 		@foreach($ad as $k =>$v)
 	
 		<div class='adv' style="background:url({{$v->url}}) no-repeat center top #7B010B;">
-			<a href='http://www.adv.com/' target='_blank' class='link'></a>
+			<a href='{{$v->content}}' target='_blank' class='link'></a>
 	
 		@endforeach		
 		<a href='javascript:;' class='up'></a>
@@ -22,7 +22,7 @@
 <!-- 前台轮播图 -->
 <!-- banner-text -->
 	<div class="banner-text">
-		<div class="container">
+		<!-- <div class="container" style="width: 1140px;"> -->
 			<div class="wmuSlider example1">
 			   <div class="wmuSliderWrapper">
 			   		@foreach ($slideShows as $k=>$v)
@@ -40,13 +40,13 @@
 					<script>
 						$('.example1').wmuSlider();         
 					</script> 
-		</div>
+		<!-- </div> -->
 	</div>
 <!-- //banner-text -->
 
 @foreach($gname as $k=>$v)
 
-<div id="mobileGame" class="services">
+<div id="mobileGame " class="services">
 	<div class="container">
 		<h3 class="ser">
 						{{$v->gname}}
@@ -67,10 +67,15 @@
 					</div>
 					<div class="col-md-6 services-left">
 
-						<a href="/home/post/{{$vv->gid}}" title=""><h4>{{$vv->gname}}</h4></a>
+						<a href="/home/post/{{$vv->gid}}" title=""><h4>{{$vv->gname}}
+						</h4></a>
 
 					</div>
+					<!-- 帖子数量 -->
 					
+					
+
+
 				</div>
 			</div>
 		</div>
@@ -78,6 +83,7 @@
 		@endforeach
 		<div class="clearfix"></div>
 	</div>
+
 </div>
 
 

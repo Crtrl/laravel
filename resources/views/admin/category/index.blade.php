@@ -18,17 +18,12 @@
         	<form action="/admin/category" method='get'>
             <div id="DataTables_Table_1_length" class="dataTables_length">
                 <label>
-                    显示
+                    共显示
                     <select name="num" size="1" aria-controls="DataTables_Table_1">
-                        <option value="10" @if($request->num == 10)  selected="selected"  @endif >
-                            10
+                        <option  >
+                            {{$count}}
                         </option>
-                        <option value="25" @if($request->num == 25)  selected="selected"  @endif>
-                            25
-                        </option>
-                        <option value="30" @if($request->num == 30)  selected="selected"  @endif>
-                            30
-                        </option>
+                       
                        
                     </select>
                     条数据
@@ -113,7 +108,7 @@
                 </tbody>
             </table>
             <div class="dataTables_info" id="DataTables_Table_1_info">
-                Showing 1 to 10 of 57 entries
+                 版权所有.违版必究
             </div>
             
             <style>
@@ -164,7 +159,7 @@
 
             <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_1_paginate">
 				
-				{{$rs->appends($request->all())->links()}}
+				<!-- {{$rs->appends($request->all())->links()}} -->
             </div>
         </div>
     </div>

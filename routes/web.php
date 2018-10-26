@@ -60,8 +60,10 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::get('/home/user/collects','home\IndexController@collects');
 	//帖子收藏ajax
 	Route::get('/home/user/sc/{id}','home\IndexController@sc');
-	
-
+	//帖子主页
+	Route::get('home/post/{id}','home\PostController@post');
+	//获取帖子信息
+	Route::post('home/post/add/{id}','home\PostController@add');
 
 
 	
@@ -80,8 +82,7 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::resource('/home/details','home\DetailsController');
 });
 
-	//帖子主页
-	Route::get('home/post/{id}','home\PostController@post');
+	
 	//帖子禁用
 	Route::get('/admin/post/jin/{id}','admin\PostController@jin');
 	//IP禁用
@@ -89,22 +90,21 @@ Route::group(['middleware'=>'homelogin'],function()
 	//IP解禁
 	Route::get('/admin/post/jieip/{id}','admin\PostController@jieip');
 	
-	//获取帖子信息
-	Route::post('home/post/add/{id}','home\PostController@add');
+	
 
 
 
 
-//后台公共页面
-Route::get('/admin/common','admin\IndexController@common');
+
 
 //后台登陆
 Route::get('/admin/login','admin\LoginController@login');
 Route::post('/admin/dologin','admin\LoginController@dologin');
 
+
 //后台路由组
-Route::group([],function ()
-{
+Route::group(['middleware'=>['adminlogin']],function () {
+
 	//后台首页
 	Route::get('/admin/index','admin\IndexController@Index');
 
@@ -145,7 +145,10 @@ Route::group([],function ()
 	Route::any('/admin/logout','admin\ResetController@logout');
 	//用户管理资源路由
 	Route::resource('/admin/users','admin\AdminUsersController');
-
+	//角色管理
+	Route::resource('/admin/role','admin\RoleController');
+	//权限管理
+	Route::resource('/admin/permission','admin\PermissionController');
 	//系统维护
 	Route::get('admin/mai','admin\IndexController@mai');
 

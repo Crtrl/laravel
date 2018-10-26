@@ -19,8 +19,9 @@ class AdController extends Controller
     public function index(Request $request)
     {
         // echo '浏览广告';
-        $rs = DB::table('poster')->get();
-
+        // $rs = DB::table('poster')->get();
+       $rs = DB::table('poster')->where('postername','like','%'.$request->input('postername').'%')->//搜索
+        paginate($request->input('num',10));//分页
         // $rs['addtime'] = time();
         // echo '<pre>';
         // var_dump($rs);
@@ -71,10 +72,10 @@ class AdController extends Controller
         if($rs){
 
             //跳转
-            return redirect('/admin/ad');
+            return redirect('/admin/ad')->with('success','添加成功');;
         } else {
 
-            return back();
+            return back()->with('error','添加失败');
         }
 
 

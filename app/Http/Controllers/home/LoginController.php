@@ -36,7 +36,7 @@ class LoginController extends Controller
             //从数据库查询出数据
     	$data = DB::table('front_users')->where('fname',$res['fname'])->first();
     		// dd($data);
-        $decrypted = decrypt($data->pwd);   
+         
         // dd( $decrypted);       
     		if(!$data){
 
@@ -49,6 +49,7 @@ class LoginController extends Controller
     	// 	return back()->with('error','用户名或者密码错误');
 
     	// }
+         $decrypted = decrypt($data->pwd); 
         if ( $decrypted !== $res['password']) {
                 return back()->with('error','用户名或者密码错误');
         }
