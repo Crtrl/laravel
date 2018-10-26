@@ -69,47 +69,12 @@ class IndexController extends Controller
 
 	}
 
-    //修改个人信息
-	public function update(Request $request)
-    {
-        $res = $request ->except('_token');
-
-        try {
-            $rs = Front_users::where('fid',session('fid'))->update($res);
-
-            if ($rs) {
-
-                return redirect('/home/index');
-            }
-        } catch(\Exception $e) {
-
-            return back();
-
-        }
-    }
-
-    //修改头像
-    public function face(Request $request) 
-    {
-            $res = $request ->only('face');
-            if ($request ->hasFile('face')) {
-
-                //自定义名字
-                $name = time().rand(1111, 9999);
-
-                //获取后缀
-                $suffix = $request ->file('face') ->getClientOriginalExtension();
-
-                //移动
-                $request ->file('face') ->move('uploads', $name.'.'.$suffix);
-
-                $res['face'] = '/uploads/'.$name.'.'.$suffix;
-
-            }
-            //dd($res);
+        //修改个人信息
+    	public function update(Request $request)
+        {
+            $res = $request ->except('_token');
 
             try {
-
                 $rs = Front_users::where('fid',session('fid'))->update($res);
 
                 if ($rs) {
@@ -121,6 +86,41 @@ class IndexController extends Controller
                 return back();
 
             }
+        }
+
+        //修改头像
+        public function face(Request $request) 
+        {
+                $res = $request ->only('face');
+                if ($request ->hasFile('face')) {
+
+                    //自定义名字
+                    $name = time().rand(1111, 9999);
+
+                    //获取后缀
+                    $suffix = $request ->file('face') ->getClientOriginalExtension();
+
+                    //移动
+                    $request ->file('face') ->move('uploads', $name.'.'.$suffix);
+
+                    $res['face'] = '/uploads/'.$name.'.'.$suffix;
+
+                }
+                //dd($res);
+
+                try {
+
+                    $rs = Front_users::where('fid',session('fid'))->update($res);
+
+                    if ($rs) {
+
+                        return redirect('/home/index');
+                    }
+                } catch(\Exception $e) {
+
+                    return back();
+
+                }
 
         }
 
@@ -164,7 +164,9 @@ class IndexController extends Controller
 
         }
 
-
+        /**
+         * 我的帖子
+        */
         public function my()
         {
 
@@ -193,7 +195,9 @@ class IndexController extends Controller
                                      ]);
 
         }
-
+        /**
+         * 帖子删除
+        */
         public function del(Request $request,$id)
         {
                
@@ -201,6 +205,7 @@ class IndexController extends Controller
 
             return redirect('/home/user/my');
         }
+
 
         /**
          * 我的收藏帖子
@@ -216,6 +221,7 @@ class IndexController extends Controller
                 'zx'=>$zx
                 ]);
         }
+
         /**
          * 收藏帖子功能
         **/

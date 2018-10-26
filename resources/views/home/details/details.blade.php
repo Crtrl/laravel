@@ -22,7 +22,7 @@
           
             <style id="diy_style" type="text/css">
             </style>
-            <!--[diy=diynavtop]-->
+           
             <div id="diynavtop" class="area">
             </div> 
             <!--路径-->
@@ -132,7 +132,9 @@
                                         <div class="pi">
                                             <div class="authi">
                                                 <a href="/home/user/profile" target="_blank" class="xw1">
-                                                 {{$front->fname}}
+                                                   @foreach($fronts as $k=>$v) 
+                                                            {{$v->fname}}
+                                                   
                                                 </a>
                                             </div>
                                         </div>
@@ -147,12 +149,13 @@
                                             <div class="avatar">
                                                 <!-- 评论者头像 -->
                                                 <a href="/home/user/profile" class="avtm" target="_blank">
-                                                    <img src="{{$front->face}}" />
+                                                    <img src="{{$v->face}}" />
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
+                                     @endforeach 
                                 <td class="plc">
                                     <div class="pi">
                                      
@@ -240,10 +243,12 @@
                             </tr>
                         </table>
                     </div>
+                    
+
 
                     <!-- 第一个评论 -->
-                 @foreach($comments as $key => $val)
-                     <div id="post_29310434">
+                    @foreach ($comments as $k => $v)
+                  <div id="post_29310434">
                         <table id="pid29310434" class="plhin" summary="pid29310434" cellspacing="0"
                         cellpadding="0">
                             <tr>
@@ -251,24 +256,24 @@
                                     <div id="favatar29310434" class="pls favatar">
                                         <div class="pi">
                                             <div class="authi">
-                                                <a href="/home/user/profile" target="_blank" class="xw1">
-                                                @foreach($fronts as $k => $v)
-                                                        {{$v->fname}}
-                                                
-                                                </a>
+                                                <a href="/home/user/profile" target="_blank" class="xw1"> </a>
+                                             {{$v->username}}
+                                           
+                                            
                                             </div>
                                         </div>
-                                    
+                                     
                                         <div>
                                             <div class="avatar">
                                                 <a href="#">
-                                                    <img src="{{$v->face}}"
+                                                    <img src="{{$v->userface}}"
                                                     />
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
+                                   
+                            
                                 </td>
                                 <td class="plc">
                                     <div class="pi">
@@ -289,7 +294,7 @@
                                                 <img class="authicn vm" id="authicon29310434" src="http://www.discuz.net/static/image/common/online_supermod.gif"
                                                 />
                                                 <em id="authorposton29310434">
-                                                    发表于 {{date('Y-m-d H:i:s',$val->ctime)}}
+                                                    发表于 {{date('Y-m-d H:i:s',$v->ctime)}}
                                                 </em>
                                                 <span class="pipe">
                                                     |
@@ -307,7 +312,7 @@
                                                 <table cellspacing="0" cellpadding="0">
                                                     <tr>
                                                        <td>
-                                                       {!! $val->content !!}
+                                                    {!! $v->content !!}
                                                     </td>  
                                                     </tr>
                                                 </table>
@@ -340,7 +345,8 @@
                             </tr>
                         </table>
                     </div> 
-                 @endforeach
+                @endforeach
+
 
 
                         <!-- 第二个评论       -->

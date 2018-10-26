@@ -50,35 +50,33 @@
 				{{$v->gname}}
 			</h3>
 		<p class="ever"> </p>
-			<!-- 论坛帖子入口 -->
-		
+		<!-- 论坛帖子入口 -->
+	
 		@foreach($category as $kk=>$vv)
 		@if($vv->pid == $v->gid)
-			<div class="services-top" ">
-				<div class="col-md-6 services-top-left" style="float: left; width: 30%; margin-top: 10px; margin-bottom:10px; ">
-					<div class="services-top-main">
-						
-						<div class="col-md-6 services-left service-img" style="width: 30%;">
-							<a href="/home/post" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
-								<img src="{{$vv->url}}" alt="" class="img-responsive" />
-							</a>
-						</div>
-						<div class="col-md-6 services-left">
-
-							<a href="/home/post/{{$vv->gid}}" title=""><h4>{{$vv->gname}}</h4></a>
-
-						</div>
-						
+		<div class="services-top" ">
+			<div class="col-md-6 services-top-left" style="float: left; width: 30%; margin-top: 10px; margin-bottom:10px; ">
+				<div class="services-top-main">
+					
+					<div class="col-md-6 services-left service-img" style="width: 30%;">
+						<a href="/home/post" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+							<img src="{{$vv->url}}" alt="" class="img-responsive" />
+						</a>
 					</div>
+					<div class="col-md-6 services-left">
+
+						<a href="/home/post/{{$vv->gid}}" title=""><h4>{{$vv->gname}}</h4></a>
+
+					</div>
+					
 				</div>
-				
 			</div>
-			@endif
-			@endforeach
-			<div class="clearfix"></div>
-			
 		</div>
+		@endif
+		@endforeach
+		<div class="clearfix"></div>
 	</div>
+</div>
 
 
 @endforeach

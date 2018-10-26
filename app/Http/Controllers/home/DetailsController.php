@@ -16,11 +16,40 @@ class DetailsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
-        echo "index";
-        
+        // echo "index";
+         //查看数量
+        // 查询数据
+        $post = Post::find($id);
+        // 修改数据的值
+        $post->val++;
+        // 保存到数据库
+        $post->save();
+        // 赋值并分配
+        $countView = $post->val;
+
+
+        //根据ID获取内容数据
+        $data = DB::table('post')->where('id',$id)->first();
+        //获取用户信息
+        // $front = DB::table('Front_users')->where('fid',session('fid'))->first();
+        //根据内容获取楼主用户信息
+        $fronts = Front_users::where('fid',$data->fuid)->get();
+        //根据内容ID获取评论
+         $comments = Comments::where('post_id',$id)->get();
+        // dd($fronts);
+
+        // dd($username->fname);
+         //把值分配给详情页面    
+         return view('home/details/details',[
+            'title'     => '帖子详情页',
+            'data'      => $data,
+            'countView'=> $countView,
+            'comments' => $comments,
+            'fronts'   => $fronts
+        ]);
     }
 
     /**
@@ -54,45 +83,21 @@ class DetailsController extends Controller
      */
     public function show($id)
     {
-        // echo 'show';die;
-    //访问数量
-        // 查询数据
-        $post = Post::find($id);
-        // 修改数据的值
-        $post->val++;
-        // 保存到数据库
-        $post->save();
-        // 赋值并分配
-        $countView = $post->val;
-      
- //根据id获取数据
-        $data = DB::table('post')->where('id',$id)->first();
-        // dd($data);
-        //获取用户信息
-        $front = DB::table('Front_users')->where('fid',session('fid'))->first();
-       // $com = DB::table('comments')->get();
-
-       $post = Post::where('id',$id)->get();
-      
-       $a = '';
-       foreach ($post as $k => $v) {
-          $a = $v->fuid;
-       }
-       
-      $fronts = Front_users::where('fid',$a)->get();
+        echo 'show';
     
-      $comments = Comments::where('post_id',$id)->get();
-        
-        
-        return view('home/details/details',[
-            'title'     => '帖子详情页',
-            'data'      => $data,
-            'front'     => $front,
-            'countView' => $countView,
-            'comments'  => $comments,
-            'post'      => $post,
-            'fronts'    => $fronts
-        ]);
+      
+     
+    
+        $b = [];
+       foreach ($comments as $k => $v) {
+          $b[] += $v->user_id;
+       }
+
+       // $frontusers = Front_users::find($b);
+       $frontusers = DB::table('front_users')->whereIn('fid',$b)->get();
+     dd($frontusers);
+      
+      
     }
 
     /**
