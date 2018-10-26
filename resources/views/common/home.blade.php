@@ -155,9 +155,9 @@
 					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
 							<li class="hvr-sweep-to-bottom active"><a href="/home/index">首页</a></li>	
-							<li class="hvr-sweep-to-bottom"><a href="#netGame" class="scroll">网络游戏</a></li>
-							<li class="hvr-sweep-to-bottom"><a href="#mobileGame" class="scroll">手机游戏</a></li>
-							<li class="hvr-sweep-to-bottom"><a href="#idpGame" class="scroll">单机游戏</a></li>
+							
+							<li class="hvr-sweep-to-bottom"><a href="#BBS" class="scroll">论坛入口</a></li>
+							
 							<li class="hvr-sweep-to-bottom"><a href="#friends" class="scroll">友情链接</a></li>
 
 

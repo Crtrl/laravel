@@ -87,7 +87,7 @@
    
     
           <li onclick="dianji(6)" style="list-style-type:none">
-       <a href="/home/user/sc" title=""> <button type="button" class="btn  btn-primary">
+       <a href="/home/user/collects" title=""> <button type="button" class="btn  btn-primary">
             我的收藏
         </button></a>
     </li>
@@ -108,7 +108,7 @@
                 <label for="exampleInputEmail1">
                    昵称
                 </label>
-                <input type="text" class="form-control" name='fname' id="exampleInputEmail1" placeholder="请输入用户名"  value="{{$v->fname}}">
+                <input type="text" class="form-control" name='fname' id="exampleInputEmail1" placeholder="请输入用户名" disabled="disabled"  value="{{$v->fname}}">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword2" name='phone'>

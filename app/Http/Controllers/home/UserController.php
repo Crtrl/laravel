@@ -5,7 +5,7 @@ namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Admin\Front_users;
+use App\Model\home\Front_users;
 use App\Model\Admin\Post;
 use App\Model\Home\Sys;
 use DB;

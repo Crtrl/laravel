@@ -24,11 +24,12 @@
 <link rel="stylesheet" href="/admin/css/admin.css">
 <script src="/admin/js/jquery.min.js"></script>
 <!-- <script src="/admin/js/app.js"></script> -->
-    <script type="text/javascript" src="/admin/js/site.min.js"></script>
-
-    <link type="text/css" rel="stylesheet" href="/admin/bootstrap/css/bootstrap.css">
-    <script type="text/javascript" src="/admin/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/admin/bootstrap/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="/admin/js/site.min.js"></script>
+    
+<!-- bootstrap -->
+<link type="text/css" rel="stylesheet" href="/admin/bootstrap/css/bootstrap.css">
+<script type="text/javascript" src="/admin/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="/admin/bootstrap/js/jquery-1.8.3.js"></script>
 
 
 <!-- Viewport Metatag -->
@@ -203,7 +204,7 @@
             <div id="mws-navigation">
                 <ul>
                     <li>
-                        <a href="#"><i class="icon-list"></i> 后台用户管理</a>
+                        <a href="#"><i class="icon-users"></i> 后台用户管理</a>
                         <ul class="closed">
                             <li><a href="/admin/users">浏览用户</a></li>
                             <li><a href="/admin/users/create">添加用户</a></li>
@@ -216,7 +217,7 @@
             <div id="mws-navigation">
                 <ul>
                     <li>
-                        <a href="#"><i class="icon-list"></i> 角色管理</a>
+                        <a href="#"><i class="icon-official"></i> 角色管理</a>
                         <ul class="closed">
                             <li><a href="/admin/role">浏览角色</a></li>
                             <li><a href="/admin/role/create">添加角色</a></li>
@@ -229,7 +230,7 @@
             <div id="mws-navigation">
                 <ul>
                     <li>
-                        <a href="#"><i class="icon-list"></i> 权限管理</a>
+                        <a href="#"><i class="icon-key-2"></i> 权限管理</a>
                         <ul class="closed">
                             <li><a href="/admin/permission">浏览权限</a></li>
                             <li><a href="/admin/permission/create">添加权限</a></li>
@@ -255,7 +256,7 @@
             <div id="mws-navigation">
                 <ul>
                     <li>
-                        <a href="#"><i class="icon-list"></i> 轮播图管理</a>
+                        <a href="#"><i class="icon-television"></i> 轮播图管理</a>
                         <ul class="closed">
                             <li><a href="/admin/slideshows">图片总览</a></li>
                             <li><a href="/admin/slideshows/create">添加图片</a></li>

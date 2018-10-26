@@ -52,21 +52,18 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::get('/common/home','home\IndexController@profile');
 	Route::post('/home/user/face','home\IndexController@face');
 	Route::get('/home/user/pwd','home\IndexController@pwd');
+
+
 	//我的帖子
-	Route::get('home/user/my','home\IndexController@my');
-	Route::get('home/user/sc','home\IndexController@sc');
+	Route::get('/home/user/my','home\IndexController@my');
 	//删除我的帖子
-	Route::get('home/user/{id}','home\IndexController@del');
-
-
-
-	
-	
-
+	Route::get('/home/user/del/{id}','home\IndexController@del');
+	//我收藏的帖子
+	Route::get('/home/user/collects','home\IndexController@collects');
+	//帖子收藏ajax
+	Route::get('/home/user/sc/{id}','home\IndexController@sc');
 	
 
-	
-	
 
 	//前台退出
 	Route::any('/home/loginout','home\LoginController@loginout');
@@ -89,20 +86,26 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::post('home/post/add/{id}','home\PostController@add');
 
 
-
-
-
-
-//后台登陆
-Route::get('/admin/login','admin\LoginController@login');
-Route::post('/admin/dologin','admin\LoginController@dologin');
-
-//后台路由组
-Route::group([],function ()
+Route::group(['middleware'=>'adminlogin'],function ()
 {
 	//后台首页
 	Route::get('/admin/index','admin\IndexController@Index');
 
+
+	//后台用户管理
+	//用户修改密码
+	Route::get('/admin/reset','admin\ResetController@reset');
+	Route::post('/admin/doreset/{id}','admin\ResetController@doreset');
+
+	//用户退出
+	Route::any('/admin/logout','admin\ResetController@logout');
+
+
+});
+
+//后台路由组
+Route::group(['middleware'=>['adminlogin']],function ()
+{
 
 	//后台系统设置
 	Route::get('/admin/sys/web','admin\SysController@web');
@@ -116,7 +119,7 @@ Route::group([],function ()
 	Route::resource('admin/category','admin\CategoryController');
 	//后台友情链接管理
 	Route::resource('admin/friends','admin\FriendsController');
-	//轮播图
+	//轮播图管理
 	Route::resource('/admin/slideshows','admin\SlideShowsController');
 
 
@@ -128,17 +131,13 @@ Route::group([],function ()
 	//帖子置顶
 	Route::get('admin/post/top/{id}','admin\PostController@top');
 	
-
-
-	//后台用户管理
-
-	//用户修改密码
-	Route::get('/admin/reset','admin\ResetController@reset');
-	Route::post('/admin/doreset/{id}','admin\ResetController@doreset');
-	//用户退出
-	Route::any('/admin/logout','admin\ResetController@logout');
+	
 	//用户管理资源路由
 	Route::resource('/admin/users','admin\AdminUsersController');
+	//用户角色资源路由
+	Route::resource('/admin/role','admin\RoleController');
+	//用户权限资源路由
+	Route::resource('/admin/permission','admin\PermissionController');
 
 	//系统维护
 	Route::get('admin/mai','admin\IndexController@mai');

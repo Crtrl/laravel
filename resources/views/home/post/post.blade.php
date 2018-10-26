@@ -123,8 +123,6 @@
        
 </table>
 
-
-
     <br><br><br>
 <div>
    <div id="list-content" >
@@ -215,41 +213,46 @@
                             <th>内容简介&nbsp; &nbsp;</th>
                             <th>收藏</th>
                         </tr>
-                        @foreach($list as $k=>$vv)    
+                        @foreach($list as $k=>$v)    
                         <tr class="active">
                             <td class="success">
-                                @if($vv->liang==1)
+                                @if($v->liang==1)
                                 <img src='/home/images/topichot.gif'/>
                                 @endif
                                 &nbsp;                             
-                                @if($vv->top==1)
+                                @if($v->top==1)
                                 <img src='/home/images/headtopic_3.gif'/>
                                 @endif
                             </td>
                         <!--帖子标题 -->
                             <td>
-                                <h4><a href="/home/details/{{$vv->id}}">{{$vv->title}}</a> </h4>
+                                <h4><a href="">{{$v->title}}</a> </h4>
                             </td>
                         <!--帖子作者 -->
                             <td colspan="" rowspan="" headers="">
-                                    {{$vv->zname}}
+                                    {{$v->zname}}
                             </td>
                            
                         <!--发帖时间 -->
                             <td>
-                              {{date('Y年m月d日 H时i分s秒',$vv->ptime)}}
+                              {{date('Y年m月d日 H时i分s秒',$v->ptime)}}
                             </td>
                         <!--内容简介 -->
                             <td >
                                 <div style="width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                    {{$vv->content}}
+                                    {{$v->content}}
                                 </div>
                             </td>
                         <!-- 收藏 -->
+                            @if( !empty($rs->favorite) && in_array( $v->id, explode(',',$rs->favorite) ) )
                             <td>
-                                <a href="/home/post/sc" title="">收藏</a>
+                                <a href="javascript:void(0)" data-href="/home/user/sc/{{$v->id}}" class="action" data-action="0" >取消收藏</a>
                             </td>
-                            
+                            @else 
+                            <td>
+                                <a href="javascript:void(0)" data-href="/home/user/sc/{{$v->id}}"  class="action" data-action="1" >收藏</a>
+                            </td>
+                            @endif
                         </tr>
                         @endforeach
               
@@ -306,7 +309,42 @@
     <!-- 编辑机器实例化 -->
     <script type="text/javascript">
         var ue = UE.getEditor('editor');
+        //收藏
+        $(function(){
+            $(".action").click(function() {
+                // 判断是收藏, 还是取消收藏
+                var actionType = $(this).attr("data-action") == 1 ? 1 : 0;
 
+                // 获取帖子id
+                var url = $(this).attr("data-href");
+                
+                //声明$(this)
+                var bts = $(this);
+                
+                $.ajax({
+                    url: url,
+                    data: {actionType: actionType},
+                    dataType: "JSON",
+                    type: "GET",
+                    success: function(response) {
+                        if(response.status == 1){
+                            bts.text('取消收藏');
+                            bts.attr('data-action','0');
+                            alert(response.message);
+                        } else if (response.status == 2){
+                            bts.text('收藏');
+                            bts.attr('data-action','1');
+                            alert(response.message);
+                        }  
+                       
+                    },
+                    error: function(response) {
+                        alert("收藏失败!");
+                    }
+                });
+            });
+
+        });
     </script>
 </table>
 </body>

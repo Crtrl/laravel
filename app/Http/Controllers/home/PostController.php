@@ -23,10 +23,10 @@ class PostController extends Controller
     {
     	$zx = Sys::get();
 
-        
-    		
-    	$rs = Front_users::where('fid',session('fid'))->get();
 
+    	//获取当前登录用户的信息	
+   		
+    	$rs = Front_users::where('fid',session('fid'))->get();
  
 
     	$gn = Games::where('gid',$id)->get()[0];
@@ -41,7 +41,7 @@ class PostController extends Controller
     	$time = time() - 3600*24;
     	//获取最近24小时发帖数量
     	$sum = Post::where('ptime','>',$time)->get();
-    	 $today = count($sum);
+    	$today = count($sum);
 
          //通过id获取类别表内容
       $res = DB::table('games')->where('gid',$id)->get();
@@ -60,12 +60,11 @@ class PostController extends Controller
  	{
           try{
 
-                 	    $sj = $request ->except('_token');
 
-                     	
+                $sj = $request ->except('_token');
 
 
-                	//去除<p>标签
+                //去除<p>标签
                 $qp = $sj['content'];
 
                 $sj['content'] = trim($qp, '</p>');
@@ -78,11 +77,16 @@ class PostController extends Controller
 
                 $sj['zname'] = $rz;
 
-          	      $zz = Front_users::where('fid',session('fid'))->pluck('status')[0];
-                //dd($sj);
-                $sj['fuid'] =  session('fid');
-              
-             
+
+                $zz = Front_users::where('fid',session('fid'))->pluck('status')[0];
+
+               $sj['fuid'] =  session('fid');
+               
+
+                
+
+
+
 
                 if ($zz == '1') {
 
