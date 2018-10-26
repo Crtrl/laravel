@@ -285,7 +285,7 @@
                         <a href="#"><i class="icon-list"></i> 系统设置</a>
                         <ul class="closed">
                             <li><a href="/admin/sys/web">网站配置</a></li>
-                            <li><a href="/admin/sys/aud">审核配置</a></li>
+                       
                         
                         </ul>
                     </li>

@@ -116,13 +116,13 @@
                 <div class="form-group">
 
                 @if(session('success'))  
-                    <div class="mws-form-message success">
+                    <div class="alert alert-success success">
                         {{session('success')}}  
                     </div>
                 @endif
 
                 @if(session('error'))  
-                    <div class="mws-form-message warning">
+                    <div class="alert alert-danger warning">
                         {{session('error')}} 
                     </div>
                 @endif
@@ -235,5 +235,27 @@
 			});
 	</script>
 <!-- //here ends scrolling icon -->
+
+
+                <div class="form-group">
+
+                @if(session('success'))  
+                    <div class="mws-form-message success">
+                        {{session('success')}}  
+                    </div>
+                @endif
+
+                @if(session('error'))  
+                    <div class="mws-form-message warning">
+                        {{session('error')}} 
+                    </div>
+                @endif
+                </div>
+
+    <script>
+        $(function () {
+            $('.mws-form-message').delay(3000).slideUp(1000);
+        })
+    </script>
 </body>
 </html>

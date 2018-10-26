@@ -202,11 +202,6 @@ class IndexController extends Controller
             return redirect('/home/user/my');
         }
 
-        public function sc()
-        {
-
-     
-        }
 
 
 }

@@ -62,7 +62,7 @@ class PostController extends Controller
 
                  	    $sj = $request ->except('_token');
 
-                      
+                     	
 
 
                 	//去除<p>标签
@@ -78,19 +78,22 @@ class PostController extends Controller
 
                 $sj['zname'] = $rz;
 
-                $zz = Front_users::where('fid',session('fid'))->pluck('status')[0];
-                
-
+          	      $zz = Front_users::where('fid',session('fid'))->pluck('status')[0];
+                //dd($sj);
+                $sj['fuid'] =  session('fid');
+              
+             
 
                 if ($zz == '1') {
-                       $rs = Post::insert($sj);
+
+                   $rs = Post::create($sj);
 
 
 
                     return redirect('/home/index')->with('success','修改成功');
                   }
                 }catch(\Exception $e){
-                    return redirect('/home/index');
+                    return redirect('/home/index')->with('error','您的IP已被禁封');
                 }
 
                 }

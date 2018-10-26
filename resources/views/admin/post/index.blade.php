@@ -67,10 +67,7 @@
                         </th>
 
 
-                        <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 97px;" aria-label="CSS grade: activate to sort column ascending">
-                            操作
-                        </th>
+                 
                     </tr>
                 </thead>
                 <tbody role="alert" aria-live="polite" aria-relevant="all">
@@ -97,13 +94,17 @@
                             {{$v->zname}}
                         </td>
                 
-                    <td> {{date('Y年m月d日 H时i分s秒',$v->ptime)}}</td>     
+                    <td>{{date('Y年m月d日 H时i分s秒',$v->ptime)}}</td>     
 
 
                      <td><a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/jin/{{$v->id}}" title="" >禁用帖子</a>
-                     <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/ip/{{$v->id}}" title="" >禁用IP</a>
-                     <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/jieip/{{$v->id}}" title="" >解禁IP</a>
+
+
+                     <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/ip/{{$v->id}}" title="" id='jin' >禁用IP</a>
+
+                     <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/jieip/{{$v->id}}" title="" id='jie' >解禁IP</a>
                     </td>
+
 
 
                     <td>
@@ -111,16 +112,7 @@
                           <a class="am-btn am-btn-default am-btn-xs am-text-primary am-round" href="/admin/post/top/{{$v->id}}" title="" >置顶</a>
 
                  </td>
-                        <td class=" ">
-                            <form action="/admin/friends" method='post' style='display:inline'>
-                                
-                                {{csrf_field()}}
-                                {{method_field('DELETE')}}
-
-                                <button class='btn btn-danger'>删除</button>
-                            </form>
-
-                        </td>
+                     
                     </tr>
                     @endforeach
 

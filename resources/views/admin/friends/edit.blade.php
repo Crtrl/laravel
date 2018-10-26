@@ -26,9 +26,9 @@
          <img src="{{$res->fpic}}" alt="" width='100px'>
 </div>
     &nbsp; &nbsp;
-       <div class="am-form-group am-cf">
+       <div class="am-form-group am-cf col-md-offset-4">
           <div class="you" style="margin-left: 11%;">
-              <button type="reset" class="btn-primary">重置</button>&nbsp;  &raquo; &nbsp; <button type="submit" class="btn-danger">提交</button>
+              &nbsp; <button type="submit" class="btn-danger">提交</button>
           </div>
         </div>
 

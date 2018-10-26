@@ -50,7 +50,7 @@ class SysController extends Controller
 
             if($rs){
 
-                return redirect('/home/index');
+                return redirect('admin/sys/web')->with('success','修改成功');
             }
         }catch(\Exception $e){
 

@@ -91,8 +91,7 @@ Route::group(['middleware'=>'homelogin'],function()
 
 
 
-//后台公共页面
-Route::get('/admin/common','admin\IndexController@common');
+
 
 //后台登陆
 Route::get('/admin/login','admin\LoginController@login');
@@ -123,8 +122,7 @@ Route::group([],function ()
 
 	//帖子列表
 	Route::get('admin/post/index','admin\PostController@index');
-	//帖子删除
-	Route::post('admin/post/{id}','admin\PostController@destroy');
+	
 	//帖子加亮
 	Route::get('admin/post/lit/{id}','admin\PostController@light');
 	//帖子置顶
