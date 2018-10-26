@@ -53,10 +53,14 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::post('/home/user/face','home\IndexController@face');
 	Route::get('/home/user/pwd','home\IndexController@pwd');
 	//我的帖子
-	Route::get('home/user/my','home\IndexController@my');
-	Route::get('home/user/sc','home\IndexController@sc');
+	Route::get('/home/user/my','home\IndexController@my');
 	//删除我的帖子
-	Route::get('home/user/{id}','home\IndexController@del');
+	Route::get('/home/user/del/{id}','home\IndexController@del');
+	//我收藏的帖子
+	Route::get('/home/user/collects','home\IndexController@collects');
+	//帖子收藏ajax
+	Route::get('/home/user/sc/{id}','home\IndexController@sc');
+	
 
 
 

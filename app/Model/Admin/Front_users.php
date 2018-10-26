@@ -35,6 +35,6 @@ class Front_users extends Model
 
     public function posts()
     {
-        return $this->hasMany('App\Model\Admin\Post','tid','fid');
+        return $this->hasMany('App\Model\Admin\Post','id','favorite');
     }
 }
