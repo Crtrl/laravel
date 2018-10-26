@@ -33,22 +33,14 @@ class PostController extends Controller
 	}
 
 
-	public function destroy(Request $request,$id)
-	{
 
-
-	         $del = Post::where('id',$id)->delete();
-	   
-	         return redirect('/admin/post/index'); 
- 		
-	}
 
 	public function light($id)
 	{
 
 		Post::where('id',$id)->update(['liang'=>'1']);	
 
-		return redirect('/admin/post/index'); 
+		return redirect('/admin/post/index')->with('success','加亮成功'); 
 
 	}
 	public function top($id)
@@ -57,7 +49,7 @@ class PostController extends Controller
 
 		Post::where('id',$id)->update(['top'=>'1']);	
 
-		return redirect('/admin/post/index'); 
+		return redirect('/admin/post/index')->with('success','置顶成功'); 
 	}
 
 

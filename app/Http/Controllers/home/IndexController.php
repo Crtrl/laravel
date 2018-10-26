@@ -209,11 +209,18 @@ class IndexController extends Controller
 
 
         /**
-         * 我收藏的帖子
+         * 我的收藏帖子
         **/
         public function collects()
         {
-            echo "1111";
+            $users = Front_users::find(session('fid'));
+            $post = $users->posts()->whereIn('id',explode(',', $users->favorite))->paginate(10);
+            // dd($post);
+            $zx = Sys::get();
+            return view('home.user.sc',[
+                'post'=>$post,
+                'zx'=>$zx
+                ]);
         }
 
         /**
@@ -255,6 +262,7 @@ class IndexController extends Controller
                 'message' => $message
             ]);
         }
+
 
 
 }

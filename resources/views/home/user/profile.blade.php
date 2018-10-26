@@ -108,7 +108,7 @@
                 <label for="exampleInputEmail1">
                    昵称
                 </label>
-                <input type="text" class="form-control" name='fname' id="exampleInputEmail1" placeholder="请输入用户名"  value="{{$v->fname}}">
+                <input type="text" class="form-control" name='fname' id="exampleInputEmail1" placeholder="请输入用户名" disabled="disabled"  value="{{$v->fname}}">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword2" name='phone'>

@@ -22,6 +22,7 @@
 <!-- 前台轮播图 -->
 <!-- banner-text -->
 	<div class="banner-text">
+
 		<!-- <div class="container" style="width: 1140px;"> -->
 			<div class="wmuSlider example1">
 			   <div class="wmuSliderWrapper">
@@ -31,26 +32,31 @@
 							<div class="banner-text-info banner-text-inf" style="background:url({{$v['url']}}); width: 100%; height: 20%; background-size: 100% ;">
 								<h3 >{{$v['title']}}</h3>
 							</div>
+
 						</div>
-					</article>
-					@endforeach
-				</div>
-			</div>
+					</div>
+				</article>
+				@endforeach
+			
+
 				<script src="js/jquery.wmuSlider.js"></script> 
 					<script>
 						$('.example1').wmuSlider();         
 					</script> 
 		<!-- </div> -->
+
 	</div>
 <!-- //banner-text -->
 
 @foreach($gname as $k=>$v)
 
-<div id="mobileGame " class="services">
-	<div class="container">
-		<h3 class="ser">
-						{{$v->gname}}
-		</h3>
+
+<div id="BBS" class="services">
+		<div class="container">
+			<h3 class="ser">
+				{{$v->gname}}
+			</h3>
+
 		<p class="ever"> </p>
 		<!-- 论坛帖子入口 -->
 	

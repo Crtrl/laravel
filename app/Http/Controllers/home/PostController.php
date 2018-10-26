@@ -63,10 +63,14 @@ class PostController extends Controller
           
         
 
+
           try{
                 //获取百度编辑器传输过来的内容
                 $sj = $request ->except('_token');
                
+
+
+
                 //去除<p>标签
                 $qp = $sj['content'];
 
@@ -80,6 +84,7 @@ class PostController extends Controller
                
                 $sj['zname'] = $rz;
 
+
                 $zz = Front_users::where('fid',session('fid'))->pluck('status')[0];
 
                $sj['fuid'] =  session('fid');
@@ -89,15 +94,17 @@ class PostController extends Controller
 
 
 
+
                 if ($zz == '1') {
-                       $rs = Post::insert($sj);
+
+                   $rs = Post::create($sj);
 
 
 
                     return redirect('/home/index')->with('success','修改成功');
                   }
                 }catch(\Exception $e){
-                    return redirect('/home/index');
+                    return redirect('/home/index')->with('error','您的IP已被禁封');
                 }
 
                 }

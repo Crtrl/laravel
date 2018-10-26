@@ -75,9 +75,9 @@ class FriendsController extends Controller
             $rs = Friends::insert($res);
 
           if($rs){
-            return redirect('/admin/friends');
+            return redirect('/admin/friends')->with('success','添加成功');
           }else{
-            return redirect('/admin/friends/create');
+            return redirect('/admin/friends/create')->with('error','添加失败');
           }
     }
 
@@ -139,11 +139,11 @@ class FriendsController extends Controller
 
             if($rs){
 
-                return redirect('/admin/friends');
+                return redirect('/admin/friends')->with('success','修改成功');
             }
         }catch(\Exception $e){
 
-            return back();
+            return back()->with('error','修改失败');
 
         }
 
@@ -162,6 +162,6 @@ class FriendsController extends Controller
            
             $res = Friends::where('fid',$id)->delete();
 
-            return redirect('/admin/friends');
+            return redirect('/admin/friends')->with('success','删除成功');
     }
 }

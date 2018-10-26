@@ -32,5 +32,9 @@ class Front_users extends Model
 	 */
 	protected $guarded = [];
 
-	 
+    //关联帖子模型
+    public function posts()
+    {
+        return $this->hasMany('App\Model\Admin\Post','id','favorite');
+    }
 }
