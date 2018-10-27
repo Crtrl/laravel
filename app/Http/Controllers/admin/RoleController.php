@@ -94,12 +94,15 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
         $rs = $request->except('_token','_method');
-        $rs['permission'] = implode(',', $rs['auth']);
-        unset($rs['auth']);
+        
+        if(!$request->input('permission')){
+            $rs['permission'] = '';
+        }
+        $rs['permission'] = implode(',', $rs['permission']);
         // dd($rs);
         try{
             $role->update($rs);
-            $role->permission()->sync($request->input('auth'));
+            $role->permission()->sync($request->input('permission'));
         }catch(\Exception $e){
             return back()->with(['error'=>'修改失败']);
         }

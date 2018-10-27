@@ -135,7 +135,7 @@
                 <br><br><br>
 <div  id = 'cc'>
                 <div id="list-detail"  style="color:white;">
-                    <h3><a href="/home/index" title="">首页</a>->
+                    <h3><a href="/" title="">首页</a>->
                     @foreach ($res as $k=>$v)
                         {{$v->gname}}
                     @endforeach
@@ -194,7 +194,8 @@
                 </div>
             
                     <!-- 查询 -->
-                    <form action="/home/post" method="get"  style="float:right;height:40px">               
+                    <form action="/home/post/{{$id}}" method="post"  style="float:right;height:40px">      
+                    {{csrf_field()}}         
                         <input type="text" name="title" id='mm'  value="{{$request->title}}"  placeholder="请输入帖子标题关键字" style="width:300px;height:35px" >
                         <button type="">
                         <span id='ss'  class="glyphicon glyphicon-search" aria-hidden="true"></span></button>

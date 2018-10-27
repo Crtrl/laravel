@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\Post;
 use App\Model\Home\Games;
-use App\Model\Admin\Front_users;
+use App\Model\home\Front_users;
 class PostController extends Controller
 {
 	public function index(Request $request)
@@ -62,7 +62,7 @@ class PostController extends Controller
 
 		 if($rs){
 
-		           return redirect('/admin/index')->with('success','禁用成功');
+		           return redirect('/admin/post/index')->with('success','禁用成功');
 		           }
 		        }catch(\Exception $e){
 

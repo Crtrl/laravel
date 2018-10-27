@@ -59,7 +59,7 @@ class LoginController extends Controller
         //      echo 1234567;
         //  } else{echo 9999999999;}
 
-    	return redirect('/home/index');
+    	return redirect('/');
     	//提示信息
     	// echo 123456789;
     }
@@ -92,6 +92,7 @@ class LoginController extends Controller
        $res['regtime'] = time();
        $rand = rand(1,20);
        $res['face'] = "/images/background/$rand.jpg";
+       $res['status'] = 1;
        // dd($res);
         try{
            $rs = DB::table('front_users')->insert($res);
@@ -111,6 +112,9 @@ class LoginController extends Controller
     public function loginout(){
         //清空session
         session(['fid'=>'']);
-        return redirect('/home/index');
+        return redirect('/');
     }
 }
+
+
+

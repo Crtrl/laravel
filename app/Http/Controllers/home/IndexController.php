@@ -30,7 +30,7 @@ class IndexController extends Controller
         }
 
 		$slideShows = SlideShows::Orderby('id','ASC')->get();
-		// var_dump($slideShows);die;
+		// dd($slideShows);die;
 	
 
 
@@ -80,7 +80,7 @@ class IndexController extends Controller
 
                 if ($rs) {
 
-                    return redirect('/home/index');
+                    return redirect('/');
                 }
             } catch(\Exception $e) {
 
@@ -115,7 +115,7 @@ class IndexController extends Controller
 
                     if ($rs) {
 
-                        return redirect('/home/index');
+                        return redirect('/');
                     }
                 } catch(\Exception $e) {
 
@@ -160,7 +160,7 @@ class IndexController extends Controller
           
             $data  = Front_users::where('fid',session('fid'))->update($new);
             if($data){
-                return redirect('/home/index');
+                return redirect('/');
             }
 
         }
@@ -214,7 +214,7 @@ class IndexController extends Controller
         public function collects()
         {
             $users = Front_users::find(session('fid'));
-            $post = $users->posts()->whereIn('id',explode(',', $users->favorite))->paginate(10);
+            $post = Post::whereIn('id',explode(',', $users->favorite))->paginate(10);
             // dd($post);
             $zx = Sys::get();
             return view('home.user.sc',[

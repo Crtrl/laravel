@@ -81,7 +81,7 @@ class PermissionController extends Controller
     public function update(Request $request, Permission $permission)
     {
         $rs = $request->except('_token','_method');
-        // dd($permission);
+        // dd($request);
         try{
             $permission->where('id',$permission->id)->update($rs);
         }catch(\Exception $e){

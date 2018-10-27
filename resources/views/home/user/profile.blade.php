@@ -103,21 +103,21 @@
         <!-- 修改信息 -->
         <div id='d1'>
      
-            <div class="form-group  ">
+            <div class=" ">
             @foreach($rs as $k=>$v)
                 <label for="exampleInputEmail1">
                    昵称
                 </label>
                 <input type="text" class="form-control" name='fname' id="exampleInputEmail1" placeholder="请输入用户名" disabled="disabled"  value="{{$v->fname}}">
             </div>
-            <div class="form-group">
+            <div class="">
                 <label for="exampleInputPassword2" name='phone'>
                     电话
                 </label>
                 <input type="text" name='phone' class="form-control" id="exampleInputPassword2" value="{{$v->phone}}"
                 placeholder="请输入密码">
             </div>
-            <div class="form-group">
+            <div class="">
                 <label for="exampleInputPassword1">
                     性别
                 </label>
@@ -156,20 +156,20 @@
     <div class="col-md-offset-3"> 
     <form  action="/home/user/pwd" method="get" class='col-md-offset-2' id='xinxi'>
         <div id='d2'>
-            <div class="form-group">
+            <div class="">
                 <label for="exampleInputEmail1">
                     原密码
                 </label>
                 <input type="password" name="oldpass" class="form-control" id="exampleInputEmail21" placeholder="请输入用户名">
             </div>
-            <div class="form-group">
+            <div class="">
                 <label for="exampleInputPassword1">
                     新密码
                 </label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword11"
                 placeholder="请输入密码">
             </div>
-            <div class="form-group">
+            <div class="">
                 <label for="exampleInputPassword1">
                     确认密码
                 </label>
@@ -188,7 +188,7 @@
                         target='_parent'>
     {{ csrf_field() }}
         <div id='d3'>
-            <div class="form-group">
+            <div class="">
                 <label for="exampleInputEmail1">
                     上传头像
                 </label>

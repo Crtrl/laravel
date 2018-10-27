@@ -44,7 +44,7 @@
                         @foreach ($per as $k=>$v)
 				            <li>
                                 <label>                            
-				                <input type="checkbox" name="auth[]" value="{{$v->id}}" @if(in_array(($v->id),$role->permission))checked @endif>
+				                <input type="checkbox" name="permission[]" value="{{$v->id}}" @if(in_array(($v->id),$role->permission))checked @endif>
 			                    {{$v->pername}}
 				                </label>
 				            </li>

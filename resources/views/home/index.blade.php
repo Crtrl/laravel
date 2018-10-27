@@ -39,10 +39,10 @@
 				@endforeach
 			
 
-				<script src="js/jquery.wmuSlider.js"></script> 
-					<script>
-						$('.example1').wmuSlider();         
-					</script> 
+<script src="/home/js/jquery.wmuSlider.js"></script> 
+	<script>
+		$('.example1').wmuSlider();         
+	</script> 
 		<!-- </div> -->
 
 	</div>

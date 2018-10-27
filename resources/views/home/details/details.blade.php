@@ -10,10 +10,24 @@
        <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/layui/layui.all.js"></script>
         <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+
     </head>
     
     
-    
+       <div class="form-group">
+
+                @if(session('success'))  
+                    <div class="mws-form-message success">
+                        {{session('success')}}  
+                    </div>
+                @endif
+
+                @if(session('error'))  
+                    <div class="mws-form-message warning">
+                        {{session('error')}} 
+                    </div>
+                @endif
+                </div>
     <body id="nv_forum" class="pg_viewthread" onkeydown="if(event.keyCode==27) return false;">
        
         <div id="wp" class="wp">
@@ -28,13 +42,13 @@
             <!--路径-->
             <div id="pt" data-post="{{$data->id}}" class="bm cl">
                 <div class="z">
-                    <a href="/home/index" class="nvhm" title="首页">
+                    <a href="/" class="nvhm" title="首页">
                         首页
                     </a>
                     <em>
                         &raquo;
                     </em>
-                    <a href="/home/index">
+                    <a href="/">
                         论坛首页
                     </a>
                     <em>
@@ -584,7 +598,11 @@ $(function() {
      
        
        
-       
+        <script>
+        $(function () {
+            $('.form-group').delay(3000).slideUp(1000);
+        })
+    </script>
       
      
        

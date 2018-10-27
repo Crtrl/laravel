@@ -18,7 +18,7 @@ class Permission
     public function handle($request, Closure $next)
     {
         // dd($this->getPermissionsByAdminId(session('user.id')));
-        if(in_array(\Route::current()->getActionName(), $this->getPermissionsByAdminId(session('user.id')))){
+        if(!in_array(\Route::current()->getActionName(), $this->getPermissionsByAdminId(session('user.id')))){
             return $next($request);
         }
         return abort('403');

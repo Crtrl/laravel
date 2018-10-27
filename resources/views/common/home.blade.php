@@ -154,7 +154,7 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
-							<li class="hvr-sweep-to-bottom active"><a href="/home/index">首页</a></li>	
+							<li class="hvr-sweep-to-bottom active"><a href="/">首页</a></li>	
 							
 							<li class="hvr-sweep-to-bottom"><a href="#BBS" class="scroll">论坛入口</a></li>
 							
@@ -254,7 +254,7 @@
 
     <script>
         $(function () {
-            $('.mws-form-message').delay(3000).slideUp(1000);
+            $('.form-group').delay(3000).slideUp(1000);
         })
     </script>
 </body>

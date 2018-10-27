@@ -14,10 +14,7 @@ class IndexController extends Controller
     }
 
 
-       public function common()
-    {
-    	return view('common/admin');
-    }
+     
 
 
            public function mai()

@@ -36,7 +36,7 @@ class PostController extends Controller
     	$title = $request->input('title');
 
     	$list =Post::where('cid',$id)->orderby('top','asc')->where('title','like','%'.$title.'%')->paginate(8);
-
+        
     	//获取最近24小时发的帖子
     	$time = time() - 3600*24;
     	//获取最近24小时发帖数量
@@ -61,16 +61,10 @@ class PostController extends Controller
  	{
         // echo $id;die;
           
-        
-
-
-          try{
-                //获取百度编辑器传输过来的内容
+       
+         //获取百度编辑器传输过来的内容
                 $sj = $request ->except('_token');
                
-
-
-
                 //去除<p>标签
                 $qp = $sj['content'];
 
@@ -83,28 +77,32 @@ class PostController extends Controller
                 $rz = Front_users::where('fid', session('fid'))->get()[0]['fname'];
                
                 $sj['zname'] = $rz;
+                 $sj['fuid'] =  session('fid');
+               $sj['val'] = 0;
+               
+          
+
+          try{
+               
 
 
                 $zz = Front_users::where('fid',session('fid'))->pluck('status')[0];
 
-               $sj['fuid'] =  session('fid');
-               
+             
 
-                
-
-
+                 
+                   
 
 
-                if ($zz == '1') {
+                if ($zz == 1) {
+                 $postid = DB::table('post')->insertGetId($sj);
+                   
 
-                   $rs = Post::create($sj);
 
-
-
-                    return redirect('/home/index')->with('success','修改成功');
+                    return redirect('/home/details/'.$postid.'?b='.$id)->with('success','修改成功');
                   }
                 }catch(\Exception $e){
-                    return redirect('/home/index')->with('error','您的IP已被禁封');
+                    return redirect('/')->with('error','您的IP已被禁封');
                 }
 
                 }

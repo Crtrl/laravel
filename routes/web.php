@@ -35,7 +35,7 @@ Route::get('/home/common',function(){
 	Route::any('/home/register','home\LoginController@register');
 	Route::any('/home/save','home\LoginController@save');
 //前台首页
-	Route::get('/home/index','home\IndexController@index');
+	Route::get('/','home\IndexController@index');
 //前台路由组
 Route::group(['middleware'=>'homelogin'],function()
 {
@@ -63,7 +63,7 @@ Route::group(['middleware'=>'homelogin'],function()
 	//帖子收藏ajax
 	Route::get('/home/user/sc/{id}','home\IndexController@sc');
 	//帖子主页
-	Route::get('home/post/{id}','home\PostController@post');
+	Route::any('home/post/{id}','home\PostController@post');
 	//获取帖子信息
 	Route::post('home/post/add/{id}','home\PostController@add');
 
@@ -87,29 +87,26 @@ Route::group(['middleware'=>'homelogin'],function()
 
 
 
-Route::group(['middleware'=>'adminlogin'],function ()
-{
+//后台登陆
+Route::get('/admin/login','admin\LoginController@login');
+Route::post('/admin/dologin','admin\LoginController@dologin');
+
+Route::group(['middleware'=>['adminlogin']],function () {
 	//后台首页
 	Route::get('/admin/index','admin\IndexController@Index');
-
-
-
 	//后台用户管理
 	//用户修改密码
 	Route::get('/admin/reset','admin\ResetController@reset');
 	Route::post('/admin/doreset/{id}','admin\ResetController@doreset');
-
 	//用户退出
 	Route::any('/admin/logout','admin\ResetController@logout');
-
-
-
 });
 
 
 //后台路由组
-Route::group(['middleware'=>['adminlogin']],function ()
-{
+Route::group(['middleware'=>['adminlogin','per']],function () {
+
+	
 
 
 	//后台系统设置
@@ -124,28 +121,30 @@ Route::group(['middleware'=>['adminlogin']],function ()
 	Route::resource('admin/category','admin\CategoryController');
 	//后台友情链接管理
 	Route::resource('admin/friends','admin\FriendsController');
-	//轮播图管理
+	//轮播图
 	Route::resource('/admin/slideshows','admin\SlideShowsController');
 
 
 	//帖子列表
 	Route::get('admin/post/index','admin\PostController@index');
-	
+	//帖子删除
+	Route::post('admin/post/{id}','admin\PostController@destroy');
 	//帖子加亮
 	Route::get('admin/post/lit/{id}','admin\PostController@light');
 	//帖子置顶
 	Route::get('admin/post/top/{id}','admin\PostController@top');
 	
+
+
+	
+
 	
 	//用户管理资源路由
 	Route::resource('/admin/users','admin\AdminUsersController');
-
-	//用户角色资源路由
+	//角色管理
 	Route::resource('/admin/role','admin\RoleController');
-	//用户权限资源路由
+	//权限管理
 	Route::resource('/admin/permission','admin\PermissionController');
-
-
 	//系统维护
 	Route::get('admin/mai','admin\IndexController@mai');
 

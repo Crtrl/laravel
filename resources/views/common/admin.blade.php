@@ -151,7 +151,7 @@
           <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
         <div id="mws-logo-wrap">
 
-            <h3 style='color:white'><a href="/home/index">星空论坛</a></h3>   
+            <h3 style='color:white'><a href="/">星空论坛</a></h3>   
 
         </div>
     </div>
